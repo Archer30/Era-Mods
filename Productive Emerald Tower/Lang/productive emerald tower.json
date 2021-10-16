@@ -1,0 +1,7 @@
+{
+  "prodtwr": {
+    "global": {
+      "resetDay":                    "0", // Reset all the Emerald Towers on the map every x day. Default = 7
+    }
+  }
+}

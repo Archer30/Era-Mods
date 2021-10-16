@@ -1,0 +1,12 @@
+Object Replacement Template
+
+Author: Archer30, igrik
+
+Erm template for building your own object replacement script.
+All the settings are in ...Mods\Object Replacement Template\Data\s\0 replace - specific object.erm.
+
+In order to create a new object replacement pair, simply modify the settings in 0 replace - specific object.erm to the values you like. 
+
+The second replacement pair needs to be created from copying 0 replace - specific object.erm to the same location and rename "0" to another number, also do the same in the new script.
+
+Note: Erm scripts execute in alphabetic order of the initial character of the filename. In general, a script with a file name started with 0 will execute sooner than another script that starts with A but later than 1. You would like to pay attention to the order of scripts as it determines how much chance you should set for a replacement.

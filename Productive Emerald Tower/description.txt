@@ -1,0 +1,7 @@
+Productive Emerald Tower
+
+Author: Archer30
+
+Now you are able to re-visit Emerald Tower every week.
+Customise days between Emerald Tower resets from Lang\productive emerald tower.json
+0 = no cool down
