@@ -24,7 +24,7 @@ ZVSE2
 !!FU&(emerTwrOn)<>(TRUE):E;
 !!SN:Q;
 
-!?FU(OnEveryDay)&i^timerOnce^/i^timerDay^>=2;
+!?FU(OnEveryDay)&i^timerOnce^/i^timerDay^>1;
 !!UN:P44/?(emerTwrOn:y);
 !!FU&(emerTwrOn)<>(TRUE):E;
 !!VRi^prodtwr_timer^:+1;
@@ -45,6 +45,11 @@ ZVSE2
 
   !!PO(x)/(y)/(z):N0;                   [Set PO:N to 0 to reset hint text]
 !!en;
+
+!?OB(OBJ_NEW_WOG_OBJECTS)/65&i^prodtwr_resetDay^=0;
+!!UN:P44/?(emerTwrOn:y);
+!!FU&(emerTwrOn)<>(TRUE):E;
+!!PO998:N0;
 
 !$OB(OBJ_NEW_WOG_OBJECTS)/65&i^prodtwr_resetDay^=0;
 !!UN:P44/?(emerTwrOn:y);
