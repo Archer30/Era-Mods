@@ -1,2 +1,2 @@
 # Era-Mods
- Mods for ERA 3
+ Mods for HoMM 3 ERA
