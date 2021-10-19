@@ -44,12 +44,8 @@ ZVSE2
 !!VR(random:y):R0/1/100; 
 !!FU&(random)>i^0_replace_chancePercent^:E;
 
-; set a new object type
-!!VR(objType):Si^0_replace_targetType^;
-!!VR(objSubtype):Si^0_replace_targetSubtype^;
-
 ; delete current and create a new object
 !!UN:O(x)/(y)/(z)/1/0; 
 !!VR(x):+i^0_replace_xCoordOffset^;
 !!VR(y):+i^0_replace_yCoordOffset^;
-!!UN:I(x)/(y)/(z)/(objType)/(objSubtype)/0;
+!!UN:I(x)/(y)/(z)/i^0_replace_targetType^/i^0_replace_targetSubtype^/0;
