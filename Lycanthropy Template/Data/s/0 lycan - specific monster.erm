@@ -1,0 +1,35 @@
+ZVSE2
+; Author:   Archer30
+; Engine:   ERM 2.0+
+; Requires: ERA 3.3+, Era Erm Framework
+
+; transform the attacked target into another monster
+
+
+; ============== SETTINGS ==============
+!#VRi^0_lycan_triggerMon^:S(MON_MUMMY);[Creature who has this ability]
+!#VRi^0_lycan_ignoreMon^:S(MON_MUMMY);    [Creature that would never be transformed (usually the same as target creature)]
+!#VRi^0_lycan_chance^:S100;                [Chance of the ability]
+!#VRi^0_lycan_MoonBonusChance^:S0;        [Bonus chance of the ability on full moon]
+!#VRi^0_lycan_targetMon^:S(MON_MUMMY);    [Target creature of the victim]
+!#VRi^0_lycan_targetMonHP^:S30;           [HP of the target creature (manage the quantity after transformation)]
+; ============ END SETTINGS ============
+
+
+!?FU(lycan_OnCalcLycanthropy)&i^lycan_on^;
+!!BG:N?(atkStack:y) E?(defStack:y);
+!!BM(atkStack):T?(atkMon:y);
+; Check the defending stack if the stack is still alive
+!!BM(defStack)&(defStack)>(NO_STACK):T?(defMon:y);
+
+!!FU|(atkMon)<>i^0_lycan_targetMon^/(defStack)=(NO_STACK)/(defMon)=i^0_lycan_ignoreMon^:E;
+
+!!UN:C7762908/(UNC_INT)/i^0_lycan_triggerMon^;
+!!UN:C7763122/(UNC_INT)/i^0_lycan_ignoreMon^;
+!!UN:C7763302/(UNC_INT8)/i^0_lycan_chance^;
+!!UN:C7763299/(UNC_INT8)/i^0_lycan_MoonBonusChance^;
+!!UN:C7763743/(UNC_INT)/i^0_lycan_targetMon^;
+!!UN:C8217796/(UNC_INT)/i^0_lycan_targetMonHP^;
+
+!?FU(OnAfterBattleAction);
+!!FU(lycan_RestoreOriginalValues):P;
