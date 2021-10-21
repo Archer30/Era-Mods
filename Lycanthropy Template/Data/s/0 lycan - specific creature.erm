@@ -3,7 +3,7 @@ ZVSE2
 ; Engine:   ERM 2.0+
 ; Requires: ERA 3.3+, Era Erm Framework
 
-; transform the attacked target into another monster
+; Transform the attacked target into another creature
 
 
 ; ============== SETTINGS ==============
@@ -30,6 +30,3 @@ ZVSE2
 !!UN:C7763299/(UNC_INT8)/i^0_lycan_MoonBonusChance^;
 !!UN:C7763743/(UNC_INT)/i^0_lycan_targetMon^;
 !!UN:C8217796/(UNC_INT)/i^0_lycan_targetMonHP^;
-
-!?FU(OnAfterBattleAction);
-!!FU(lycan_RestoreOriginalValues):P;

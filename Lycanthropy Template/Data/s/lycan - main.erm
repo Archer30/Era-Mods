@@ -32,6 +32,9 @@ ZVSE2
 !?FU(OnGameLeave);
 !!FU(lycan_RestoreOriginalValues):P;
 
+!?FU(OnAfterBattleAction);
+!!FU(lycan_RestoreOriginalValues):P;
+
 !?FU(lycan_RestoreOriginalValues);
 !!UN:C7762908/(UNC_INT)/i^lycan_triggerMon_ori^;
 !!UN:C7763122/(UNC_INT)/i^lycan_ignoreMon_ori^;
