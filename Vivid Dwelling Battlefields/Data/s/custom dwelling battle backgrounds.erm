@@ -31,7 +31,7 @@ ZVSE2
 
 ; Set the background id the same as the first guard
 !!FU(FileExists):P^data\Pcx\dw%(mon).png^/?(result:y);
-!!BA&(result):B^dw%(mon).pcx^;    [Location of background pictures: ...\Mods\[mod name]\Data\[pac name].pac - dw[creature id].pcx]
+!!BA&(result):B^dw%(mon).pcx^;    [Location of background pictures: ...\Mods\[mod name]\Data\pcx\dw[creature id].png]
 
 ** Set up hook for changing battlefield
 !?FU(OnStartOrLoad);

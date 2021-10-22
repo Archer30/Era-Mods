@@ -2,5 +2,6 @@ Vivid Dwelling Battlefields
 
 Now all the battles with guards of the dwelling use unique backgrounds.
 
-Location of background pictures: ...\Mods\[mod name]\Data\[pac name].pac - dw[creature id].pcx
+Location of background pictures: ...\Mods\[mod name]\Data\pcx\dw[creature id].png
+(Note: Be aware not to place them in .zip for now)
 
