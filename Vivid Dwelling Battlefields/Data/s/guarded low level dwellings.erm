@@ -1,0 +1,89 @@
+ZVSE2
+; Author:   Archer30
+; Idea:     fanofheroes
+; Engine:   ERM 2.0+
+; Requires: ERA 3.3+, Era Erm Framework
+
+; Enable guards for low level dwellings
+
+
+!#UN:P(WOG_OPT_CREATURE_DWELLINGS_ACCUMULATE_GUARDS)/?i^dwell_accumGuards_on^;
+
+!?FU(OnAfterErmInstructions);
+; Get basic growth of all creatures and store in array
+!!FU(GetMaxMonsterId):P?(lastMon:y);
+!!VR(totalMon:y):S(lastMon) +1;
+!!FU(NewIntArray):P(totalMon)/?i^dwell_basicGrowthList^/(M_STORED);
+
+!!re i/(MON_FIRST)/(lastMon);
+  !!MA:Gi/?(growth:y);
+  !!SN:Mi^dwell_basicGrowthList^/i/(growth);
+!!en;
+
+!?FU(OnEveryDay)&i^timerWeekday^=2/i^timerOnce^;
+; exit if accumulating guards is disabled and not day 1
+!!FU&i^dwell_accumGuards_on^=(FALSE)/i^timerDay^<>1:E; [if accumulating guards is disabled, this only needs to be executed on day 1 once to set gurds for all dwelling]
+
+!!UN:X?(mapSize:y)/?(hasUnderground:y); 
+; pass once through all cells of the map
+!!re l/0/(hasUnderground)/1;  coord z
+  !!re k/0/(mapSize)/1/-1;    coord y
+    !!re i/0/(mapSize)/1/-1;  coord x
+      !!OBi/k/l:T?(objType:y) U?(objSubtype:y);
+      !!TRi/k/l:E?(isYellowSquare:y) P?(isPassable:y); 
+      !!VR(isYellowSquare):X1;  reverse param isYellowSquare
+      !!FU(dwell_SetUpLowLevelGuards):Pi/k/l/(objType)/(objSubtype)/(isYellowSquare)/(isPassable);
+    !!en;
+  !!en;
+!!en;
+
+!?FU(dwell_SetUpLowLevelGuards);
+!#VA(x:x) (y:x) (z:x);
+!#VA(objType:x);
+!#VA(objSubtype:x);
+!#VA(isYellowSquare:x);                 [boolean]
+!#VA(isPassable:x);                     [boolean]
+
+; check: is entry to the object
+!!FU&(isYellowSquare)<>(TRUE):E;
+
+; init flag
+!!VR(flag:y):S(FALSE);
+
+; check objects
+!!if|(objType)=(OBJ_CREATURE_GENERATOR_1)/(OBJ_CREATURE_GENERATOR_4);
+  !!VR(flag):S(TRUE);
+!!en;
+
+; exit if not wanted types
+!!FU&(flag)<>(TRUE):E;
+
+; get the first valid creature of the dwelling
+!!re (dwellSlot:y)/0/3;
+  !!DW(x)/(y)/(z):M(dwellSlot)/?(mon:y)/?(qty:y);
+
+  !!br&(mon)>(NO_MON);
+!!en;
+
+; exit if no creature is found
+!!FU&(dwellSlot)>3:E;
+
+; get the first slot of guards of the dwelling and growth of the first monster of the dwelling
+!!DW(x)/(y)/(z):G(ARMY_SLOT_FIRST)/?(guard:y)/?(qty:y);
+
+!!SN:Mi^dwell_basicGrowthList^/(mon)/?(growth:y);
+
+; add in guards if no guard available. mon = first dwell slot, quantity = triple basic growth
+!!if&(guard)=(NO_MON);
+  !!VR(qtyNew:y):S(growth) *3;
+  !!DW(x)/(y)/(z):G(ARMY_SLOT_3)/(mon)/(qtyNew);
+; increase guards for creatures lower than level 4 if accumulating guards is enabled
+!!el&i^dwell_accumGuards_on^;
+  !!MA:L(mon)/?(level:y);
+
+  !!if&(level)<=3;
+    !!VR(tripleGrowth:y):S(growth) *3;
+    !!VR(qtyNew):S(qty) +(tripleGrowth);
+    !!DW(x)/(y)/(z):G(ARMY_SLOT_FIRST)/(mon)/(qtyNew);
+  !!en;
+!!en;
