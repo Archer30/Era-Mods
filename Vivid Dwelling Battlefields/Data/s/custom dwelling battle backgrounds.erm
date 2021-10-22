@@ -1,0 +1,42 @@
+ZVSE2
+; Author:   Archer30
+; Idea:     fanofheroes
+; Engine:   ERM 2.0+
+; Requires: ERA 3.3+, Era Erm Framework
+
+; Customise backgrouds of battles in dwellings
+
+
+** Set up global vars for dwelling visiting
+!?OB(OBJ_CREATURE_GENERATOR_1)&1000;
+!!VRi^dwell_isVisitingDwell^:S(TRUE);
+
+!?OB(OBJ_CREATURE_GENERATOR_4)&1000;
+!!VRi^dwell_isVisitingDwell^:S(TRUE);
+
+!$OB(OBJ_CREATURE_GENERATOR_1)&1000;
+!!VRi^dwell_isVisitingDwell^:S(FALSE);
+
+!$OB(OBJ_CREATURE_GENERATOR_4)&1000;
+!!VRi^dwell_isVisitingDwell^:S(FALSE);
+
+** Set up backgrouds of battle in dwellings
+!?FU(dwell_SetNewBattlefields)&i^battle_hasHuman^/i^dwell_isVisitingDwell^;
+; Check the first guard of the dwelling
+!!re i/(ARMY_SLOT_FIRST)/(ARMY_SLOT_LAST);
+  !!DWi^battle_x^/i^battle_y^/i^battle_z^:Gi/?(mon:y)/?(qty:y);
+
+  !!br&(mon)>(NO_MON);
+!!en;
+
+; Set the background id the same as the first guard
+!!BA&(mon)>(NO_MON):B^dw%(mon).pcx^;    [The location of background pictures: ...\Mods\[mod name]\Data\[pac name].pac - dw[creature id].pcx]
+
+** Set up hook for changing battlefield
+!?FU(OnStartOrLoad);
+!!SN:L^erm_hooker.era^/?(hooker:y);
+!!FU&(hooker)=0:E;   
+
+!!SN:A(hooker)/^SetHook^/?(value:y);
+!!UN:C4603972/1/235;
+!!SN:E(value)/1/4601891/(dwell_SetNewBattlefields);
