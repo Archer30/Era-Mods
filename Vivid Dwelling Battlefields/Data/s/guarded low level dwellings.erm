@@ -6,6 +6,10 @@ ZVSE2
 
 ; Enable guards for low level dwellings
 
+; To-do:
+; Fix low level dwellings cannot accumulate guards
+; Fix hero standing on low leveling dwellings at the end of a week auto granted the ownership of the dwelling
+
 
 !#UN:P(WOG_OPT_CREATURE_DWELLINGS_ACCUMULATE_GUARDS)/?i^dwell_accumGuards_on^;
 
