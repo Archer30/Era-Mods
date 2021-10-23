@@ -24,7 +24,7 @@ ZVSE2
   !!SN:Mi^dwell_basicGrowthList^/i/(growth);
 !!en;
 
-!?FU(OnEveryDay)&i^timerWeekday^=2/i^timerOnce^;
+!?FU(OnEveryDay)&i^timerWeekday^=1/i^timerOnce^;
 ; exit if accumulating guards is disabled and not day 1
 !!FU&i^dwell_accumGuards_on^=(FALSE)/i^timerDay^<>1:E; [if accumulating guards is disabled, this only needs to be executed on day 1 once to set gurds for all dwelling]
 
