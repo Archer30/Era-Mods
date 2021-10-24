@@ -1,6 +1,6 @@
 Vivid Dwelling Battlefields
 
-Now all the dwelling battlefields have unique backgrounds. Two tweaks are added:
+Now all the dwelling battlefields have unique backgrounds. Tweaks:
 - low level dwellings become guarded
 - no obstacles for battles in dwellings
 
