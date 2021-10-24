@@ -54,5 +54,5 @@ ZVSE2
 !!SN:E(value)/1/4601891/(dwell_SetNewBattlefields);
 
 ** Remove all obstacles from dwelling battlefields
-!?FU(OnSetupBattlefield)&i^dwell_noObstacles^;
+!?FU(OnSetupBattlefield)&i^dwell_isVisitingDwell^/i^dwell_noObstacles^;
 !!BF:C;
