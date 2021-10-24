@@ -1,0 +1,7 @@
+{
+  "dwell": {
+    "global": {
+      "noObstacles":                    "TRUE"  // All obstacles from dwelling battlefields are removed.
+    }
+  }
+}
