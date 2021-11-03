@@ -5,6 +5,7 @@ ZVSE2
 ; Requires: ERA 3.3+, Era Erm Framework
 
 ; Customise backgrouds of battles in dwellings, including tweaks.
+; Compatibility with TUM is added. Any other mod that add new dwellings requires adaption to the script to work.
 
 
 ; ============== PUBLIC ==============
@@ -22,28 +23,42 @@ ZVSE2
 
 ** Set up custom backgounds for dwellig battles
 !?OB(OBJ_CREATURE_GENERATOR_1)&1000;
-!!VRi^dwell_isVisitingDwell^:S(TRUE);
+!!VRi^dwell_isbeingVisited^:S(TRUE);
+!!OB998:T?i^dwell_type^ U?i^dwell_subtype^;
 
 !?OB(OBJ_CREATURE_GENERATOR_4)&1000;
-!!VRi^dwell_isVisitingDwell^:S(TRUE);
+!!VRi^dwell_isbeingVisited^:S(TRUE);
+!!OB998:T?i^dwell_type^ U?i^dwell_subtype^;
 
 !$OB(OBJ_CREATURE_GENERATOR_1)&1000;
-!!VRi^dwell_isVisitingDwell^:S(FALSE);
+!!VRi^dwell_isbeingVisited^:S(FALSE);
 
 !$OB(OBJ_CREATURE_GENERATOR_4)&1000;
-!!VRi^dwell_isVisitingDwell^:S(FALSE);
+!!VRi^dwell_isbeingVisited^:S(FALSE);
 
-!?FU(dwell_SetNewBattlefields)&i^battle_hasHuman^/i^dwell_isVisitingDwell^;
-; Check the first guard of the dwelling
-!!re i/(ARMY_SLOT_FIRST)/(ARMY_SLOT_LAST);
-  !!DWi^battle_x^/i^battle_y^/i^battle_z^:Gi/?(mon:y)/?(qty:y);
+!?FU(dwell_SetNewBattlefields)&i^battle_hasHuman^/i^dwell_isbeingVisited^;
+!!VR(type:y):Si^dwell_type^;
+!!VR(sub:y):Si^dwell_subtype^;
 
-  !!br&(mon)>(NO_MON);
+; Redirect duplicated dwellings
+!!if&(type)=(OBJ_CREATURE_GENERATOR_1);
+  !!VR(sub)&(sub)=68:S51;               [Unicorn]
+  !!VR(sub)&(sub)=69:S7;                [Air Elem.]
+  !!VR(sub)&(sub)=70:S13;               [Earth Elem.]
+  !!VR(sub)&(sub)=71:S16;               [Fire Elem.]
+  !!VR(sub)&(sub)=72:S47;               [Water Elem.]
 !!en;
 
-; Set the background id the same as the first guard
-!!FU(FileExists):P^data\Pcx\dw%(mon).png^/?(result:y);
-!!BA&(result):B^dw%(mon).pcx^;    [Location of background pictures: ...\Mods\[mod name]\Data\pcx\dw[creature id].png]
+; Check if backgrounds exist for both type 17 and type 20 dwellings, apply to the battlefield if positive
+!!if&(type)=(OBJ_CREATURE_GENERATOR_1);
+  !!FU(FileExists)&(sub)<=100:P^data\Pcx\WoG\%(sub).png^/?(result:y); [100 - last type 17 dwelling in WoG]
+  !!FU(FileExists)&(sub)>100:P^data\Pcx\TUM\%(sub).png^/?(result);
+  !!BA&(result):B^%(sub).pcx^;        [Location of background pictures for type 17 dwellings: ...\Mods\[mod name]\Data\pcx\dw[dwelling id].png]
+!!el&(type)=(OBJ_CREATURE_GENERATOR_4);
+  !!FU(FileExists)&(sub)<=1:P^data\Pcx\WoG\F%(sub).png^/?(result); [1 - last type 20 dwelling in WoG]
+  !!FU(FileExists)&(sub)>1:P^data\Pcx\TUM\F%(sub).png^/?(result);
+  !!BA&(result):B^F%(sub).pcx^;       [Location of background pictures for type 20 dwellings : ...\Mods\[mod name]\Data\pcx\dwF[dwelling id].png]
+!!en;
 
 !?FU(OnStartOrLoad);
 !!SN:L^erm_hooker.era^/?(hooker:y);
@@ -54,5 +69,5 @@ ZVSE2
 !!SN:E(value)/1/4601891/(dwell_SetNewBattlefields);
 
 ** Remove all obstacles from dwelling battlefields
-!?FU(OnSetupBattlefield)&i^dwell_isVisitingDwell^/i^dwell_noObstacles^;
+!?FU(OnSetupBattlefield)&i^dwell_isbeingVisited^/i^dwell_noObstacles^;
 !!BF:C;

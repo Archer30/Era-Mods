@@ -1,5 +1,8 @@
 Vivid Dwelling Battlefields
 
+Graphics: Fanofheroes
+Script: Archer30
+
 Now all the dwelling battlefields have unique backgrounds. Tweaks:
 - low level dwellings become guarded
 - no obstacles for battles in dwellings
