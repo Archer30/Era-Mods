@@ -1,7 +1,7 @@
 ZVSE2
 ; Author:   Archer30
 ; Engine:   ERM 2.0+
-; Requires: ERA 3.8。5+, Era Erm Framework
+; Requires: ERA 3.8.5+, Era Erm Framework
 
 ; Set up a creature to cast a spell after shooting. 
 ; The shooter would try to cast the "initial spell" upon attacking if the attacked target was not processed with the initial spell buff.
