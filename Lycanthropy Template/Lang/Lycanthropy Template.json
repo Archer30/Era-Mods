@@ -1,0 +1,10 @@
+{
+  "lycan": {
+    "monTrigger": "141",
+    "monImmune": "141",
+    "chance": "100",
+    "chanceMoonBonus": "0",
+    "transformation": "56",
+    "transformationHP": "6"
+  }
+}

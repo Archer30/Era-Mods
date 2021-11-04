@@ -23,7 +23,7 @@ ZVSE2
 
 !?FU(lycan_StoreOriginalValues);
 !!UN:C7762908/(UNC_INT)/?i^lycan_triggerMon_ori^;
-!!UN:C7763122/(UNC_INT)/?i^lycan_ignoreMon_ori^;
+!!UN:C7763122/(UNC_INT)/?i^lycan_immuneMon_ori^;
 !!UN:C7763302/(UNC_INT8)/?i^lycan_chance_ori^;
 !!UN:C7763299/(UNC_INT8)/?i^lycan_MoonBonusChance_ori^;
 !!UN:C7763743/(UNC_INT)/?i^lycan_transformation_ori^;
@@ -34,8 +34,11 @@ ZVSE2
 
 !?FU(lycan_RestoreOriginalValues);
 !!UN:C7762908/(UNC_INT)/i^lycan_triggerMon_ori^;
-!!UN:C7763122/(UNC_INT)/i^lycan_ignoreMon_ori^;
+!!UN:C7763122/(UNC_INT)/i^lycan_immuneMon_ori^;
 !!UN:C7763302/(UNC_INT8)/i^lycan_chance_ori^;
 !!UN:C7763299/(UNC_INT8)/i^lycan_MoonBonusChance_ori^;
 !!UN:C7763743/(UNC_INT)/i^lycan_transformation_ori^;
 !!UN:C8217796/(UNC_INT)/i^lycan_transformationHP_ori^;
+
+!?FU(OnAfterBattleAction);
+!!FU(lycan_RestoreOriginalValues):P;
