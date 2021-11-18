@@ -2,7 +2,7 @@ ZVSE2
 ; Author:   Archer30
 ; Idea:     Fanofheroes
 ; Engine:   ERM 2.0+
-; Requires: ERA 3.3+, Era Erm Framework
+; Requires: ERA 3.9+, Era Erm Framework
 
 ; Customise backgrouds of battles in dwellings, including tweaks.
 ; Compatibility with TUM is added. Any other mod that add new dwellings requires adaption to the script to work.
@@ -51,13 +51,15 @@ ZVSE2
 
 ; Check if backgrounds exist for both type 17 and type 20 dwellings, apply to the battlefield if positive
 !!if&(type)=(OBJ_CREATURE_GENERATOR_1);
-  !!FU(FileExists)&(sub)<=100:P^data\Pcx\WoG\dw%(sub).png^/?(result:y); [100 - last type 17 dwelling in WoG]
-  !!FU(FileExists)&(sub)>100:P^data\Pcx\TUM\dw%(sub).png^/?(result);
-  !!BA&(result):B^dw%(sub).pcx^;        [Location of background pictures for type 17 dwellings: ...\Mods\[mod name]\Data\pcx\dw[dwelling id].png]
+  *!FU(FileExists)&(sub)<=100:P^data\Pcx\WoG\dw%(sub).png^/?(result:y); [100 - last type 17 dwelling in WoG]
+  *!FU(FileExists)&(sub)>100:P^data\Pcx\TUM\dw%(sub).png^/?(result);
+  !!SN:F^PcxPngExists^/^dw%(sub).pcx^;
+  !!BA&v1:B^dw%(sub).pcx^;        [Location of background pictures for type 17 dwellings: ...\Mods\[mod name]\Data\pcx\dw[dwelling id].png]
 !!el&(type)=(OBJ_CREATURE_GENERATOR_4);
-  !!FU(FileExists)&(sub)<=1:P^data\Pcx\WoG\dwF%(sub).png^/?(result); [1 - last type 20 dwelling in WoG]
-  !!FU(FileExists)&(sub)>1:P^data\Pcx\TUM\dwF%(sub).png^/?(result);
-  !!BA&(result):B^dwF%(sub).pcx^;       [Location of background pictures for type 20 dwellings : ...\Mods\[mod name]\Data\pcx\dwF[dwelling id].png]
+  *!FU(FileExists)&(sub)<=1:P^data\Pcx\WoG\dwF%(sub).png^/?(result); [1 - last type 20 dwelling in WoG]
+  *!FU(FileExists)&(sub)>1:P^data\Pcx\TUM\dwF%(sub).png^/?(result);
+  !!SN:F^PcxPngExists^/^dwF%(sub).pcx^;
+  !!BA&v1:B^dwF%(sub).pcx^;       [Location of background pictures for type 20 dwellings : ...\Mods\[mod name]\Data\pcx\dwF[dwelling id].png]
 !!en;
 
 !?FU(OnStartOrLoad);
