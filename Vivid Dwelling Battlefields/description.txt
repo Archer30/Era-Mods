@@ -7,7 +7,4 @@ Now all the dwelling battlefields have unique backgrounds. Tweaks:
 - low level dwellings become guarded
 - no obstacles for battles in dwellings
 
-Location of background pictures: ...\Mods\[mod name]\Data\pcx\dw[creature id].png
-(Note: Be aware not to place them in .zip for now)
-
 Customise the script from Lang\vivid dwellings battlefields.json
