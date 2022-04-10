@@ -4,7 +4,7 @@ Almost the entire gameplay, including the development of the hero, the commander
 The mod at startup disables all other modes except:
 WoG (basic mod, no scripts used)
 WoG Rus (Russification WoG)
-Battle_Heroes_extras (graphic additions to the mod from Valery)
+Battle_Heroes_extras (графические дополнения к моду от Valery)
 Interface (various graphic / interface modifications)
 
 The mod can be run with or without an HD mod.

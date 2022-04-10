@@ -12,7 +12,7 @@
 		},
 		"short": {
 			"Cn_Simp": "",
-			"en_US": "This is the English version of BattleHeroes: https://sites.google.com/site/hommfun/bh",
+			"en_US": "Battle Heroes - a mod for HoMM3 Era 2, replacing standart battles with a card game.",
 			"ru_RU": "Battle Heroes - мод для HoMM III Era 2.46, заменяющий обычные сражения на карточную игру."
 		}
 	},
@@ -22,7 +22,7 @@
 		"file": "bh.ico",
 		"index": 0
 	},
-	"mod_version": "1.6",
+	"mod_version": "1.8",
 	"priority": 0,
 	"compatibility": {
 		"class": "default",
