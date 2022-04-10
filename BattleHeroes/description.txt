@@ -1,0 +1,16 @@
+Battle Heroes - mod for HoMM III Era 2.46, replaces the usual battles on the card game, the goal of which is to destroy the enemy commander.
+Almost the entire gameplay, including the development of the hero, the commander, the study of spells, the detuning of buildings and the hiring of creatures, takes place directly in battle.
+
+The mod at startup disables all other modes except:
+WoG (basic mod, no scripts used)
+WoG Rus (Russification WoG)
+Battle_Heroes_extras (graphic additions to the mod from Valery)
+Interface (various graphic / interface modifications)
+
+The mod can be run with or without an HD mod.
+
+The contents of the shortcut to run in classic mode:
+"Path\to\game\h3era.exe" modlist=Mods\BattleHeroes\BattleHeroes.mods
+
+Content shortcut to run in HD:
+"Path\to\game\HD_Launcher.exe" h3era.exe <#era> modlist=Mods\BattleHeroes\BattleHeroes.mods

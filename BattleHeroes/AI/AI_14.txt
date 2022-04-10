@@ -1,0 +1,105 @@
+; Scheme 14: Diplomat.
+; Tactics: Victory through the use of the services of the Guilds and special constructions.
+; Specialization: Specialization.
+; Priorities:
+; 1. Diplomacy, Specialization, Tactics, Intelligence.
+; 2. Mysticism, Special Construction, Learning, Knowledge, Necromancy.
+; 3. Guild services. Spells: Recharge, Teleport.
+; 4. Attack, Defense, Defense Parameters and Commander Skills.
+; 5. Summoning, Attacking, defensive magic of the commander, Summoning.
+; Taboo: Other spells and sec. Skills, Library, Maps of Destiny.
+
+[scheme]
+
+; Base scheme description
+
+0==0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: Guilds' Services
+
+; Extended scheme description.
+
+; Summon
+1==10        ;10 to all summons
+1143==33     ;33 Rouges
+1140==33     ;33 Boars
+1142==33     ;33 Nomads
+1194==34     ;34 Werewolfs
+1144==34     ;34 Trolls
+1195==35     ;35 Hell Steeds
+1168==35     ;35 Gorynyches
+1138==33     ;33 Halflings
+1192==34     ;34 Sylvan centaurs
+1137==34     ;34 Sharpshooters
+1171==34     ;34 Lava Sharpshooters
+1170==34     ;34 Arctic Sharpshooters
+1145==34     ;34 Catapult
+1146==34     ;34 Ballista
+1116==35     ;35 Mechanical golem
+1117==35     ;35 Assault golem
+
+; Learning spells
+2==-20       ;-20 to all spells
+2063==31     ;31  Teleport
+2064==31     ;31  Recharge
+
+; Hero primary skills
+3031==25     ;25 Atack
+3032==25     ;25 Defense
+3033==-20    ;-20 Spell Power
+3034==42     ;42 Knowlege
+
+; Hero Sec. Skills
+4==-20       ;-20 to all hero sec.skills
+4005==53     ;53 Specialization
+4019==52     ;52 Tactics
+4004==55     ;55 Diplomacy
+4021==43     ;43 Learning
+4012==41     ;41 Necromancy
+4024==51     ;51 Intelligence
+4008==45     ;45 Mysticism
+
+; Build of constructions
+5==-20       ;-20 to all constructions
+; Special constructions
+5009==44     ;44 to build of any Special constructions
+500906==-20  ;=-20 to build Library
+
+; Commander Improvement
+6==-10       ;-10 to Commander Improvement
+6001==20     ;20 to commander Defense
+6002==20     ;20 to commander Health
+6005==20     ;20 to commander Speed 
+6006==20     ;20 to commander Resistance
+6007==-10    ;-10 commander's skills
+600703==22   ;22 to No Retaliate
+600705==21   ;21 to Limitless Counterstrikes
+600707==21   ;21 to Fire Shield
+600708==28   ;28 to Endurance
+600711==29   ;29 to Strong regeneration
+
+; Rituals of the Necromancers
+7==32        ;32 to Rituals
+
+; Enchanters'Services (except summons)
+8==32        ;32 to Enchanters'Services
+8001==-20    ;=-20 to Cards of Fate
+
+; commander's magic
+9==0         ;0 to all magic
+9015==12     ;12 Magic Arrow
+9016==12     ;12 Ice Bolt
+9017==12     ;12 Lightning Bolt
+9018==12     ;12 Implosion
+9066==13     ;13 Summon: Fire
+9067==13     ;13 Summon: Earth
+9068==13     ;13 Summon: Water
+9069==13     ;13 Summon: Air
+9065==13     ;13 Clone
+9038==13     ;13 Resurrection
+9039==13     ;13 Animate Undead
+9027==11     ;11 Shield
+9046==11     ;11 Stone Skin
+9028==11     ;11 Air Shield
+9029==11     ;11 Fire Shield
+9037==11     ;11 Cure
+9034==11     ;11 Anti-Magic
+;

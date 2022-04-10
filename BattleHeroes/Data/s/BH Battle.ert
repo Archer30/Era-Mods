@@ -1,0 +1,137 @@
+#	Text resource for "battle heroes.erm"		
+179999	%Z7 select action:		
+179998	SUMMON: %Z9, %Y7 units		
+179997	SPELL: %Z9.		
+179996	HERO: +%Y4 to Attack.		
+179995	HERO: +%Y4 to Defense.		
+179994	HERO: +%Y4 to Power.		
+179993	HERO: +%Y4 to Knowledge.		
+179992	%Z8 select action:
+
+{~o}%Z1{~}		
+179991	gets skill: %Z9 %Z10.		
+179990	(Basic)		
+179989	(Advanced)		
+179988	(Expert)		
+179987	BUILDING: %Z9.		
+179986	COMMANDER: +%Y3 to Attack.		
+179985	COMMANDER: +%Y3 to Defense.		
+179984	COMMANDER: +%Y3 to Max Health.		
+179983	COMMANDER: +%Y3 to Damage.		
+179982	COMMANDER: +%Y3 to Power and Casts.		
+179981	COMMANDER: +%Y3 to Speed.		
+179980	COMMANDER: +%Y3 to Resistance.		
+179979	COMMANDER: Ignore 50% of enemy defense.		
+179978	COMMANDER: Regeneration.		
+179977	COMMANDER: Max Damage.		
+179976	COMMANDER: No Retaliation.		
+179975	COMMANDER: Shooting.		
+179974	COMMANDER: Endless Retaliation.		
+179973	COMMANDER: Attack All Around.		
+179972	COMMANDER: Fire Shield.		
+179971	COMMANDER: Endurance.
+
+		
+179970	COMMANDER: Double Strike.		
+179967	{~o}%Z8{~}: {~y}%Z1{~}		
+179966	{~o}%Z1{~} {~y}using Necromancy raises:{~} {~o}%Y12 %Z2!{~}		
+179965	{~black}%Z1 learns through Eagle Eye:"%Z2"!{~}		
+179964	{%Z1 Through Eagle Eye skill learns:} {~o}%Z2!{~}		
+179963	BLACKSMITH GUILD: Construct "%Z9".		
+179962	HIRELINGS: Hire %Z9, %Y7 units.		
+179961	NECROMANCERS GUILD: Reanimate Dracolich (%V1 health).		
+179960	NECROMANCERS GUILD: Soul Conversion (%Y6 Ghosts).		
+179959	NECROMANCERS GUILD: Raise Zombies (%Y6 Zombies).		
+179958	
+
+ignores 50% of enemies armor{~}{~y} . . . . . . {~}		
+179957	Regeneration{~}
+		
+179956	Max Damage{~}{~y} . . . . . . . . . . {~}		
+179955	No Retaliation{~}
+		
+179954	Shooting{~}{~y} . . . . . . . . . . . . . . {~}		
+179953	Endless Retaliations{~}
+		
+179952	Attack All Around{~}{~y} . . . . . . . . . {~}		
+179951	Fire Shield{~}
+		
+179950	Endurance{~}{~y} . . . . . . . . . . . . . {~}		
+179949	Double Strike{~}
+		
+179948	%Z2 regenerates %Y4 health.		
+179947	First Aid Tent heals %Y14 damage.		
+179946	
+{~y}Spells: {~} {~g}%Y6{~}
+{~y}Spell Power: {~} {~g}%Y5{~}
+{~y}Resistance: {~} {~g}%Y4%%{~}
+		
+179945	{~y}AI's choice:{~}
+
+%Z11 1. [%Y41] %Z1{~}
+%Z12 2. [%Y42] %Z2{~}
+%Z13 3. [%Y43] %Z3{~}
+%Z14 4. [%Y44] %Z4{~}
+%Z15 5. [%Y45] %Z5{~}
+%Z16 6. [%Y46] %Z6{~}		
+179944	NECROMANCERS GUILD: Raises Mummies (%Y6 Mummies).		
+179186	{~y}%Z2 inflicts a lucky strike!{~}		
+179187	{~y}%Z2 inflicts an unlucky strike!{~}		
+179188	%Z2 receives ammo.		
+179189	{~y}Catapult stuns the enemy!{~}		
+179190	NECROMANCERS GUILD: Incarnation of Nightmare (%V1 health).		
+179191	Select a card:		
+179192	ENCHANTERS GUILD: Teleportation %Z9, %Y7 units.		
+179193	ENCHANTERS GUILD: Mana Dragon (%Y7 health).		
+179194	ENCHANTERS GUILD: Stealing Mana (%Vi mana).		
+179195	ENCHANTERS GUILD: Cards of Fate (Chance: %Y7%%).		
+179196	{~Lime}%Z7: Magicians in the Library revealed a spell {~y}%Z8{~}!{~}		
+179197	{~Lime}Wall of Knowledge increases hero %Z7!{~} Knowledge		
+179198	{~Lime}Mana Vortex overflows hero %Z7!{~} Spell Points		
+179199	{~Lime}Order of Fire increases  hero %Z7!{~} Spell Power		
+179200	{~Lime}Cage of Warlords increases hero %Z7!{~} Defense		
+179201	{~Lime}Hall of Valhalla increases hero %Z7!{~} Attack		
+179202	{~Lime}Magic University enchances skill {~}{~y}%Z8{~} {~Lime}hero %Z7!{~}		
+179203	{~Lime}%Z7: Garden of Life gives %Y5 un. health to commander!{~}		
+179204	{~Lime}%Z7: Castle Gate intercepted enemy summon!{~}		
+179205	{~Lime}%Z7: Skeleton Transformer activated!{~}		
+179206	{~Lime}%Z7: Brotherhood of the Sword reinforces the commander!{~}		
+179207	{~Lime}The squad froze in horror after seeing the Glyphs of Fear!{~}		
+179208	BUILDING: Brotherhood of the Sword.		
+179209	BUILDING: Stables.		
+179210	BUILDING: Fountain of Fortune.		
+179211	BUILDING: Miners' Guild.		
+179212	BUILDING: Library.		
+179213	BUILDING: Wall of Knowlege.		
+179214	BUILDING: Castle Gate.		
+179215	BUILDING: Order of Fire.		
+179216	BUILDING: Necromancy Amplifier.		
+179217	BUILDING: Skeleton Transformer.		
+179218	BUILDING: Mana Vortex.		
+179219	BUILDING: Portal of Summoning.		
+179220	BUILDING: Hall of Valhalla.		
+179221	BUILDING: Freelancers' Guild		
+179222	BUILDING: Glyphs of Fear.		
+179223	BUILDING: Cage of Warlords.		
+179224	BUILDING: Magic University.		
+179225	BUILDING: Garden of Life.		
+179279	BUILDING: Colossus.		
+179280	BUILDING: Spirit Guardian.		
+179281	BUILDING: Skyship.		
+179282	BUILDING: Deity of Fire.		
+179283	BUILDING: Soul Prison.		
+179284	BUILDING: Guardian of Earth.		
+179285	BUILDING: Warlords' Monoument.		
+179286	BUILDING: Carnivorous Plant.		
+179287	BUILDING: Aurora Borealias.		
+179288	{~Lime}%Z7: Colossus invites Supreme Archangel!{~}		
+179289	{~Lime}%Z7: Spirit Guardian invites Diamond Dragon!{~}		
+179290	{~Lime}%Z7: Skyship invites Lord of Thunder!{~}		
+179291	{~Lime}%Z7: Deity of Fire invites Hell Baron!{~}		
+179292	{~Lime}%Z7: Soul Prison invites Blood Dragon!{~}		
+179293	{~Lime}%Z7: Guardian of Earth invites Darkness Dragon!{~}		
+179294	{~Lime}%Z7: Warlords' Monoument invites Ghost Behemoth!{~}		
+179295	{~Lime}%Z7: Carnivorous Plant invites Hell Hydra!{~}		
+179296	{~Lime}%Z7: Aurora Borealias invites Sacred Phoenix!{~}		
+179325	{~r}Unlucky summon. The maximum number of units reached.{~}		
+179326	{~r}Unlucky summon. All teleport positions are blocked.{~}		

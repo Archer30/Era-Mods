@@ -1,0 +1,115 @@
+; Scheme 3: Battle Mage.
+; Tactics: victory using spells damage and summon.
+; Specialization: hero development.
+; Priorities:
+; 1. Sec. Skill Wisdom and damage spells. 
+; 2. Hero Knowlege and Spell Power, Sec. Skills Mysticism,Sorcery and Schools of Magic. Specialization.
+; 3. Defense / health, resistance and spell damage / Summon commander. Summoning spells
+; 4. Sec skills Resistance, Armorer, Eagle Eye (base), Necromancy. Guild services of Shooters, Thieves, Enchanters (except summoning), Smiths.
+; Taboo: Building and summoning from cities, sec. skills Estates and Recruitment.
+
+[scheme]
+
+; Base scheme description
+
+0=0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: hero development
+
+; Extended scheme description.
+
+; Summon
+1==-20     ;=-20 to all Summos
+; Thieves'Guild
+1143=+10   ;+10 Rouges
+1140=+10   ;+10 Boars
+1142=+10   ;+10 Nomads
+1194=+10   ;+10 Werewolfs
+1144=+10   ;+10 Trolls
+1195=+10   ;+10 Hell Steeds
+1168=+10   ;+10 Gorynyches
+; Shooters'Guild
+1138=+10   ;+10 Halflings
+1192=+10   ;+10 Sylvan centaurs
+1137=+10   ;+10 Sharpshooters
+1171=+10   ;+10 Lava Sharpshooters
+1170=+10   ;+10 Arctic Sharpshooters
+; Smith's Guild
+1145=+10   ;+10 Catapult
+1146=+10   ;+10 Ballista
+1116=+10   ;+10 Golden Golems
+1117=+10   ;+10 Diamond Golems
+; Spells Learning
+2017=+40   ;+40  Lightning Bolt
+2025=+40   ;+40  Destroy Undead 
+2019=+40   ;+40  Chain Lightning 
+2016=+40   ;+40  Ice Bolt 
+2020=+40   ;+40  Frost Ring 
+2021=+40   ;+40  Fireball
+2022=+40   ;+40  Inferno
+2026=+40   ;+40  Armageddon
+2015=+40   ;+40  Magic Arrow 
+2024=+40   ;+40  Death Ripple 
+2023=+40   ;+40  Meteor Shower 
+2018=+40   ;+40  Implosion
+2069=+20   ;+20  Summon: Air
+2068=+20   ;+20  Summon: Water
+2066=+20   ;+20  Summon: Fire
+2067=+20   ;+20  Summon: Earth
+; Hero Primary Skills
+3033=+30   ;+30 Spell Power
+3034=+30   ;+30 Knowlege
+; Hero Sec. Skills
+4005=+30   ;+30 Specialization
+4023=+10   ;+10 Armorer
+4026=+10   ;+10 Resistance
+4006==-20  ;=-20 Recruitment
+4013==-20  ;=-20 Estates
+4007=+40   ;+40 Wisdom
+4008=+30   ;+30 Mysticism
+4025=+30   ;+30 Sorcery
+4015=+30   ;+30 Air Magic 
+4016=+30   ;+30 Water Magic 
+4014=+30   ;+30 Fire Magic
+4017=+30   ;+30 Earth Magic 
+401101=+10 ;=10 Eagle Eye (base)
+; Building constructions
+5==-20     ;=-20 to all constructions
+; Special constructions
+500904=+20  ;+20 to build Miners' Guild
+500906=+20  ;+20 to build Library
+500907=+20  ;+20 to build Wall of Knowlege
+500909=+20  ;+20 to build Castle Gate
+500910=+20  ;+20 to build Order of Fire
+500915=+20  ;+20 to build Mana Vortex
+500916=+20  ;+20 to build Portal of Summoning 
+500919=+20  ;+20 to build Freelancer's Guild 
+500921=+20  ;+20 to build Glyphs of Fear
+500922=+20  ;+20 to build Cage of Warlords
+500924=+20  ;+20 to build Magic University
+500902=+50  ;+50 to build Colossus
+500905=+50  ;+50 to build Spirit Guardian 
+500908=+50  ;+50 to build Skyship
+500911=+50  ;+50 to build Deity of Fire 
+500914=+50  ;+50 to build Soul Prison 
+500917=+50  ;+50 to build Guardian of Earth 
+500920=+50  ;+50 to build Warlords' Monoument 
+500923=+50  ;+50 to build Carnivorous Plant
+500926=+50  ;+50 to build Aurora Borealias
+; Commander's Improvement
+6001=+20   ;+20 to commander Defense
+6002=+20   ;+20 to commander Health
+6006=+20   ;+20 to commander Resist
+; Commander's skills
+600708=+20 ;+20 to Endurance
+600711=+20 ;+20 to Strong regeneration
+;Enchanters' Guild (except summon)
+8=+10      ;+10 to Enchanters' services
+; commander's magic
+9015=+20   ;+20 Magic Arrow
+9016=+20   ;+20 Ice Bolt
+9017=+20   ;+20 Lightning Bolt
+9018=+20   ;+20 Implosion
+9066=+20   ;+20 Summon: Fire
+9067=+20   ;+20 Summon: Earth
+9068=+20   ;+20 Summon: Water
+9069=+20   ;+20 Summon: Air
+;

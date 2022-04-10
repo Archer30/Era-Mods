@@ -1,0 +1,237 @@
+#	Text resource for "BH dialogs.erm"		
+179800	{Select a card:}		
+179801	{Recruitment}		
+179802	{Learn}
+{Spell}		
+179803	{Train}
+{Hero}		
+179804	{Educate}
+{Hero}		
+179805	{Build a}
+{Dwelling}		
+179806	{Train}
+{Commander}		
+179807	{Educate}
+{Commander}		
+179808	{Blacksmiths'}
+{Guild}		
+179809	{Thieves'}
+{Guild}		
+179810	{Enchanters'}
+{Guild}		
+179811	{Necromancers'}
+{Guild}		
+179812	{~Magenta}%Z11{~}		
+179813	{~Magenta}%Y11 units.{~}		
+179814	{~y}+%Y11 to Attack.{~}		
+179815	{~y}+%Y11 to Defense.{~}		
+179816	{~y}+%Y11 to Power.{~}		
+179817	{~y}+%Y11 to Knowledge.{~}		
+179818	{~Lime}(Basic){~}		
+179819	{~Lime}(Advanced){~}		
+179820	{~Lime}(Expert){~}		
+179821	{~y}+%Y11 to Health.{~}		
+179822	{~y}+%Y11 to Speed.{~}		
+179823	{~y}+%Y11 to Damage.{~}		
+179824	{~y}+%Y11 Casts and Power.{~}		
+179825	{~y}+%Y11%% to Resistance.{~}		
+179826	{~Lime}Ignores 50% of enemies defense.{~}		
+179827	{~Lime}Max Damage.{~}		
+179828	{~Lime}No Retaliation.{~}		
+179829	{~Lime}Shooting.{~}		
+179830	{~Lime}Endless Retaliation.{~}		
+179831	{~Lime}Attack All Around.{~}		
+179832	{~Lime}Fire Shield.{~}		
+179833	{~Lime}Endurance.{~}		
+179834	{~Lime}Double Strike.{~}		
+179835	{~Lime}Strong Regeneration.{~}		
+179836	{~a}%Z11{~}		
+179837	{~w}%Z11{~}		
+179839	{~o}Reanimate Dracolich{~}		
+179840	{~o}(%Y11 Health).{~}		
+179841	{~o}Zombiing{~}		
+179842	{~o}(%Y11 Zombie).{~}		
+179843	{~o}Soul Exchange{~}		
+179844	{~o}(%Y11 Ghosts).{~}		
+179845	{~o}Mummification{~}		
+179846	{~o}(%Y11 Mummies).{~}		
+179847	{~a}Mana: %Y11.{~}		
+179838	Round: %Vi      {~r}%Y12 (+%Y16){~}  {~a}%Y13 / %Y31 (+%Y14){~}      VS      {~r}%Y22 (+%Y26){~}  {~a}%Y23 / %Y32 (+%Y24){~}		
+179848	%Z3                  {~y}Round: %Vi{~}                  %Z4		
+179849	Commander's attack ignores 50% of opponent's defense.		
+179850	Commander always inflicts the maximum possible damage.		
+179851	Commander does not get retaliated against.		
+179852	Commander gains shooting ability (Ammo: 24 shots, no penalty in melee).		
+179853	Commander gains endless retaliation.		
+179854	Commander attacks all enemies in range.		
+179855	Commander is protected by a fire shield that returns some of the damage back to the meele attacker.		
+179856	Commander absorbs damage.		
+179857	Commander attacks opponent twice.		
+179858	Commander regenerates health with doubled efficiency.		
+179859	Commander receives a bonus to attack.		
+179860	Commander receives a bonus to defense.		
+179861	Commander receives a bonus to health and regeneration.		
+179862	Commander receives a bonus to speed.		
+179863	Commander receives a bonus to damage.		
+179864	Commander receives a bonus to magic power and is granted more spells.		
+179865	Commander receives less damage from magic attacks.		
+179866	{%Z31}:
+
+Enhances recruitment by 2% and allows to hire: %Z32.		
+179867	Increases the attack of all units from the hero's army.		
+179868	Increases the defense of all units from the hero's army.		
+179869	Increases damage,  duration and effectiveness of hero spells.		
+179870	Increases your hero's mana pool and speed of mana replenishment.		
+179871	Hero summons squad: %Y3 %Z11.		
+179872	Hero hires squad: %Y3 %Z11 (cost %Y4 mana).		
+179873	Hero acquires: %Y3 %Z11 (cost %Y4 mana).		
+179874	Hero learns the spell: %Z11.		
+179875	Necromancers: for %Y4 mana, sacrifice creatures to raise Dracoliches.		
+179876	Necromancers: for %Y4 mana, sacrifice creatures to raise Zombies.		
+179877	Necromancers: for %Y4 mana, sacrifice creatures to raise Ghosts.		
+179878	Necromancers: for %Y4 mana, sacrifice creatures to raise Mummies.		
+179879	Ballista inflictis crippling damage,  reducing the target's maximum health.		
+179880	First Aid Tent heals a portion of the damage for a friendly unit each round.		
+179881	Ammo Cart supplies ammunition to a random unit at the start of each round.		
+179882	Summon Catapult		
+179883	{~o}Embody Nightmares{~}		
+179884	Necromancers: for %Y4 mana, sacrifice creatures to raise nightmares.		
+179885	{Round: %Y1}		
+179886	{~a}Mana Dragon{~}		
+179887	{~a}(%Y3 heath){~}		
+179888	Enchanters embody hero's mana into the Mana Dragon. 
+
+Inflicticts magic damage to any unit, 
+Mana Dragon gets impact equal to the spell cost.
+
+Before each round, Mana Dragon converts all heroes mana to their own health and when mana becomes overabundant, it creates another Mana Dragon.		
+179889	{~a}Teleportation:{~}		
+179890	{~a}%Y3 %Z11{~}		
+179891	Enchanters teleport a group of Zealots into battle.
+
+Every battle-round, each Zealot absorbs 0.5 of the hero's mana restoring their health and ammo. 
+
+Zealots who do not have enough mana leave the battlefield.		
+179892	Enchanters teleport a group of Sorceresses into battle.
+
+Every battle-round, each Sorceress absorbs 0.5 of the hero's mana restoring their health and ammo. 
+
+Sorceress who do not have enough mana leave the battlefield.		
+179893	Enchanters teleport a group of Enchanters into battle.
+
+Every battle-round, each Enchanter absorbs 0.5 of the hero's mana restoring their health and ammo.
+
+Enchanters who do not have enough mana leave the battlefield.		
+179894	{Shooter's}
+{Guild}		
+179895	{~a}Stealing mana{~}		
+179896	{~a}(%Y3 mana){~}		
+179897	Enchanters steal all of your enemy hero's mana.
+
+If the hero's Knowledge is not big enough to keep all the mana received, the extra mana will be lost before the next round.		
+179898	{~a}Cards of Fate{~}		
+179899	{~a}(Chance: %Y3%%){~}		
+179900	Hero gets a chance to play up to five random cards.
+
+The chance of playing each card is %Y3%%.
+
+Try your luck!		
+179783	{~a}+%Y3 to Spell Power{~}		
+179784	{~a}+ %Z11{~}		
+179785	Commander gets +%Y3 to Spell Power and +%Y11%% chance to cast this spell every turn.		
+179786	Specialization %Z1		
+179787	{Specialization}		
+179788	{Recruitment}		
+179789	Specialization in summoning units from built dwelling cards.
+(Not from Guild summons)		
+179790	{Learning Spells}		
+179791	Specialization in spell cards.		
+179792	{Hero Education}		
+179793	Specialization in increasing hero's stats and secondary skill cards.		
+179794	{Build a Dwelling}		
+179795	Specialization in dwelling cards		
+179796	{Commander Education}		
+179797	Specialization in increasing comander's stats and skills cards.		
+179798	{Guild Services}		
+179799	Specialization in guild services cards.		
+179908	B		
+179909	A		
+179910	E		
+179911	{Round: %Y1}		
+179226	Brotherhood of the Sword		
+179227	Stables		
+179228	Fountain of Fortune		
+179229	Miners' Guild		
+179230	Library		
+179231	Wall of Knowlege		
+179232	Castle Gate		
+179233	Order of Fire		
+179234	Necromancy Amplifier		
+179235	Skeleton Transformer		
+179236	Mana Vortex		
+179237	Portal of Summoning		
+179238	Hall of Valhalla		
+179239	Freelancer's Guild		
+179240	Glyphs of Fear		
+179241	Cage of Warlords		
+179242	Magic University		
+179243	Garden of Life		
+179244	{Build a}
+{Dwelling}		
+179245	{Brotherhood of the Sword} at the beginning of each round and before ending that round, the commander's attack and defense increases by 1 for each allied unit on the battlefield.		
+179246	{Stables} allows melee units to appear 2 hexes closer to the enemy side.		
+179247	{Fountain of Fortune} gives an additional {5%} to the chance
+of triggering Tactics, Intelligence, Eagle Eye, Mentor, Training,
+Specializations and Cards of Fate.		
+179248	{Miners' Guild} at the beginning of each round, a small party of Dwarfs or Battle Dwarfs sends the hero some help.		
+179249	Mages from {Library} each round have a probability of {10%} to teach the hero a random spell that he/she can understand.		
+179250	{Wall of Knowledge} each round has a probability of {10%} to increase the hero's Knowledge.		
+179251	{Castle Gate} has a probability of {5%} to intercept an enemy summon, redirecting the summoned creatures to their side.		
+179252	{Order of Fire} each round has a probability of {10%} to increase the hero's Spell Power.		
+179253	{Necromancy Amplifier} raises the rate of undead being raised by 2.		
+179254	{Skeleton Transformer} has a probability of {25%} to convert groups of living units summoned on the hero's side to a higher level of undead from the Necropolis.		
+179255	{Mana Vortex} at the beginning of each round has a probability of {5%} to overflow the hero with mana. (Doubled maximum mana pool).		
+179256	{Portal of Summoning} at the beginning of each round summons one squad available for recruiting in the hero's cities.		
+179257	{Hall of Valhalla} every round has a probability of {10%} to increase the hero's attack.		
+179258	{Freelancer's Guild} at the beginning of each round sends a small squad of mercenaries to the hero's aid.		
+179259	{Glyphs of Fear} has a probability of {5%} to horrify an enemy squad of living units, making it impossible for them to act in any way until the end of the round.		
+179260	{Cage of Warlords} each round has a probability of {10%} to increase the hero's defense.		
+179261	Mages from {Magic University} at the beginning of each round and before it ends enchance the skill of one of the hero's Schools of Magic.		
+179262	{Garden of Life} at the beginning of each round increases the commander’s maximum health by exhausting living units in the hero’s army.
+The limit of exhaustion for living units is 3 health points.		
+179298	Colossus		
+179299	Spirit Guardian		
+179300	Skyship		
+179301	Deity of Fire		
+179302	Soul Prison		
+179303	Guardian of Earth		
+179304	Warlords' Monoument		
+179305	Carnivorous Plant		
+179306	Aurora Borealias		
+179307	{Colossus} allows you to invite a {Supreme} {Archangel} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Supreme Archangels} in the hero's army increases the effectiveness of {Castle} unit recruiting by 50%.		
+179308	{Spirit Guardian} allows you to invite a {Diamond} {Dragon} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Diamond Dragons} in the hero's army increases the effectiveness of {Rampart} unit recruiting by 50%.		
+179309	{Skyship} allows you to invite a {Lord} {of} {Thunder} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Lords of Thunder} in the hero's army increases the effectiveness of {Tower} unit recruiting by 50%.		
+179310	{Deity of Fire} allows you to invite a {Hell} {Baron} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Hell Barons} in the hero's army increases the effectiveness of {Inferno} unit recruiting by 50%.		
+179311	{Soul Prison} allows you to invite a {Blood} {Dragon} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Blood Dragons} in the hero's army increases the effectiveness of {Necropolis} unit recruiting by 50%.		
+179312	{Guardian of Earth} allows you to invite a {Darkness} {Dragon} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Darkness Dragons} in the hero's army increases the effectiveness of {Dungeon} unit recruiting by 50%.		
+179313	{Warlords' Monoument} allows you to invite a {Ghost} {Behemoth} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Ghost Behemoths) in the hero's army increases the effectiveness of {Stronghold} unit recruiting by 50%.		
+179314	{Carnivorous Plant} allows you to invite a {Hell} {Hydra} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Hell Hydras} in the hero's army increases the effectiveness of {Fortress} unit recruiting by 50%.		
+179315	{Aurora Borealias} allows you to invite a {Sacred} {Phoenix} on the hero's side immediately after construction or 10 rounds after the death of the previous one.
+
+{Sacred Phoenixes} in the hero's army increases the effectiveness of {Conflux} unit recruiting by 50%.		

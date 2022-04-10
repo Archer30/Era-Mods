@@ -1,0 +1,257 @@
+#	Text resource for "battle heroes.erm"		
+179700	Pathfinding		
+179701	Not used		
+179702	Archery		
+179703	Increases the ranged damage by {[10/20/30%]}.		
+179704	Logistics		
+179705	Increases the stack's speed by {[1/2/3]}.		
+179706	Scouting		
+179707	Not used		
+179708	Diplomacy		
+179709	Improves Guild services starting from round {0/15/30}.		
+179710	Specialization		
+179711	Allows you to select/change specialization.
+
+Increases by {[5/10/15%]} the probability that the card of the chosen specialization will appear.		
+179712	Recruitment		
+179713	Increases the number of summoned units by {[10/20/30%]}.		
+179714	Wisdom		
+179715	Allows you to learn level {[3/4/5]} spells.		
+179716	Mysticism		
+179717	Increases hero mana regeneration by {[30/60/90]%} but not less than {[2/4/6]} mana for each combat round.		
+179718	Luck		
+179719	Increases the luck of allied units by {[1/2/3]}.		
+179720	War Machines		
+179721	Allows you to manage war machines and strengthen them.		
+179722	Eagle Eye		
+179723	Gives a {[20/40/60%]} chance to learn a spell cast by the enemy hero.
+
+Learning does not require the skill "Wisdom".		
+179724	Necromancy		
+179725	After a hero action, fallen living units are risen as undead.		
+179726	Estates		
+179727	Increases the level of the buildings by {[1/2/3]}.		
+179728	Fire Magic		
+179729	Increases the efficiency of Fire spells.		
+179730	Air Magic		
+179731	Increases the efficiency of Air spells.		
+179732	Water Magic		
+179733	Increases the efficiency of Water spells.		
+179734	Earth Magic		
+179735	Increases the efficiency of Earth spells.		
+179736	Mentor		
+179737	{[10/20/30%]} chance to train your commander with double effect.		
+179738	Tactics		
+179739	Gives a 67/100/100% and a 0/33/100% chance to unlock 5th and 6th cards respectively.		
+179740	Artillery		
+179741	Not used		
+179742	Learning		
+179743	Chance to improve one of your hero's primary skills by 2 {[10/20/30%]}.		
+179744	Offence		
+179745	Increases the damage on melee attacks by {[10/20/30%]}.		
+179746	Armorer		
+179747	Reduces non-magical damage by {[10/15/20%]}.		
+179748	Intelligence		
+179749	Gives a {[10/15/20%]} chance to draw a second set of cards in the same round.		
+179750	Sorcery		
+179751	Increases spell damage by {[10/20/30%]}.		
+179752	Resistance		
+179753	Gives {[10/15/20%]} chance to resist an enemy spell.
+Also reduces magical damage by {[10/15/20%]}.		
+179754	First Aid		
+179755	Not used		
+179756	Hero conducts battle in {Battle Heroes} mode.		
+179757	{Amulet of the Undertaker}
+Allows you to raise 5% of your fallen units as undead.
+Increases Raise Undead level by 1.		
+179758	{Vampire's Cowl}
+Allows you to raise 10% of your fallen units as undead.
+Increases Raise Undead level by 1.		
+179759	{Dead Man's Boots}
+Allows you to raise 15% of your fallen units as undead.
+Increases Raise Undead level by 1.		
+179760	{Cloak of the Undead King}
+Allows you to raise 30% of your fallen units as undead.
+Increases Raise Undead level by 3.		
+179761	Reduces the target's max. health.
+Damage depends on the hero's attack.		
+179762	20% chance to stun the target.
+(Target loses retaliation)		
+179763	{Bird of Perception}
+Gives a 10% chance to learn a spell cast by the enemy hero.
+Added to the Eagle Eye effect if available.		
+179764	{Stoic Watchman}
+Gives a 10% chance to learn a spell cast by the enemy hero.
+Added to the Eagle Eye effect if available.		
+179765	{Emblem of Cognizance}
+Gives a 20% chance to learn a spell cast by the enemy hero.
+Added to the Eagle Eye effect if available.		
+179766	{Legs of Legion}
+Increase the draft quantity of 2nd level units by 10.		
+179767	{Loins of Legion}
+Increase the draft quantity of 3rd level units by 8.		
+179768	{Torso of Legion}
+Increase the draft quantity of 4th level units by 6.		
+179769	{Arms of Legion}
+Increase the draft quantity of 5th level units by 4.		
+179770	{Head of Legion}
+Increase the draft quantity of 6th level units by 2.		
+179771	{Statue of Legion}
+Increase the draft quantity of all units by 50%.		
+179772	{Statesman's Medal}
+
+Reduces Guild services cost by 20%. 
+Services can not be cheaper than 1 mana.		
+179773	{Diplomat's Ring}
+
+Reduces Guild services cost by 20%. 
+Services can not be cheaper than 1 mana.		
+179774	{Ambassador's Sash}
+
+Reduces Guild services cost by 20%. 
+Services can not be cheaper than 1 mana.		
+179775	{Charm of Mana}
+
+Restores 1 mana each battle-round.		
+179776	{Talisman of Mana}
+
+Restores 2 mana each battle-round.		
+179777	{Mystic Orb of Mana}
+
+Restores 3 mana each battle-round.		
+179782	{Wizard's Well}
+
+Restores 10 mana each battle-round.		
+179778	Mana Dragon		
+179779	Mana Dragons		
+179901	{Badge of Courage}
+
+Increases the number of summoned units by 10%.		
+179902	{Crest of Valor}
+
+Increases the number of summoned units by 10%.		
+179903	{Glyph of Gallantry}
+
+Increases the number of summoned units by 10%.		
+179904	{Still Eye of the Dragon}
+
+Increases the number of summoned units by 10% and the luck of all allied units by 1.		
+179905	{Pendant of Courage}
+
+Increases the number of summoned units by 10% and the luck of all allied units by 3.		
+179906	{Spirit of Oppression}
+
+Neutralizes the effect of the Recruitment skill and artifacts, increasing the number of summoned units.		
+179907	{Attention!}
+
+BattleHeroes - game {not} compatible
+with randomly generated maps!
+
+Use bundled maps or create your own and send it to me at {algor@oskolnet.ru} :)
+
+I will definitely include all interesting maps in the next version of the mod!		
+179942	Assault Golem		
+179943	Assault Golems		
+179941	Damage from spells reduced by 95%
+Has a chance of a double non-retaliation attack.		
+179940	Mechanical Golem		
+179939	Mechanical Golems		
+179938	Damage from spells reduced 85%
+Has a chance of a double non-retaliation attack.		
+179912	{Pendant of Dispassion}
+
+Makes the hero's troops immune to the {Berserk} spell and allows the hero to use this spell in battle.		
+179913	{Pendant of Second Sight}
+
+Makes the hero's troops immune to the {Blind} spell and allows the hero to use this spell in battle.		
+179914	{Pendant of Holiness}
+
+Makes the hero's troops immune to the {Curse} spell and allows the hero to use this spell in battle.		
+179915	{Pendant of Life}
+
+Makes the hero's troops immune to the {Death Ripple} spell and allows the hero to use this spell in battle.		
+179916	{Pendant of Death}
+
+Makes the hero's troops immune to the {Destroy Undead} spell and allows the hero to use this spell in battle.		
+179917	{Pendant of Free Will}
+
+Makes the hero's troops immune to the {Hypnotize} spell and allows the hero to use this spell in battle.		
+179918	{Pendant of Negativity}
+
+Makes the hero's troops immune to the {Lightning Bolt} and {Chain Lightning} spells and allows the hero to use these spells in battle.		
+179919	{Pendant of Total Recall}
+
+Makes the hero's troops immune to the {Forgetfulness} spell and allows the hero to use this spell in battle.		
+179920	Axe of Smashing		
+179921	{Axe of Smashing}
+
+Being in the hero's backpack during the battle increases the commander's attack by {12}.		
+179922	Hardened Shield		
+179923	{Hardened Shield}
+
+Being in the hero's backpack during the battle increases the commander's defense by {12}.		
+179924	Mithril Mail		
+179925	{Mithril Mail}
+
+Being in the hero's backpack during the battle increases the commander's health by {750}.		
+179926	Sword of Sharpness		
+179927	{Sword of Sharpness}
+
+Being in the hero's backpack during the battle increases the commander's damage by {12-24}.		
+179928	Amulet of Witchcraft		
+179929	{Amulet of Witchcraft}
+
+Being in the hero's backpack during the battle increases the commander's resistance by {30%%}.		
+179930	Boots of Haste		
+179931	{Boots of Haste}
+
+Being in the hero's backpack during the battle increases the commander's speed by {3}.		
+179932	Ring of Mastery		
+179933	{Ring of Mastery}
+
+Being in the hero's backpack during the battle increases the commander's attack and defense by {4}, health by {250}, damage by {4-8}, resistance by {10%} and speed by {1}.		
+179934	Ghost		
+179935	Ghosts		
+179936	Cutthroat		
+179937	Cutthroats		
+179316	Guardian of Castle. No retaliation.
+Resurrects twice.
+		
+179317	Guardian of Rampart. Can Blind.
+Immune to all Spells.		
+179318	Guardian of Tower. Thunderclap.
+Shoots twice. Air Shield.		
+179319	Guardian of Inferno. Fearsome.
+No retaliation. Takes soul.		
+179320	Guardian of Necropolis. Fearsome.
+Ages enemy. Drains life.		
+179321	Guardian of Dungeon. Fearsome.
+Immune to all Spells. Falls back.		
+179322	Guardian of Stronghold. Fearsome.
+Ignores defense. 2 retaliations.		
+179323	Guardian of Fortress. Attack all around.
+Regenerate. Acid attack. No retaliation.		
+179324	Guardian of Conflux. Rebirth.
+Fire Spell Immunity. Fire Shield. Slayer.
+		
+179327	Undead. Death stare. Mind spell immunity.		
+179328	{Garniture of Interference}
+
+Gives a 5% chance to resist an enemy spell.
+Also reduces magical damage by 5%.		
+179329	{Surcoat of Counterpoise}
+
+Gives a 10% chance to resist an enemy spell.
+Also reduces magical damage by 10%.		
+179330	{Boots of Polarity}
+
+Gives a 15% chance to resist an enemy spell.
+Also reduces magical damage by 15%.		
+179331	Air Spell Immunity. Vulnerable to Earth.
+Ignores Fire Shield.		
+179332	Water Spell Immunity. Vulnerable to Fire.
+Ignores Fire Shield.		
+179333	Fire Spell Immunity. Vulnerable to Water.
+Ignores Fire Shield.		
+179334	Earth Spell Immunity. Vulnerable to Air.
+Ignores Fire Shield.		

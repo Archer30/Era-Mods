@@ -1,0 +1,104 @@
+; Scheme 4: Warrior.
+; Tactics: victory by creatures stronger due to the development of attacking parameters and the sec.skills of the hero.
+; Specialization: hero development.
+; Priorities:
+; 1. Attack and Defense of the hero, sec. skills: Learning, Estates, Recruitment, Offense, Defense, Specialization.
+; 2. Building and Summoning.
+; 3. Attack, Defense, Health, Damage, any abilities and any magic of the commander.
+; 4. Secondary skills Logistics, Luck, Eagle Eye, Archery, War machines.
+; Taboo: learning spells, Spell power and magical sec. hero skills
+
+[scheme]
+
+; Base scheme description
+
+0=0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: hero development
+
+; Extended scheme description.
+
+; Summon
+1=*4       ;*4 to all summons
+; Thieves'Guild
+1143=+10   ;+10 Rouges
+1140=+10   ;+10 Boars
+1142=+10   ;+10 Nomads
+1194=+10   ;+10 Werewolfs
+1144=+10   ;+10 Trolls
+1195=+10   ;+10 Hell Steeds
+1168=+10   ;+10 Gorynyches
+; Shooters'Guild
+1138=+10   ;+10 Halflings
+1192=+10   ;+10 Sylvan centaurs
+1137=+10   ;+10 Sharpshooters
+1171=+10   ;+10 Lava Sharpshooters
+1170=+10   ;+10 Arctic Sharpshooters
+; Smith's Guild
+1148=+10   ;+10 Ammo Cart
+1145=+10   ;+10 Catapult
+1146=+10   ;+10 Ballista
+1147=+10   ;+10 First Aid Kit
+1116=+10   ;+10 Golden Golems
+1117=+10   ;+10 Diamond Golems
+; Enchanters'Guild
+1169=+10   ;+10 Zealots
+1193=+10   ;+10 Sorceresses
+1136=+10   ;+10 Enchanters
+; Spells learning
+2==-20     ;=-20 to all spells
+; Hero Primary Skills
+3031=+40   ;+40 Attack
+3032=+40   ;+40 Defense
+3033==-20  ;=-20 Spell Power
+; Hero Sec. Skills
+4005=+40   ;+40 Specialization
+4022=+40   ;+40 Offense
+4001=+10   ;+10 Archery
+4023=+40   ;+40 Armorer
+4010=+10   ;+10 War machines
+4002=+10   ;+10 Logistics
+4006=+40   ;+40 Recruitment
+4009=+10   ;+10 Luck
+4013=+40   ;+40 Estates
+4021=+40   ;+40 Learning
+4007==-20  ;=-20 Wisdom
+4008==-20  ;=-20 Mysticism
+4025==-20  ;=-20 Sorcery
+4015==-20  ;=-20 Air Magic
+4016==-20  ;=-20 Water Magic
+4014==-20  ;=-20 Fire Magic
+4017==-20  ;=-20 Earth Magic
+4011=+10   ;+10 Eagle Eye
+; Building construction
+5=+30      ;+30 to all constructions
+; Special constructions
+5009=-20  ;-20 to build any Special constructions
+500900=+20  ;+20 to build Brotherhood of Sword
+500901=+20  ;+20 to build Stables
+500903=+20  ;+20 to build Fountain of Fortune
+500904=+20  ;+20 to build Miners' Guild
+500909=+20  ;+20 to build Castle Gate
+500912=+20  ;+20 to build Necromancy Amplifier
+500913=+20  ;+20 to build Skeleton Transformer
+500916=+20  ;+20 to build Portal of Summoning
+500918=+20  ;+20 to build Hall of Valhalla
+500919=+20  ;+20 to build Freelancer's Guild
+500921=+20  ;+20 to build Glyphs of Fear
+500922=+20  ;+20 to build Cage of Warlords
+500902=+50  ;+50 to build Colossus
+500905=+50  ;+50 to build Spirit Guardian
+500908=+50  ;+50 to build Skyship
+500911=+50  ;+50 to build Deity of Fire
+500914=+50  ;+50 to build Soul Prison
+500917=+50  ;+50 to build Guardian of Earth
+500920=+50  ;+50 to build Warlords' Monoument
+500923=+50  ;+50 to build Carnivorous Plant
+500926=+50  ;+50 to build Aurora Borealias
+; Commander's Improvement
+6000=+20   ;+20 to commander Attack
+6001=+20   ;+20 to commander Defense
+6002=+20   ;+20 to commander Health
+6003=+20   ;+20 to commander Damage
+6007=+20   ;+20 to commander skills
+; commander's magic
+9=+20      ;+20 to all magic
+;

@@ -1,0 +1,35 @@
+﻿{
+	"caption": {
+		"Cn_Simp": "",
+		"en_US": "BattleHeroes",
+		"ru_RU": "BattleHeroes"
+	},
+	"description": {
+		"full": {
+			"Cn_Simp": "",
+			"en_US": "description.txt",
+			"ru_RU": "description_rus.txt"
+		},
+		"short": {
+			"Cn_Simp": "",
+			"en_US": "This is the English version of BattleHeroes: https://sites.google.com/site/hommfun/bh",
+			"ru_RU": "Battle Heroes - мод для HoMM III Era 2.46, заменяющий обычные сражения на карточную игру."
+		}
+	},
+	"author": "Algor",
+	"homepage": "https://sites.google.com/site/hommfun/bh",
+	"icon": {
+		"file": "bh.ico",
+		"index": 0
+	},
+	"mod_version": "1.6",
+	"priority": 0,
+	"compatibility": {
+		"class": "default",
+		"entries": {}
+	},
+	"platform": "era",
+	"info_version": "1.0",
+	"plugins": {},
+	"category": "gameplay"
+}

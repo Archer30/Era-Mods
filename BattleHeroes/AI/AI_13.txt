@@ -1,0 +1,119 @@
+; Scheme 13: The Magician of Fire.
+; Tactics: specialization in one school of magic and an emphasis on the rebuilding of one city.
+; Specialization: Building construction. Specialization.
+; Priorities:
+; 1. School of Fire, spells of fire. Specialization.
+; 2. Building the Castle, Inferno or Conflux. Summon (multiplying bonus). Sec skills - Estates, Recruitment, Wisdom, Mysticism.
+; 3. Knowledge and Spell Power of the hero, Building other cities.
+; 4. Attacking parameters and skills of the commander, any magic of the commander.
+; Taboo: Skills and spells of non-Fire School, Eagle Eye, combat parameters of the hero.
+
+[scheme]
+
+; Base scheme description
+
+0=0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: Building construction
+
+; Extended scheme description.
+
+; Summon
+1=*3      ;*3 to all summons
+; Thieves'Guild
+1143=-10   ;=-10 Rouges
+1140=-10   ;=-10 Boars
+1142=-10   ;=-10 Nomads
+1194=-10   ;=-10 Werewolfs
+1144=-10   ;=-10 Trolls
+1195=-10   ;=-10 Hell Steeds
+1168=-10   ;=-10 Gorynyches
+; Shooters'Guild
+1138=-10   ;=-10 Halflings
+1192=-10   ;=-10 Sylvan centaurs
+1137=-10   ;=-10 Sharpshooters
+1171=-10   ;=-10 Lava Sharpshooters
+1170=-10   ;=-10 Arctic Sharpshooters
+; Smith's Guild
+1148=-10   ;=-10 Ammo Cart
+1145=-10   ;=-10 Catapult
+1146=-10   ;=-10 Ballista
+1147=-10   ;=-10 First Aid Kit
+1116=-10   ;=-10 Golden Golems
+1117=-10   ;=-10 Diamond Golems
+; Enchanters'Guild
+1169=-10   ;=-10 Zealots
+1193=-10   ;=-10 Sorceresses
+1136=-10   ;=-10 Enchanters
+; Spells learning
+2==-50    ;=-50 to all spells
+; Fire Spells
+2021=+40  ;+40 Fireball
+2022=+40  ;+40 Inferno
+2026=+40  ;+40 Armageddon
+2066=+40  ;+40 Summon: Fire
+2029=+20  ;+20 Fireshield 
+2042=+10  ;+10 Curse
+2043=+20  ;+20 Bloodlust
+2052=+10  ;+10 Misfortune
+2055=+20  ;+20 Slayer
+2056=+10  ;+10 Frenzy 
+2059=+20  ;+20 Berserk
+2062=+20  ;+20 Blind
+; Hero Primary Skills
+3==-50    ;=-50 Primary Skills
+3033=+30  ;+30 Spell Power
+3034=+30  ;+30 Knowlege
+; Hero Sec. Skills
+4005=+50   ;+50 Specialization
+4014=+50   ;+50 Fire Magic
+4006=+20   ;+20 Recruitment
+4013=+20   ;+20 Estates
+4007=+40   ;+40 Wisdom
+4008=+30   ;+30 Mysticism
+4016==-50  ;-50 Water Magic 
+4015==-50  ;-50 Air Magic
+4017==-50  ;-50 Earth Magic 
+4011==-50  ;-50 Eagle Eye
+4004==-50  ;-50 Diplomacy
+; Building construction
+5=+10     ;+10 to all constructions
+5000=+30  ;+30 to Castle constructions
+5003=+30  ;+30 to Inferno constructions
+5008=+30  ;+30 to Conflux constructions
+; Special constructions
+5009==-20   ;=-20 to build of any Special constructions
+500904=+20  ;+20 to build Miners' Guild
+500907=+20  ;+20 to build Wall of Knowlege
+500909=+20  ;+20 to build Castle Gate
+500910=+20  ;+20 to build Order of Fire
+500915=+20  ;+20 to build Mana Vortex
+500916=+20  ;+20 to build Portal of Summoning
+500919=+20  ;+20 to build Freelancer's Guild
+500902=+50  ;+50 to build Colossus
+500905=+50  ;+50 to build Spirit Guardian
+500908=+50  ;+50 to build Skyship
+500911=+50  ;+50 to build Deity of Fire
+500914=+50  ;+50 to build Soul Prison
+500917=+50  ;+50 to build Guardian of Earth
+500920=+50  ;+50 to build Warlords' Monoument
+500923=+50  ;+50 to build Carnivorous Plant
+500926=+50  ;+50 to build Aurora Borealias
+; Commander Improvement
+6000=+10   ;+10 to commander attack
+6003=+10   ;+10 to commander damage
+6005=+10   ;+10 to commander speed
+; commander's skills
+600700=+20 ;+20 to Reduce Defense
+600702=+20 ;+20 to Maximum Damage
+600704=+20 ;+20 to Shooting
+600705=+20 ;+20 to Limitless Counterstrikes
+600706=+20 ;+20 to attack all around
+600707=+20 ;+20 to fire shield
+600709=+20 ;+20 to doublestrike
+; Rituals of the Necromancers
+7==-50     ;=-50 to Rituals
+; Enchanters'Services (except summons)
+8==-50     ;=-50 to Enchanters'Services
+8002=*2    ;*2 for Stealing mana
+; commander's magic
+9=+10     ;+10 to all magic
+;;

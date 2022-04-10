@@ -1,0 +1,72 @@
+; Scheme 2: Tactician.
+; Tactics: taking advantage in many directions due to the fastest possible development of tactical skills.
+; Specialization: hero development.
+; Priorities:
+; 1. tactical skills: Learning, Mentor, Diplomacy, Necromancy, Eagle Eye, Estates, Mysticism, Tactics, Intelligense, Recruitment.
+; 2. Building, Summon, Guild Services.
+; 3. Defense parameters, skills, damage spells and commander summons.
+; 4. Hero Knowlege and Defense. Specialization.
+; Taboo: no.
+
+[scheme]
+
+; Base scheme description
+
+0=0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: hero development
+
+; Extended scheme description.
+
+; Summon
+1=+30      ;+30 to all Summons
+; hero Primary skills
+3032=+10   ;+10 Defense
+3034=+10   ;+10 Knowlege
+; hero Sec. Skills
+4005=+10   ;+10 Specialization
+4006=+40   ;+40 Recruitment
+4013=+40   ;+40 Estates
+4019=+40   ;+40 Tactics
+4004=+40   ;+40 Diplomacy
+4021=+40   ;+40 Learning
+4018=+40   ;+40 Mentor
+4012=+40   ;+40 Necromancy 
+4024=+40   ;+40 Intelligense
+4008=+40   ;+40 Mysticism
+4011=+40   ;+40 Eagle Eye
+; Building constructions
+5=+30      ;+30 to all constructions
+; Special constructions
+5009=+40  ;+40 to build of any Special constructions
+500902=+60  ;+60 to build Colossus
+500905=+60  ;+60 to build Spirit Guardian
+500908=+60  ;+60 to build Skyship
+500911=+60  ;+60 to build Deity of Fire
+500914=+60  ;+60 to build Soul Prison
+500917=+60  ;+60 to build Guardian of Earth
+500920=+60  ;+60 to build Warlords' Monoument
+500923=+60  ;+60 to build Carnivorous Plant
+500926=+60  ;+60 to build Aurora Borealias
+; Commander Improvement
+6001=+20   ;+20 to commander Defense
+6002=+20   ;+20 to commander Health
+6006=+20   ;+20 to commander Resist
+; commander's skills
+600703=+20 ;+20 to No Retaliate
+600705=+20 ;+20 to Limitless Counterstrikes
+600707=+20 ;+20 to Fire Shield
+600708=+20 ;+20 to Endurance
+600711=+20 ;+20 to Strong regeneration
+; Rituals of the Necromancers
+7=+30      ;+30 to Rituals
+; Wizard Services (except summons)
+8=+30      ;+30 to Wizard Services
+; commander's magic
+9015=+20   ;+20 Magic Arrow
+9016=+20   ;+20 Ice Bolt
+9017=+20   ;+20 Lightning Bolt
+9018=+20   ;+20 Implosion
+9066=+20   ;+20 Summon: Fire
+9067=+20   ;+20 Summon: Earth
+9068=+20   ;+20 Summon: Water
+9069=+20   ;+20 Summon: Air
+;

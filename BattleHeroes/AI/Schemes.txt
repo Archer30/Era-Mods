@@ -1,0 +1,136 @@
+This document contains general descriptions of the schemes used.
+More detailed descriptions and settings of preference schemes are in the files AI_ <scheme number> .txt
+
+===================================================================================================
+
+; Scheme 1: Bruteforcer.
+; Tactics: crush the enemy with low-level and summoned guild units, quickly gaining a critical edge.
+; Specialization: Summon.
+; Priorities:
+; 1. Summon in any form. Specialization.
+; 2. Attack and attacking secondary skills of the hero: Attack, Archery, Recruitment, Luck, Logistics.
+; 3. Attack, Speed, Attacking skills, Damage spells, additional commander's creatures.
+; 4.Building + Estates Secondary skill. Attacking the blessings of the commander.
+; Taboo: learning spells, Spell power and magical sec. hero skills
+
+; Scheme 2: Tactician.
+; Tactics: taking advantage in many directions due to the fastest possible development of tactical skills.
+; Specialization: hero development.
+; Priorities:
+; 1. tactical skills: Learning, Mentor, Diplomacy, Necromancy, Eagle Eye, Estates, Mysticism, Tactics, Intelligense, Recruitment.
+; 2. Building, Summon, Guild Services.
+; 3. Defense parameters, skills, damage spells and commander summons.
+; 4. Hero Knowlege and Defense. Specialization.
+; Taboo: no.
+
+; Scheme 3: Battle Mage.
+; Tactics: victory using spells damage and summon.
+; Specialization: hero development.
+; Priorities:
+; 1. Sec. Skill Wisdom and damage spells. 
+; 2. Hero Knowlege and Spell Power, Sec. Skills Mysticism,Sorcery and Schools of Magic. Specialization.
+; 3. Defense / health, resistance and spell damage / Summon commander. Summoning spells
+; 4. Sec skills Resistance, Armorer, Eagle Eye (base), Necromancy. Guild services of Shooters, Cutthroats, Enchanters (except summoning), Smiths.
+; Taboo: Building and summoning from cities, sec. skills Estates and Recruitment.
+
+; Scheme 4: Warrior.
+; Tactics: victory by creatures stronger due to the development of attacking parameters and the sec.skills of the hero.
+; Specialization: hero development.
+; Priorities:
+; 1. Attack and Defense of the hero, sec. skills: Learning, Estates, Recruitment, Offense, Defense, Specialization.
+; 2. Building and Summoning.
+; 3. Attack, Defense, Health, Damage, any abilities and any magic of the commander.
+; 4. Secondary skills Logistics, Luck, Eagle Eyr, Archery, War machines.
+; Taboo: learning spells, Spell power and magical sec. hero skills
+
+; Scheme 5: Shooter.
+; Tactics: victory due to the suppression of enemy troops by shooting squads, using the commander as a cover.
+; Specialization: Summon.
+; Priorities:
+; 1. Build of dwellings only up to level 4 shooters inclusively (for Inferno - goges), Attack and sec. Hero Archery skill. Specialization.
+; 2. The call of shooting squads and Guild services of Shooters, Enchanters (summon) and Smith.
+; 3. Knowledge and sec. Diplomacy, Luck, Recruitment, Mysticism.
+; 4. Health and Defense of the commander, spells of the commander for shooting squads.
+; Taboo: learning spells, high-level build, Spell power and magical hero sec.skills
+
+; Scheme 6: Creator.
+; Tactics: as quickly as possible to rebuild high-level creatures, defending the commander and win by summon high-level units.
+; Specialization: Build of dwellings.
+; Priorities:
+; 1. Build + Sec.Scill Estates. Specialization.
+; 2. Health, Defense, Resistanse and defensive commanders' skills.
+; 3. Summon high-level creatures (multiplying bonus), second skills Recruitment, Offense, Luck, Tactics, Intelligence.
+; 4. Defense and hero sec skills (Armorer, Resistance), commander defensive spells.
+; Taboo: learning spells, Hero Spell Power, Eagle Eye.
+
+; Scheme 7: Necromancer.
+; Tactics: taking advantage by Necromancy and services of the guild of Necromancers.
+; Specialization: summon.
+; Priorities:
+; 1. Sec.skills Necromancy and Diplomacy, Basic wisdom. Specialization.
+; 2. Services of the Guides of the Necromancers and summon (not guild). Mysticism, For the commander-devourer, the rebuilding of the Necropolis and the spell of the commander Animate Undead.
+; 3. Secondary skills - Earth Magic, Learning and Recruitment, Knowledge and Spell Power, Earth Spells Level 1-3.
+; 4. Sec. skills Offense, Armorer, Resistance, Logistics, Luck. Defense, health, spells damage, curses and commander's summons.
+; Taboo: magical sec. skills except earth magic, spells other than said.
+
+; Scheme 8: Summoner.
+; Tactics: victory at the expense of summoned creatures (guilds, spells), without the cost for building.
+; Specialization: the development of the hero.
+; Priorities:
+; 1. Diplomacy, Hero Knowledge, Mysticism, Wisdom (base).
+; 2. Guild summons. Specialization. Spells additional creatures commander.
+; 3. Sec. skills: Air Magic, Water Magic. Spells: Summon Air, Summon: Water, Lightning, Ice. Lightning, Ice Ring, Heal, Hero Power.
+; 4. Sec. skills Learning and Mentor. Defensive parameteres and sec. hero and commander skills. The blessings of the commander.
+; Taboo: Building and summon from cities, sec.skills Estates and Recruitment.
+
+; Scheme 9: Aloner.
+; Tactics: the maximum development of the commander, a victory due to the strongest spells of damage and summoning.
+; Specialization: the development of the commander.
+; Priorities:
+; 1. Sec. Skills: Earth Magic, Fire Magic, Wisdom, Mentor, Mysticism, Learning. Specialization.
+; 2. Damage spells of Earth and Fire, Anti-Magic, Summon: Fire, Summon: Earth, Teleport.
+; 3. Sec. Skills: Armorer, Resistance, Sorcery, Logistics. Knowledge and Spell Power. Defensive commander parameters. Spell damage/summon/treatment commander.
+; 4. Any skills, abilities and magic of the commander.
+; Taboo: Building, summoning, Guild services, all spells and skills other than said.
+
+; Scheme 10: Caster.
+; Tactics: victory by creatures reinforced by the hero and commander’s magic.
+; Specialization: Building construction.
+; Priorities:
+; 1. Summon, Building, sec. skills: Learning, Estates, Recruitment, Offense, Armorer.
+; 2. Spell Power and Knowledge of the hero, sec. skills Wisdom, Mysticism. Blessings. Specialization.
+; 3. Secondary skills - Schools of Magic.
+; 4. Health,  magic of commander's creatures and the blessings of the commander.
+; Taboo: damage Spells, curses, Eagle Eye.
+
+; Scheme 11: The Magician of Air.
+; Tactics: specialization in one school of magic and an emphasis on the rebuilding of one city.
+; Specialization: Building construction.
+; Priorities:
+; 1. School of Air, Air spells. Specialization.
+; 2. Building the Tower, Necropolis or Citadel. Summon (multiplying bonus). Sec skills - Estates, Recruitment, Wisdom, Mysticism.
+; 3. Knowledge and Spell Power of the hero, Building other cities.
+; 4. Attacking parameters and skills of the commander, any magic of the commander.
+; Taboo: Skills and spells of non-Air School, Eagle Eye, combat parameters of the hero.
+
+; Scheme 12: The Magician of Water.
+; Tactics: specialization in one school of magic and an emphasis on the rebuilding of one city.
+; Specialization: Building construction.
+; Priorities:
+; 1. School of Water, spells water. Specialization.
+; 2. Building the Rampart, Dungeon or Fortress. Summon (multiplying bonus). Sec skills - Estates, Recruitment, Wisdom, Mysticism.
+; 3. Knowledge and Spell Power of the hero, Building other cities.
+; 4. Attacking parameters and skills of the commander, any magic of the commander.
+; Taboo: Skills and spells of non-Water School, Eagle Eye, combat parameters of the hero.
+
+; Scheme 13: The Magician of Fire.
+; Tactics: specialization in one school of magic and an emphasis on the rebuilding of one city.
+; Specialization: Building construction. Specialization.
+; Priorities:
+; 1. School of Fire, spells of fire. Specialization.
+; 2. Building the Castle, Inferno or Conflux. Summon (multiplying bonus). Sec skills - Estates, Recruitment, Wisdom, Mysticism.
+; 3. Knowledge and Spell Power of the hero, Building other cities.
+; 4. Attacking parameters and skills of the commander, any magic of the commander.
+; Taboo: Skills and spells of non-Fire School, Eagle Eye, combat parameters of the hero.
+
+===================================================================================================

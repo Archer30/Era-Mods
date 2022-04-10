@@ -1,0 +1,102 @@
+; Scheme 10: Caster.
+; Tactics: victory by creatures reinforced by the hero and commander’s magic.
+; Specialization: Building construction.
+; Priorities:
+; 1. Summon, Building, sec. skills: Learning, Estates, Recruitment, Offense, Armorer.
+; 2. sec. skills Wisdom, Mysticism. Blessings. Specialization, Schools of the magic
+; 3. Hero's Knowledgec skill.
+; 4. Health,  magic of the creatures and the blessings of the commander.
+; Taboo: damage Spells, curses, Eagle Eye.
+
+[scheme]
+
+; Base scheme description
+
+0=0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0 ; Specialization: Building construction
+
+; Extended scheme description.
+
+; Summon
+1=+40      ;+40 to all summons
+
+; Spells learning
+2==-20     ;=-20 to all spells
+2063=+50  ;+50 Teleport
+2028=+30  ;+30 Air Shield 
+2044=+30  ;+30 Precision
+2051=+30  ;+30 Fortune
+2053=+30  ;+30 Haste
+2058=+30  ;+30 Counterstrike
+2064=+30  ;+30 Recharge
+2041=+30  ;+30 Bless 
+2048=+30  ;+30 Prayer
+2033=+30  ;+30 Elements Protection
+2029=+30  ;+30 Fire Shield 
+2043=+30  ;+30 Bloodlust
+2055=+30  ;+30 Slayer
+2056=+30  ;+30 Frenzy 
+2027=+30  ;+30 Shield
+2034=+30  ;+30 Anti-Magic
+2046=+30  ;+30 Stone Skin 
+; Hero Primary Skills
+3034=+30  ;+20 Knowlege
+; Hero Sec. Skills
+4022=+40  ;+40 Offense
+4023=+40  ;+40 Armorer
+4006=+40  ;+40 Recruitment
+4021=+40  ;+40 Learning
+4013=+40  ;+40 Estates
+4005=+30  ;+30 Specialization
+4007=+30  ;+30 Wisdom
+4008=+30  ;+30 Mysticism
+4015=+20  ;+20 Air Magic 
+4016=+20  ;+20 Water Magic 
+4014=+20  ;+20 Fire Magic
+4017=+20  ;+20 Earth Magic 
+4011==-20 ;=-20 Eagle Eye
+; Building construction
+5=+40     ;+40 to all constructions
+; Special constructions
+500902==-20 ;=-20 to build Fountain of Fortune
+500904==-20 ;=-20 to build Library
+500902=+60  ;+60 to build Colossus
+500905=+60  ;+60 to build Spirit Guardian
+500908=+60  ;+60 to build Skyship
+500911=+60  ;+60 to build Deity of Fire
+500914=+60  ;+60 to build Soul Prison
+500917=+60  ;+60 to build Guardian of Earth
+500920=+60  ;+60 to build Warlords' Monoument
+500923=+60  ;+60 to build Carnivorous Plant
+500926=+60  ;+60 to build Aurora Borealias
+; Commander Improvement
+6001=+10  ;+10 to commander Defense
+6002=+10  ;+10 to commander Health
+; commander's skills
+600703=+10 ;+10 to No Retaliate
+600708=+10 ;+10 to Endurance
+600711=+10 ;+10 to Strong regeneration
+; commander's magic
+9==-20    ;=-20 to all magic
+9066=+10   ;+10 Summon: Fire
+9067=+10   ;+10 Summon: Earth
+9068=+10   ;+10 Summon: Water
+9069=+10   ;+10 Summon: Air
+9065=+10   ;+10 Clone
+9038=+10   ;+10 Resurrection
+9039=+10   ;+10 Animate Undead
+9051=+10   ;+10 Fortune
+9043=+10   ;+10 Bloodlust
+9044=+10   ;+10 Precision
+9056=+10   ;+10 Frenzy
+9053=+10   ;+10 Haste
+9055=+10   ;+10 Slayer
+9041=+10   ;+10 Bless
+9048=+10   ;+10 Prayer
+9064=+10   ;+10 Recharge
+9027=+10   ;+10 Shield
+9046=+10   ;+10 Stone Skin
+9028=+10   ;+10 Air Shield
+9029=+10   ;+10 Fire Shield
+9037=+10   ;+10 Cure
+9034=+10   ;+10 Anti-Magic
+;
