@@ -1,0 +1,35 @@
+{
+	"caption": {
+		"Cn_Simp": "新升级界面",
+		"en_US": "New Level up Screen",
+		"ru_RU": "朽聒桊屙眍?铌眍 镱恹龛 箴钼? 沐痤"
+	},
+	"description": {
+		"full": {
+			"Cn_Simp": "description_chn.txt",
+			"en_US": "description.txt",
+			"ru_RU": "description_rus.txt"
+		},
+		"short": {
+			"Cn_Simp": "",
+			"en_US": "",
+			"ru_RU": ""
+		}
+	},
+	"author": "[igrik]",
+	"homepage": "http://wforum.heroes35.net/",
+	"icon": {
+		"file": "skill12a.bmp",
+		"index": 0
+	},
+	"mod_version": "1.5",
+	"priority": 0,
+	"compatibility": {
+		"class": "all",
+		"entries": {}
+	},
+	"platform": "era",
+	"info_version": "1.1",
+	"plugins": {},
+	"category": "cheats"
+}
