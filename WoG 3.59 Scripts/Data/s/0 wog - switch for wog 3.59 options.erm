@@ -1,0 +1,29 @@
+ZVSE2
+
+** Enable or disable some of the new scripts
+
+!#UN:P97/1;  [Good Random Events]
+!#UN:P98/1;  [Bad Random Events]
+!#UN:P277/1; [Sphinx Monster Riddle]
+!#UN:P278/1; [Remove All Monoliths]
+!#UN:P279/1; [Upgrade at External Dwellings]
+!#UN:P280/1; [AI Berserk Spell Casting]
+!#UN:P283/1; [Limited Dwelling Accumulations]
+!#UN:P285/0; [Guarded Artifacts] - current buggy, stuck on map start
+!#UN:P289/1; [Display Keymaster Keys]
+!#UN:P291/1; [Frozen Food]
+!#UN:P305/1; [Random Battle Positions]
+!#UN:P316/1; [Dwarven Treasury Bank]
+!#UN:P317/1; [Ginko's Training Facility]
+!#UN:P319/1; [Victory Points]
+!#UN:P320/1; [Human Truce]
+!#UN:P321/1; [Upgrade All Troops]
+!#UN:P322/1; [Command Points]
+!#UN:P331/1; [Reminders, Town and Hero Notes]
+!#UN:P332/1; [Upgraded Troops]
+
+
+; These options are removed as they have been included in Era Scripts
+*#UN:P281/1; [50% Experience from Fleeing Monsters] - commented
+*#UN:P282/1; [Monster Stacks have Resources] - removed
+*#UN:P284/1; [Monster Stack Artifacts] - removed

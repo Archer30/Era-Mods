@@ -1,8 +1,4 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.11(November).2011
-
+ZVSE2
 ** Victory Points version 0.7
 ** By Timothy Pulver
 ** Script119.erm
@@ -97,7 +93,9 @@ Enable/Disable Desired Options for this game.^;
  [Display Starting Victory Point Information]
 
 !?TM1; [Daily Timer]
-!!UN:P319/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P319/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!VRy-2:Sc0; [Current Day: y-2]
 !!FU|y-2<>1/-1000:E; [Exit if not Day 1 or for computer players]
 
@@ -143,7 +141,8 @@ Once the end-game period begins, human players cannot recapture mines or dwellin
  [Check for a Winner]
 
 !?TM1; [Daily Timer]
-!!UN:P319/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P319/=1;
+!!FU&-1:E; [Exit if script is not enabled]
 !!FU&v62=4:E; [Exit if Victory Points are for information purposes only]
 !!FU&v61=0/-1000:E; [Exit if AI turn and computer players can't win the game with Victory Points]
 
@@ -269,9 +268,11 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 
 !?FU313;
 !!FU&x16=x2:E; [Skip same player]
+
 !!VRy1:S-10 -x16; [Index for y- variable with player's current Victory Points (-10..-17): y1]
 !!VRx16&yx1<yy1:S999; [End loop if points are less than another player's points]
 !!FU&yx1<yy1:E; [Exit loop if points are less than another player's points or no higher than highest so far]
+
 !!VRy-20&yx1>y-18:S-1; [Reset y-20 if a higher number of VPs is found]
 !!VRy-19&yx1>y-18:Sx2; [Store player with highest number of VP so far: y-19]
 !!VRy-18&yx1>y-18:Syx1; [Store highest number of VP so far: y-18]
@@ -284,9 +285,12 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
  [Display Victory Point Values on Ctrl-A Click]
 
 !?CM5; [Adventure Screen left-click trigger]
-!!UN:P319/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P319/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!CM:I?y-1 F?y-2 S?y-3; [Location: y-1, Flags: y-2, Sub-Type of Click: y-3]
 !!FU|y-1<>9/y-2<>4/y-3<>12:E; [Exit if not Ctrl-A]
+
 !!UN:V?y-1/?y-2/?y-3/?y-4/?y-5; [Check if it's a network game: y-4=1 if yes]
 !!OW&y-4=0:C?y-6; [If not a Network game, get current player: y-6]
 !!DO309/0/7/1&y-4=1:P; [If Network game, determine which Player is Pressing Ctrl-A: y-6]
@@ -315,11 +319,14 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
  [Right-Click on Adventures Options Displays Player's Current Victory Point Totals]
 
 !?CM0; [Adventure Screen right-click trigger]
-!!UN:P319/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P319/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!CM:I?y-1; [Location clicked: y-1]
 !!FU&y-1<>9:E; [Exit if not Adventure Options button]
+
 !!FU302:P; [Calculate each player's points and store in y-10..y-17]
-!!FU2405:P; [Get local/current player: y-100]
+!!OW:C?y30/?y-100; [Get local/current player: y-100]
 !!VRz2&v62=1:S^{Get %V63 points to Win!}^;
 !!VRz2&v62=2:S^{Get %V63 points MORE than other players to Win!}^;
 !!VRy-20&v62=3:Sv63 :28 +1; [Month to win: y-20]
@@ -347,8 +354,14 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
  [Calculate Players' Victory Points]
 
 !?FU302; [Calculate each player's points]
-!!VRy-10:S0; !!VRy-11:S0; !!VRy-12:S0; !!VRy-13:S0; [Initialize player's VP totals to 0]
-!!VRy-14:S0; !!VRy-15:S0; !!VRy-16:S0; !!VRy-17:S0; [Initialize player's VP totals to 0]
+!!VRy-10:S0;
+!!VRy-11:S0;
+!!VRy-12:S0;
+!!VRy-13:S0; [Initialize player's VP totals to 0]
+!!VRy-14:S0;
+!!VRy-15:S0;
+!!VRy-16:S0;
+!!VRy-17:S0; [Initialize player's VP totals to 0]
 !!DO303/0/155/1:P; [Loop through Heroes: 1 point per level]
 !!UN:U98/-1/?y1; [Number of Towns: y1]
 !!VRv1:S-1; [Initialize v1 to -1 for fast UN:U looping: v1]
@@ -383,6 +396,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !?FU303; [Hero Level Points]
 !!HEx16:O?y1; [Owner of hero: y1]
 !!FU&y1<0:E; [Exit if hero is unowned]
+
 !!VRy2:S-10 -y1; [Index for y- variable to store player's point: y-10..y-17: y2]
 !!HEx16:Ed/?y3/1; [Hero's level: y3]
 !!VRyy2:+y3; [Add Hero's level to player's point total: yy2]
@@ -395,21 +409,26 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!UN:U98/-1/-1/1; [Town location: v1/v2/v3]
 !!CA1:O?y1; [Owner of town: y1]
 !!FU&y1<0:E; [Exit if town is unowned]
+
 !!VRy2:S-10 -y1; [Index for y- variable to store player's point: y-10..y-17: y2]
 !!CA1:B3/26; [Check for Grail Building: Flag 1]
 !!VRyy2&1:+25; [25 Points for Grail Building]
 !!CA1:B3/13; [Check for Capitol: Flag 1]
 !!VRyy2&1:+25; [25 Points for Capitol]
 !!FU&1:E; [Exit if Capitol built]
+
 !!CA1:B3/9; [Check for Castle: Flag 1]
 !!VRyy2&1:+20; [20 Points for Castle]
 !!FU&1:E; [Exit if Castle built]
+
 !!CA1:B3/8; [Check for Citadel: Flag 1]
 !!VRyy2&1:+15; [15 Points for Citadel]
 !!FU&1:E; [Exit if Citadel built]
+
 !!CA1:B3/7; [Check for Fort: Flag 1]
 !!VRyy2&1:+10; [10 Points for Fort]
 !!FU&1:E; [Exit if Fort built]
+
 !!VRyy2:+5; [5 Points for Town without Fort]
 
 --------------------------------------------------------------------------------
@@ -424,6 +443,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!SY1&x1=87:O?y1; [Owner of shipyard: y1]
 !!MN1&x1=42:O?y1/1; [Owner of lighthouse: y1]
 !!FU&y1=-1:E; [Exit if object is unowned]
+
 !!VRy2:S-10 -y1; [Index for y- variable to store player's point: y-10..y-17: y2]
 !!MN1&x1=53:R?y3/1; [Mine Resource: y3]
 !!VRyy2&x1=53/y3<>6:+2; [2 Points for a non-Gold Mine]
@@ -470,6 +490,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!VRyy5&y3=0:Sx16; [Set y-30..y-37 to player colour (for Flag picture) if player is alive]
 !!VRy-29&y3=0:+1; [Increment y-29 counter if player is alive]
 !!FU&y3=1:E; [Skip if player isn't alive]
+
 !!VRy4:Syy1; [Player x16's total points: y4]
 !!VRz-1&x16=0:S^Red^;
 !!VRz-1&x16=1:S^Blue^;
@@ -498,6 +519,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!HE-1:O?y-3; [Owner of hero: y-3]
 !!OB998|y-1<0/y-2=1:Ey-3; [Enable mine for visiting player if unowned or owned by AI]
 !!FU|y-1<0/y-2=1/y-1=y-3:E; [Exit if mine is owned by AI or visiting player]
+
 !!IF:M^Human controlled mines cannot be captured by human players during the end-game period.^;
 !!OB998:Dy-3; [Disable mine for visiting player]
 
@@ -511,6 +533,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!HE-1:O?y-3; [Owner of hero: y-3]
 !!OB998|y-1<0/y-2=1:Ey-3; [Enable mine for visiting player if unowned or owned by AI]
 !!FU|y-1<0/y-2=1/y-1=y-3:E; [Exit if mine is owned by AI or visiting player]
+
 !!IF:M^Human controlled mines cannot be captured by human players during the end-game period.^;
 !!OB998:Dy-3; [Disable mine for visiting player]
 
@@ -524,6 +547,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!HE-1:O?y-3; [Owner of hero: y-3]
 !!OB998|y-1<0/y-2=1:Ey-3; [Enable dwelling for visiting player if unowned or owned by AI]
 !!FU|y-1<0/y-2=1/y-1=y-3:E; [Exit if dwelling is unowned, or owned by AI or visiting player]
+
 !!IF:M^Human controlled dwellings cannot be captured by human players during the end-game period.^;
 !!OB998:Dy-3; [Disable dwelling for visiting player]
 
@@ -537,8 +561,8 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!HE-1:O?y-3; [Owner of hero: y-3]
 !!OB998|y-1<0/y-2=1:Ey-3; [Enable dwelling for visiting player if unowned or owned by AI]
 !!FU|y-1<0/y-2=1/y-1=y-3:E; [Exit if dwelling is unowned, or owned by AI or visiting player]
+
 !!IF:M^Human controlled dwellings cannot be captured by human players during the end-game period.^;
 !!OB998:Dy-3; [Disable dwelling for visiting player]
 
 --------------------------------------------------------------------------------
-

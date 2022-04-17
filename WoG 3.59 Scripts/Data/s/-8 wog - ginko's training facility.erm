@@ -1,8 +1,4 @@
-ZVSE
-ERMS_ScriptDate=22.11(November).2011
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-
+ZVSE2
 ** Ginko's Training Facility version 0.2
 ** Script117.erm
 ** Last Updated: June 21, 2006
@@ -13,7 +9,6 @@ ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
 
 *** ERM WoG Option Number: 317
 
-** FU-n-->FU101n:  FU1010-FU1018
 ** Variables
 ** v variables: v151
 ** z variables: z187 (hint text)
@@ -67,7 +62,7 @@ A bright and boisterous young man sitting at a mahogany desk leaps to his feet w
 Well, it all sounds a bit too good to be true but you {have} actually heard positive things about the place.  The director's obviously a bit of a twerp but since you're here now you might as well give the training a go--god knows, in this war you can use every little advantage you can get.^;
 !!VRv151&y-3=0:|y-100; [Add player's bit number to v151 so intro message won't repeat]
 
-!!FU1015:P; [Hero training (+1 to Attack or Defense once per hero for 1000 gold]
+!!FU(WOG_317_ShowHeroTrainingDlg):P; [Hero training (+1 to Attack or Defense once per hero for 1000 gold]
 
 !!IF&y-18=1:M^Ginko Baloba informs you that the troop instructors need to rest and so there will be no more classes available today.
 
@@ -78,7 +73,7 @@ Well, it all sounds a bit too good to be true but you {have} actually heard posi
 !!VRy-25:Sc-1 :28; [Maximum training rank increases each month: y-25]
 !!VRy-25:+5; [Add 5 to maximum training rank: y-25]
 !!VRy-25&y-25>10:S10; [Maximum training rank of 10 regardless: y-25]
-!!DO1011/0/6/1:P; [Build text strings for dialogue box: y-21=0 if no creatures]
+!!DO(WOG_317_BuildTextStringsForDlg)/0/6/1:P; [Build text strings for dialogue box: y-21=0 if no creatures]
 !!IF&y-21=0:M^You study the available courses but don't see anything for the troops you have with you.
 
 The Director suddenly reappears beside you and announces, "I see you don't have any soldiers my instructors can train.  That's too bad, too bad I say!"
@@ -106,7 +101,7 @@ Ginko chuckles at his catchy rhyme and then hastily adds before you're out of ea
 
 !!VRy-8:S0; [Initialize y-8 to 0]
 !!VRy-38:S0; [Initialize y-38 to 0]
-!!DO1016/1/7/1:Pv1; [Determine total cost for all stack training: y-8]
+!!DO(WOG_317_GetTotalCostOfTraining)/1/7/1:Pv1; [Determine total cost for all stack training: y-8]
 
 !!VRz-8&y-12=0:S^man^;
 !!VRz-8&y-12=1:S^woman^;
@@ -123,7 +118,7 @@ Ginko chuckles at his catchy rhyme and then hastily adds before you're out of ea
 
 Before you know it, your army returns, a bit tired but excited to begin using their new found skills--these classes really work!^;
 
-!!DO1018/1/7/1:Pv1; [Add one rank to each trained stack]
+!!DO(WOG_317_SetNewRanks)/1/7/1:Pv1; [Add one rank to each trained stack]
 
 !!HE-1:W?y-22; [Hero's current movement points: y-22]
 !!VRy-23:Sy-22 -500; [Remove 500 movement points]
@@ -138,7 +133,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
  [Determine total cost for all selected stack training: y-8]
  [Store IF:Q type/subtype for IF:N display]
  [x1=checkboxes selected]
-!?FU1016;
+!?FU(WOG_317_GetTotalCostOfTraining);
 !!FU3333:Px16; [Convert to bit number: y-100]
 !!VRy1:Sx1; [Copy x1 to y1]
 !!VRy1:&y-100; [See if this checkbox was selected: y1>0 if selected: y1]
@@ -163,7 +158,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Set new ranks for trained troops]
-!?FU1018;
+!?FU(WOG_317_SetNewRanks);
 !!FU3333:Px16; [Convert to bit number: y-100]
 !!VRy1:Sx1; [Copy x1 to y1]
 !!VRy1:&y-100; [See if this checkbox was selected: y1>0 if selected: y1]
@@ -175,7 +170,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Build text strings for dialogue box: z1..z7]
-!?FU1011;
+!?FU(WOG_317_BuildTextStringsForDlg);
 !!HE-1:C0/x16/?y1/?y2/?y3/2; [y1=type, y2=number, y3=experience]
 !!VRy4:Sx16 +1; [Index for z variable to store text strings (z1..z7)]
 !!VRzy4:S^^; [Initialize z variables to empty strings]
@@ -185,18 +180,18 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 !!FU&y10<>1:E; [Skip if no trainable monster in this slot]
 
 !!VRy-21:S1; [Set y-21 to 1 if any trainable monsters found]
-!!FU1017:Py1/y2/y3/y4/x16; [Determine monster's rank and cost and create text string]
+!!FU(WOG_317_CreateStringByRankAndCost):Py1/y2/y3/y4/x16; [Determine monster's rank and cost and create text string]
 
 --------------------------------------------------------------------------------
 
  [Determine monster's rank and cost and create text string]
  [x1=type, x2=number, x3=experience, x4=index for z variable, x5=stack number]
-!?FU1017;
+!?FU(WOG_317_CreateStringByRankAndCost);
 !!UN&x2=1:N3/8/x1/0; [Monster name (singular): z8]
 !!UN&x2>1:N3/8/x1/1; [Monster name (plural): z8]
 !!MA:Lx1/?y6; [Monster level (0..6): y6]
 !!VRy6:+1; [Add 1 to monster level: y6]
-!!FU1012:Py6/x3/x1; [Get rank: y-20]
+!!FU(WOG_317_GetRankOfStack):Py6/x3/x1; [Get rank: y-20]
 !!VRy5:Sy-20 +1; [Next rank to train creatures to: y5]
 !!FU&y5>y-25:E; [Skip if stack is higher than maximum training rank]
 
@@ -222,7 +217,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 
  [Get rank of stack: y-20]
  [x1=monster level (1..7), x2=current experience, x3=monster number]
-!?FU1012;
+!?FU(WOG_317_GetRankOfStack);
 !!VRe1:S2 :5 +8; [e1=8.4]
 !!VRy1:Sx2 :x1; [Base experience for level 1..7 creatures: y1]
 !!VRy1&x3>=150/x3<=158:Sx2 :e1; [Base exp. for level 8 creatures: y1]
@@ -244,11 +239,12 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Hero Training for human player]
-!?FU1015;
+!?FU(WOG_317_ShowHeroTrainingDlg);
 !!HE-1:O?y1; [Visiting hero's owner: y1]
 !!OB998:Dy1 C?y2; [Disable object for this player, School of War's number: y2]
 !!HE-1:V9/y2/?y3; [Check if hero has gained a bonus at this school yet: y3]
 !!FU&y3=1:E; [Exit if hero has already gained a bonus here]
+
 !!IF:Q2/31/1/32/1/10^{Hero Training}
 
 "While your troops are busy training, how about we give you some top-notch instruction too?" suggests Ginko Baloba, smiling broadly.
@@ -290,17 +286,23 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 
 !!CM:I?y-1; [Click location: y-1]
 !!FU&y-1<>37:E; [Exit if click isn't on Adventure Map]
+
 !!CM:P?y-1/?y-2/?y-3; [Click location: y-1/y-2/y-3]
 !!OBy-1/y-2/y-3:T?y-4; [Object type at click location: y-4]
 !!FU&y-4<>107:E; [Exit if not School of War]
-!!UN:V?y-9/?y-10/?y-11/?y-12/?y-13; [Check type of game: y-9]
-!!DO1013/0/7/1&y-13>0/y-13<>3:P; [For non-Hotseat MP game, determine which player is clicking: y-5]
-!!OW|y-13=0/y-13=3:C?y-5; [For Single player or Hotseat game, player clicking is current player: y-5]
+
+!!OW:C?y30/?y-5;                        [Get clicking player]
+
 !!OW:Ay-5/?y-6; [Active hero: y-6]
 !!OBy-1/y-2/y-3:C?y-7; [Control word for School of War (School number): y-7]
-!!FU1014&y-7<0:P; [If School of War number is less than 0, locate the yellow trigger square]
-!!OBy-1/y-2/y-3&y-7<0:C?y-7; [Control word for School of War (School number): y-7]
-!!FU&y-7<0:E; [Exit if Control word is still <0 (may happen if a Hero is currently visiting)]
+
+!!if&y-7<0;
+  !!SN:O?y-1/?y-2/?y-3;                 [If School of War number is less than 0, locate the yellow trigger square]
+  !!OBy-1/y-2/y-3:C?y-7;                [Control word for School of War (School number): y-7]
+
+  !!FU&y-7<0:E;                         [Exit if Control word is still <0 (may happen if a Hero is currently visiting)]
+!!en;
+
 !!VRy-8:S-1; [Initialize y-8 to -1]
 !!HEy-6&y-6>=0:V9/y-7/?y-8; [Check if hero has visited this School of War yet: y-8=1 if visited]
 !!HEy-6&y-6>=0:B0/?z1; [Hero name: z1]
@@ -325,51 +327,3 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 !!CM:R0; [Disable standard right-click response]
 
 --------------------------------------------------------------------------------
-
- [Determine which player is clicking: y-5]
-!?FU1013;
-!!OW:Gx16/?y1; [Check if player x16 is the one clicking: y1=1 if yes]
-!!VRy-5&y1=1:Sx16; [Set y-5 to x16 if that player is the one clicking: y-5]
-!!VRx16&y1=1:S999; [Exit loop if player x16 is the one clicking]
-
---------------------------------------------------------------------------------
-
- [Find the yellow trigger square for School of War]
-!?FU1014;
-!!VRy1:Sy-1 +1; [Set x one square to the right: y1]
-!!TRy1/y-2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy2:Sy-2 +1; [Set y one square down: y2]
-!!TRy1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy2:Sy-2 +2; [Set y two squares down: y2]
-!!TRy1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy1:Sy-1 +2; [Set x two squares to the right: y1]
-!!VRy2:Sy-2 +1; [Set y one square down: y2]
-!!TRy1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy1:Sy-1 -1; [Set x one square to the left: y1]
-!!VRy2:Sy-2 +1; [Set y one square down: y2]
-!!TRy1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy2:Sy-2 +1; [Set y one square down: y2]
-!!TRy-1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-!!VRy2:Sy-2 +2; [Set y two squares down: y2]
-!!TRy-1/y2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
-!!VRy-2&y4=0:Sy2; [Set y-2 to yellow square location if found]
-!!FU&y4=0:E; [Exit if yellow trigger square found]
-
---------------------------------------------------------------------------------
-

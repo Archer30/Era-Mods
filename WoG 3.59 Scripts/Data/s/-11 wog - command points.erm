@@ -1,8 +1,4 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.6(June).2006
-
+ZVSE2
 ** Command Points version 0.2
 ** by Timothy Pulver
 ** script122.erm
@@ -56,7 +52,8 @@ ERMS_ScriptDate=21.6(June).2006
 --------------------------------------------------------------------------------
 
 !?CM0&999; [Adventure Screen right-click trigger]
-!!UN:P322/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P322/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
 
 !!CM:I?y-1; [Location clicked: y-1]
 !!FU&y-1<>6:E; [Exit if not Sleep/Wake button]
@@ -68,7 +65,8 @@ ERMS_ScriptDate=21.6(June).2006
 --------------------------------------------------------------------------------
 
 !?CM1&999; [Town Screen mouse click trigger]
-!!UN:P322/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P322/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
 
 !!CM:I?y-1 S?y-2; [Location clicked: y-1, Subtype of Click: y-2]
 !!FU|y-1<>123/y-2<>14:E; [Exit if not a right-click on the Garrison Hero slot]
@@ -223,6 +221,7 @@ ERMS_ScriptDate=21.6(June).2006
 
  [Store virtual slots (no empty slots)]
 !!FU&y7=y2:E; [Exit if all troops removed]
+
 !!VRy-5:+1; [Increment slot counter unless all troops removed: y-5]
 !!VRy9:S-10 -y-5; [Index for next virtual slot (y-10..y-16): y9]
 !!VRyy9:Sx16; [Store current slot number in virtual slot (y-10..y-16): yy9]
@@ -240,6 +239,7 @@ ERMS_ScriptDate=21.6(June).2006
 !!CAy-17/y-18/y-19&x8=1:M2/y13/?y1/?y2; [Type: y1, Number: y2]
 
 !!FU|y1<0/y2<1:E; [Skip if slot is empty]
+
 !!MA:Cy1/6/?y3 Xy1/?y4; [Gold Cost of creature: y3, Creature's Flags: y4]
 !!VRy5:Sy3 *y2; [Unmodified cost of stack: y5]
 
@@ -266,7 +266,8 @@ ERMS_ScriptDate=21.6(June).2006
 
  [Start of Battle Trigger: Remove Excess Troops]
 !?BA52;
-!!UN:P322/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P322/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
 
 !!BA:H0/?y-3 H1/?y-4; [Attacker: y-3, Defender: y-4]
 
@@ -335,4 +336,3 @@ ERMS_ScriptDate=21.6(June).2006
 !!VRyy1:S-1; [Initialize y- variables to -1]
 
 --------------------------------------------------------------------------------
-

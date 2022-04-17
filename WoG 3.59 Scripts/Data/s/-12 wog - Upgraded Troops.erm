@@ -1,8 +1,4 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.11(November).2011
-
+ZVSE2
 ** Upgraded Troops
 ** By Timothy Pulver
 ** Version 0.1
@@ -23,7 +19,7 @@ ERMS_ScriptDate=21.11(November).2011
 
 ** Functions used: FU11000-F11014, FU11500
 ** Temporary v variables: v1-v3
-** Timers: TM2 (Universal Timer)
+
 
  [Upgraded Creature Function]
  [Creature number: x1, Returns Upgraded Creature number in x2]
@@ -47,7 +43,10 @@ ERMS_ScriptDate=21.11(November).2011
  [disable all upgraded dwellings in towns (upgraded creature can be bought]
  [from non-upgraded dwellings]
  [y- variables used: y-1..y-7]
-!?TM2&v2392=1/v2391=1; [Day 1 Timer]
+!?FU(OnEveryDay)&i^timerDay^=1/i^timerOnce^; [Day 1 Timer]
+!!UN:P332/?y30;
+!!FU&y30<>(TRUE):E;
+
 !!DO11000/0/155/1:P; [Upgrade hero creatures]
 !!UN:U17/-1/?y-1; [Number of external dwellings on map (type 17): y-1]
 !!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
@@ -183,4 +182,3 @@ ERMS_ScriptDate=21.11(November).2011
  [x variables used: x1-x3, x16]
 !?FU11006;
 !!CAx1/x2/x3:B5/x16; [Disabled upgraded dwellings]
-

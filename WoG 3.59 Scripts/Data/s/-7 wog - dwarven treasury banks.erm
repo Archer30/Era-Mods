@@ -1,8 +1,4 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.6(June).2006
-
+ZVSE2
 ** Dwarven Treasury Banks version 0.2
 ** Script116 by Timothy Pulver
 ** ERM Option Number: 316
@@ -27,16 +23,20 @@ ERMS_ScriptDate=21.6(June).2006
 
  [Calculate and give interest on player's deposit every 7 days]
 !?TM1; [Daily Timer Trigger]
-**UN:P316/=1; **FU&-1:E; [Exit if script is not enabled]
+!!UN:P316/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!OW:C?y-1; [Current player: y-1]
 !!VRy-2:S285 +y-1; [Index # for date player deposited gold: y-2]
 !!VRy-3:Svy-2; [Date gold was deposited -- <1 = no deposit: y-3]
 !!FU&y-3<1:E; [Exit if no current deposit for this player]
+
 !!VRy-4:Sc0; [Current date: y-4]
 !!VRy-5:Sy-4 -y-3; [Number of days gold has been deposited: y-5]
 !!VRy-6:Sy-5 :7 -1; [Divide by 7 to determine number of full weeks of deposit minus one: y-6]
 !!VRy-7:Sy-5 %7; [Remainder of division by 7 to determine if it's time to pay interest: y-7]
 !!FU&y-7<>0:E; [Exit if y-7 <> 0 -- means not time to pay interest]
+
 !!VRy-8:S390 +y-1; [Index # for player's deposited gold: y-8]
 !!VRy-9:Svy-8; [Player's deposited gold: y-9]
 !!VRe-1:S1 :4; [0.25: e-1]
@@ -48,7 +48,9 @@ ERMS_ScriptDate=21.6(June).2006
 
  [Dwarven Treasury Bank]
 !?OB16/1&1000; [Dwarven Treasury Trigger for Human players]
-**UN:P316/=1; **FU&-1:E; [Exit if script is not enabled]
+!!UN:P316/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!CB998:T?y-16; [Check if Dwarven Treasury has been taken: y-16=1 if taken]
 !!IF&y-16=1:M^{Dwarven Treasury Bank}
 
@@ -73,8 +75,8 @@ If you have money deposited with the Dwarves, you'll need to locate a working ba
 !!VRy-10:Sy-9 +e-4; [Deposit plus interest: y-10]
 
 !!VRy1:S1 R1; [Random number 1..2]
-!!FU3333&y1=1:P; [Generate random male name: z3]
-!!FU3334&y1=2:P; [Generate random female name: z3]
+!!FU(WOG_316_GetRandomMaleName)&y1=1:P; [Generate random male name: z3]
+!!FU(WOG_316_GetRandomFemaleName)&y1=2:P; [Generate random female name: z3]
 !!HE-1:B0/?z2; [Hero's name: z2]
 
 !!VRy-11:S7 -y-7; [Next payment in x days: y-11]
@@ -146,7 +148,7 @@ We hope to see you again soon.^;
 --------------------------------------------------------------------------------
 
  [Generate Male Name: z3]
-!?FU3333;
+!?FU(WOG_316_GetRandomMaleName);
 !!VRy1:S0 T51; [First part of name: y1]
 !!VRy2:S0 R51; [Second part of name: y2]
 !!VRz1&y1=0:S^Goth^; !!VRz1&y1=1:S^Woob^; !!VRz1&y1=2:S^Grond^; !!VRz1&y1=3:S^Gorg^;
@@ -182,7 +184,7 @@ We hope to see you again soon.^;
 --------------------------------------------------------------------------------
 
  [Generate Female Name: z3]
-!?FU3334;
+!?FU(WOG_316_GetRandomFemaleName);
 !!VRy1:S0 T51; [First part of name: y1]
 !!VRy2:S0 R51; [Second part of name: y2]
 !!VRz1&y1=0:S^Jen^; !!VRz1&y1=1:S^Pink^; !!VRz1&y1=2:S^Selip^; !!VRz1&y1=3:S^Perr^;
@@ -214,4 +216,3 @@ We hope to see you again soon.^;
 !!VRz2&y2=48:S^ily^; !!VRz2&y2=49:S^isgona^; !!VRz2&y2=50:S^itfora^; !!VRz2&y2=51:S^nowkee^;
 
 !!VRz3:S^%Z1%Z2^; [Female name: z3]
-

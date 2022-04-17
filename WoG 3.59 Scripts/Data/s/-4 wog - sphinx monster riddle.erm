@@ -1,8 +1,4 @@
-ZVSE
-ERMS_ScriptDate=21.6(June).2006
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-
+ZVSE2
 ** Sphinx Monster Riddle v0.4 by Timothy Pulver
 ** Wogify name: script098.erm
 ** Last Updated: June 21, 2006
@@ -28,19 +24,27 @@ Functions: FU3305-FU3321
 
  [Sphinx is trigger]
 !?OB63/10&1000;
-!!UN:P98/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P277/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!FU3305:P;
 
 !?OB63/11&1000;
-!!UN:P98/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P277/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!FU3305:P;
 
 !?OB63/12&1000;
-!!UN:P98/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P277/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!FU3305:P;
 
 !?OB63/13&1000;
-!!UN:P98/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P277/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!FU3305:P;
 
 --------------------------------------------------------------------------------
@@ -204,6 +208,7 @@ angry %Z43!"^;
 !!FU|x16=122/x16=124/x16=126/x16=128:E; [Skip unused monsters]
 !!FU&x16>=145/x16<=149:E; [Skip war machines]
 !!FU&x16>=174/x16<=191:E; [Skip Commanders]
+
 !!VRy-2|z38=z41/z38=z42:Sx16; [Set y-2 to x16 if match found]
 !!VRx16|z38=z41/z38=z42:S999; [Exit loop if match found]
 
@@ -471,4 +476,3 @@ angry %Z43!"^;
 !?FU3321;
 !!BA:M1/x16/?y1/?y2; [Type: y1, Number: y2]
 !!BA&y1>=0/y2>0:M1/x16/v3332/d;
-

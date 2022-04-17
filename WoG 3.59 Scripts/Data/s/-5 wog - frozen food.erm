@@ -1,8 +1,4 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=22.11(November).2011
-
+ZVSE2
 ** Frozen Food version 0.5
 ** script101.erm by Timothy Pulver
 ** WoG Option number: 301
@@ -37,56 +33,63 @@ ERMS_ScriptDate=22.11(November).2011
 
 ** Variables Used:
 **   v37-v38, w109
-**   FU-1..FU-3 --> FU1021-FU1022
+**   FU-1..FU-3
 **   Dialog Box 12
 
  [Initialize variables to 0]
-!#UN:P301/=1; [Check if script is enabled]
+!#UN:P291/=1; [Check if script is enabled]
 !#VRv37&1:S0;
 !#VRv38&1:S0;
 
  [Clear w109 variable for all heroes at start of game]
 !?PI;
-!!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
-!!DO1022/0/155/1:P; [Loop through all heroes]
+!!UN:P291/=1;
+!!FU&-1:E; [Exit if script is disabled]
 
- [Loop through all heroes and clear w109 variable]
-!?FU1022;
-!!IF:Wx16;   [Set w variables for each hero]
-!!VRw109:S0; [Set w109 variable to 0]
+!!re i/(HERO_FIRST)/(HERO_LAST_WOG);
+  !!VRw109:S0;
+!!en;
 
  [Timer is every Day 1 starting at 2nd week]
-!?TM2&v2392>7/v2393=1/v2391=1;
-!!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
-!!UN:U39/-1/?y-1; [Number of Lean To's on map: y-1]
-!!VRv1:S-1; [Initialize v1 to -1 for fast UN:U loop: v1]
-!!DO1021/1/y-1/1&y-1>0:P; [Loop through all Lean To's]
+!?FU(OnEveryDay)&i^timerDay^>1/i^timerWeekday^=1/i^timerOnce^;
+!!UN:P291/=1;
+!!FU&-1:E; [Exit if script is disabled]
+
+!!VR(x:y):S-1;                          [Initialize x to -1 for fast UN:U loop]
+
+!!re i;                                 [Loop through all Lean To's]
+  !!UN:U(OBJ_LEAN_TO)/(ANY_OBJ)/-1/(x)/(y:y)/(z:y);
+  !!br&(x)<0;
+
+  !!LN(x)/(y)/(z):B?(leanTo:y)/?(reward:y); [Check value of Lean To..(reward) is 0 if already visited]
+  !!PO(x)/(y)/(z)&(reward)=0:S1; [If Lean To has been visited already, set PO:S to 1 to indicate Lean To has food]
+!!en;
+
 !!VRv38:Sv37 *100; [Bonus movement for AI this week: v38]
 !!VRv37:S0; [Reset weekly total Frozen Food rations counter to 0: v37]
 
- [Loop through all Lean To's and restock *visited* ones with Frozen Food (set PO number)]
-!?FU1021;
-!!UN:U39/-1/-1/1; [Get coordinates of Lean To into v1/v2/v3]
-!!LNv1/v2/v3:B?y-1/?y-2; [Check value of Lean To..y-2 is 0 if already visited]
-!!POv1/v2/v3&y-2=0:S1; [If Lean To has been visited already, set PO:S to 1 to indicate Lean To has food]
-
  [Daily Timer for AI players if they get bonus movement]
-!?TM2&v2392>7/v2394=1/v38>0;
-!!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
-!!OW:H-1/1/0; [Number of heroes owned by this AI player: v1]
-!!DO1023/1/v1/1&v1>0:P; [Loop through all heroes and give them bonus movement]
+!?FU(OnEveryDay)&i^timerDay^>7/i^timerIsAi^/v38>0;
+!!UN:P291/=1;
+!!FU&-1:E;                              [Exit if script is disabled]
 
- [Loop through all heroes and give them bonus movement]
-!?FU1023;
-!!OW:H-1/1/x16; [Store each AI hero number in v1]
-!!HEv1:Wdv38 Gdv38; [Give bonus movement to AI hero]
-!!HEv1:B0/?z1;
+!!OW:Hi^timerOwner^/2;
+!!VR(lastHeroPtr:y):Sv2 +2;
+
+!!if&v2>0;                              [Loop through all heroes and give them bonus movement]
+  !!re i/3/(lastHeroPtr);
+    !!HEvi:Wdv38 Gdv38;                 [Give bonus movement to AI hero]
+  !!en;
+!!en;
 
  [Lean To is post-visit trigger]
 !?OB39;
-!!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
+!!UN:P291/=1;
+!!FU&-1:E; [Exit if script is disabled]
+
 !!PO998:S?y-1; [Check if there's any Frozen Food: y-1=1 if yes]
 !!FU|y-1<>1/-999:E; [Exit if no Frozen Food or not current Human player]
+
 !!OB998:M-1/1/0; [Disable standard message]
 !!VRz1:S^At the back of the Lean To you find some frozen food.
 If your army eats it, they'll have the energy to travel further.
@@ -107,10 +110,13 @@ right-click the ADVENTURE screen Quest Log button.^;
 
  [Right-click on Adventure Map Quest Log button is trigger]
 !?CM0;
-!!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
+!!UN:P291/=1;
+!!FU&-1:E; [Exit if script is disabled]
+
 !!CM:I?y-1; [Location clicked: y-1]
 !!OW:A-1/?y-2; [Active hero: y-2]
 !!FU|y-1<>5/y-2<0/-999:E; [Exit if not Quest Log button, no Active Hero or not current player]
+
 !!CM:R0; [Disable standard click response]
 !!HEy-2:B0/?z-1 R2/?y-7; [Name of active hero: z-1, Sex of hero: y-7]
 !!VRz-7&y-7=0:S^he^;
@@ -197,4 +203,3 @@ Would %Z-7 like to thaw one for %Z-8 army to eat so they can travel a bit furthe
 Eating the %Z-2 %Z-3 gives your army %Y-6 extra movement points and %Z-6.^;
 !!UN:A98/9/0 A98/10/0; [Restore Boots of Speed name/description]
 !!VRz1:S^^; [Set z1 to null]
-

@@ -1,13 +1,9 @@
-ZVSE
-_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
-ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.11(November).2011
-
-** Human Truce version 1.0
+ZVSE2
+** Human Truce version 0.9
 ** By Timothy Pulver
 ** script120.erm
-** Last Updated: August 20, 2006
-** Previously Updated: August 18, 2006
+** Last Updated: August 18, 2006
+** Previously Updated: August 10, 2006
 
 ** This script disables combat between Human Players so that their heroes cannot
 ** attack other human heroes and cannot attack or capture human-controlled towns
@@ -49,7 +45,9 @@ ERMS_ScriptDate=21.11(November).2011
 
  [Choose Human Truce Options at Game Start]
 !?PI; [Post-Instruction Trigger]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!UN:P319/?y-1; [Check if Victory Points script is enabled: y-1]
 !!VRz1:S^HUMAN TRUCE OPTIONS^; [Human Truce Options]
 !!VRz2:S^Human Truce lasts the entire game.^; [Lasts entire game]
@@ -87,7 +85,9 @@ ERMS_ScriptDate=21.11(November).2011
 
  [Display Human Truce Information]
 !?TM1; [Daily Timer]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script is not enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script is not enabled]
+
 !!VRy-2:Sc0; [Current Day: y-2]
 !!FU|y-2<>1/-1000:E; [Exit if not Day 1 or for computer players]
 
@@ -109,7 +109,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Prevent human heroes interacting with enemy human heroes]
 !?CM5&v82>=0; [Adventure Map left-click]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!OW:C?y-1; [Current player: y-1]
 !!OW:H-1/1/0; [Number of heroes current player has: v1]
 !!DO152/1/v1/1&v1>0:P; [Loop through current player's heroes and disable human players interacting with them]
@@ -125,6 +127,7 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 !?FU153;
 !!HOx1&x16=y-1:Ex16; [Enable player's other heroes to interact with his own heroes]
 !!FU&x16=y-1:E; [Exit if current player]
+
 !!OW:Ix16/?y1; [For colour x16, y1=0 if Human, y1=1 if AI]
 !!HOx1&y1=0:Dx16; [Disable this colour (if Human) from interacting with this hero]
 !!HOx1&y1=1:Ex16; [Enable this colour (if AI) to interact with this hero]
@@ -133,7 +136,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Prevent human heroes interacting with enemy human heroes]
 !?BA1&v82>=0; [End of Battle Trigger]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!BA:H0/?y-1 H1/?y-2; [Heroes fighting battle: y-1, y-2]
 !!HEy-1&y-1>=0:O?y-3; [Attacking Hero's owner: y-3]
 !!HEy-2&y-2>=0:O?y-4; [Defending Hero's owner: y-4]
@@ -144,7 +149,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Prevent human-controlled heroes entering enemy human towns]
 !?OB98&1000/v82>=0; [Town Object trigger for Human player]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!HE-1:O?y-1; [Owner of hero: y-1]
 !!CA998:O?y-2; [Owner of town: y-2]
 !!OW:Iy-2/?y-3; [Town owner: y-3=0 if Human, y-3=1 if AI]
@@ -156,7 +163,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Disable human-controlled garrisons when an enemy human hero moves through]
 !?OB33&1000/v82>=0; [Garrison Object trigger for Human player]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!HE-1:O?y-1; [Owner of hero: y-1]
 !!GR998:O?y-2; [Owner of garrison: y-2]
 !!OW:Iy-2/?y-3; [Garrison owner: y-3=0 if Human, y-3=1 if AI]
@@ -168,7 +177,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Disable human-controlled garrisons when an enemy human hero moves through]
 !?OB219&1000/v82>=0; [Garrison Object trigger for Human player]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!HE-1:O?y-1; [Owner of hero: y-1]
 !!GR998:O?y-2; [Owner of garrison: y-2]
 !!OW:Iy-2/?y-3; [Garrison owner: y-3=0 if Human, y-3=1 if AI]
@@ -180,7 +191,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Prevent human players leaving guards in mines]
 !?OB53&1000/v82>=0; [Mine Object trigger for Human player]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!HE-1:O?y-1; [Visiting hero: y-1]
 !!MN998:O?y-2; [Mine owner: y-2]
 !!MN998&y-1=y-2:O-1; [Change mine to no owner if visiting hero owns mine]
@@ -189,7 +202,9 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Prevent human players leaving guards in mines]
 !?OB220&1000/v82>=0; [Mine Object trigger for Human player]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!HE-1:O?y-1; [Visiting hero: y-1]
 !!MN998:O?y-2; [Mine owner: y-2]
 !!MN998&y-1=y-2:O-1; [Change mine to no owner if visiting hero owns mine]
@@ -198,9 +213,12 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Ctrl-click on an enemy human hero to temporarily remove it from the game]
 !?CM5&999/v82>=0; [Left-click on adventure screen trigger for current player only]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!CM:F?y-1 I?y-2; [Flags for click: y-1, Location clicked: y-2]
 !!FU|y-1<>4/y-2<>37:E; [Exit if not a ctrl-click or not on the map itself]
+
 !!CM:P?y-3/?y-4/?y-5; [Location clicked: y-3/y-4/y-5]
 !!OW:C?y-6; [Current player: y-6]
 !!DO154/0/155/1:Py-6; [Loop through all heroes and possibly make hero clicked "invisible"]
@@ -209,8 +227,10 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 
  [Adjust passability of heroes and towns]
 !?TM1&v82>=0; [Daily Timer]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
-!!DO154/0/155/1&v2392>1:P10; [Loop through all heroes and restore them to normal (i.e., impassable)]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
+!!DO154/0/155/1&i^timerDay^>1:P10; [Loop through all heroes and restore them to normal (i.e., impassable)]
 !!VRv1:S-1; [Initialize v1 to -1 for fast UN:U searching]
 !!UN:U98/-1/?y-1; [Number of towns on map: y-1]
 !!OW:C?y-2; [Current player: y-2]
@@ -223,8 +243,10 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
  [x1=current player number or '10' - daily restoration loop]
 !!HEx16:O?y1; [Hero owner: y1]
 !!FU&y1<0:E; [Skip if hero is unowned]
+
 !!OW:Iy1/?y2; [Player y1 is Human (0) or AI (1): y2]
 !!FU&y2=1:E; [Skip if hero is owned by AI]
+
 !!HEx16:P?y3/?y4/?y5; [Location of hero: y3/y4/y5]
 !!TRy3/y4/y5&x1=10:E?y8; [Hero's trigger square: y8=0 if yellow (on)]
 !!UN&x1=10/y8=1:P904/1; [Temporarily disable ERM error codes]
@@ -232,9 +254,10 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 !!UN&x1=10/y8=1:P904/0; [Re-enable ERM error codes]
 !!VRy8&x1=10/y8=1/y3=y19/y4=y20/y5=y21:S0; [Don't try to reset yellow trigger square if there's a town there]
 !!TRy3/y4/y5&x1=10/y8=1:E0; [Reset Hero's trigger square to yellow (on)]
-!!OW&x1=10/y8=1:Ay1/x16; [Make this hero the active hero]
+!!OW&x1=10:Ay1/x16; [Make this hero the active hero]
 !!FU&y1=x1:E; [Exit if hero is owned by current player]
 !!FU|y3<>y-3/y4<>y-4/y5<>y-5/x1=10:E; [Exit if hero isn't at location clicked or for daily restoration loop (x1=10)]
+
 !!CM:R0; [Cancel normal click-action]
 
 !!DO156/0/6/1:Px16/0; [Store Hero's army, stack XP, Banners and Banner settings in y-10..y-44]
@@ -258,6 +281,7 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 !!UN:U98/-1/-1/1; [Next town location: v1/v2/v3]
 !!TR1&x2=1:P1; [Make all town entrances passable on AI turn]
 !!FU&x2=1:E; [Exit if AI turn]
+
 !!CA1:O?y1; [Town owner: y1]
 !!OW:Iy1/?y2; [Town owned by Human (0) or AI (1): y2]
 !!TR1|x1=y1/y2=1/y1<0:P1; [Make entrance of town owned by current player, neutral or AI passable]
@@ -288,13 +312,16 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 --------------------------------------------------------------------------------
 
  [Check for Human Truce Ending]
-!?TM2&v82>0; [Daily Timer]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!?FU(OnEveryDay)&v82>0; [Daily Timer]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!VRy-1&v82=1:S1; [Initialize y-1 to 1 if AI elimination option in effect: y-1]
 !!DO97/0/7/1&v82=1:P; [Human Truce ends when all AIs eliminated: y-1=0 if any AIs still alive]
 !!VRy-1&v82=2/v77=2:S1; [Human Truce ends when end-game reached: y-1 set to 1]
-!!VRy-1&v82>=3/v82<v2392:S1; [Human Truce ends when specific day reached: y-1 set to 1]
+!!VRy-1&v82>=3/v82<i^timerDay^:S1; [Human Truce ends when specific day reached: y-1 set to 1]
 !!FU&y-1=0:E; [Exit if Human Truce continues]
+
 !!VRv82:S-1; [Set v82 to -1 to end Human Truce]
 !!UN:U98/-1/?y-2; [Number of towns on map: y-2]
 !!VRv1:S-1; [Initialize v1 to -1 for fast UN:U searching]
@@ -315,8 +342,10 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 --------------------------------------------------------------------------------
 
  [Display Human Truce Ends Warning to All Players]
-!?TM2&v82<0/v2394=0; [Daily Timer for Human Players]
-!!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!?FU(OnEveryDay)&v82<0/i^timerIsHuman^; [Daily Timer for Human Players]
+!!UN:P320/=1;
+!!FU&-1:E; [Exit if script isn't enabled]
+
 !!VRy-1:Sv83; [Copy v83 to y-1]
 !!OW:C?y-2; [Current player: y-2]
 !!VRy-3:Sy-2 +1; [Add 1 to current player number: y-3]
@@ -330,4 +359,3 @@ The Human Truce has ended. For the rest of the game, human-controlled heroes can
 Troops may be left in mines and ctrl-clicking on enemy heroes will no longer cause them to temporarily vanish.^;
 
 --------------------------------------------------------------------------------
-
