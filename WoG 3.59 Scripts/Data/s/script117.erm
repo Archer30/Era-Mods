@@ -1,5 +1,5 @@
 ZVSE
-ERMS_ScriptDate=21.6(June).2006
+ERMS_ScriptDate=22.11(November).2011
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
 
@@ -13,6 +13,7 @@ ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
 
 *** ERM WoG Option Number: 317
 
+** FU-n-->FU101n:  FU1010-FU1018
 ** Variables
 ** v variables: v151
 ** z variables: z187 (hint text)
@@ -42,7 +43,7 @@ ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
 
  [Display intro text after initial visit]
 !!VRy-2:Sy-14 +1; [Copy player number to y-2 and add 1]
-!!FU$bit$:Py-2; [Convert to bit number. Result in y-100]
+!!FU3333:Py-2; [Convert to bit number. Result in y-100]
 !!VRy-3:Sv151; [Copy v151 to y-3]
 !!VRy-3:&y-100; [See if player's bit number is stored in v151: y-3]
 
@@ -66,7 +67,7 @@ A bright and boisterous young man sitting at a mahogany desk leaps to his feet w
 Well, it all sounds a bit too good to be true but you {have} actually heard positive things about the place.  The director's obviously a bit of a twerp but since you're here now you might as well give the training a go--god knows, in this war you can use every little advantage you can get.^;
 !!VRv151&y-3=0:|y-100; [Add player's bit number to v151 so intro message won't repeat]
 
-!!FU-5:P; [Hero training (+1 to Attack or Defense once per hero for 1000 gold]
+!!FU1015:P; [Hero training (+1 to Attack or Defense once per hero for 1000 gold]
 
 !!IF&y-18=1:M^Ginko Baloba informs you that the troop instructors need to rest and so there will be no more classes available today.
 
@@ -77,7 +78,7 @@ Well, it all sounds a bit too good to be true but you {have} actually heard posi
 !!VRy-25:Sc-1 :28; [Maximum training rank increases each month: y-25]
 !!VRy-25:+5; [Add 5 to maximum training rank: y-25]
 !!VRy-25&y-25>10:S10; [Maximum training rank of 10 regardless: y-25]
-!!DO-1/0/6/1:P; [Build text strings for dialogue box: y-21=0 if no creatures]
+!!DO1011/0/6/1:P; [Build text strings for dialogue box: y-21=0 if no creatures]
 !!IF&y-21=0:M^You study the available courses but don't see anything for the troops you have with you.
 
 The Director suddenly reappears beside you and announces, "I see you don't have any soldiers my instructors can train.  That's too bad, too bad I say!"
@@ -105,7 +106,7 @@ Ginko chuckles at his catchy rhyme and then hastily adds before you're out of ea
 
 !!VRy-8:S0; [Initialize y-8 to 0]
 !!VRy-38:S0; [Initialize y-38 to 0]
-!!DO-6/1/7/1:Pv1; [Determine total cost for all stack training: y-8]
+!!DO1016/1/7/1:Pv1; [Determine total cost for all stack training: y-8]
 
 !!VRz-8&y-12=0:S^man^;
 !!VRz-8&y-12=1:S^woman^;
@@ -122,7 +123,7 @@ Ginko chuckles at his catchy rhyme and then hastily adds before you're out of ea
 
 Before you know it, your army returns, a bit tired but excited to begin using their new found skills--these classes really work!^;
 
-!!DO-8/1/7/1:Pv1; [Add one rank to each trained stack]
+!!DO1018/1/7/1:Pv1; [Add one rank to each trained stack]
 
 !!HE-1:W?y-22; [Hero's current movement points: y-22]
 !!VRy-23:Sy-22 -500; [Remove 500 movement points]
@@ -137,8 +138,8 @@ Before you know it, your army returns, a bit tired but excited to begin using th
  [Determine total cost for all selected stack training: y-8]
  [Store IF:Q type/subtype for IF:N display]
  [x1=checkboxes selected]
-!?FU-6;
-!!FU$bit$:Px16; [Convert to bit number: y-100]
+!?FU1016;
+!!FU3333:Px16; [Convert to bit number: y-100]
 !!VRy1:Sx1; [Copy x1 to y1]
 !!VRy1:&y-100; [See if this checkbox was selected: y1>0 if selected: y1]
 !!FU&y1<1:E; [Exit if checkbox wasn't selected]
@@ -162,8 +163,8 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Set new ranks for trained troops]
-!?FU-8;
-!!FU$bit$:Px16; [Convert to bit number: y-100]
+!?FU1018;
+!!FU3333:Px16; [Convert to bit number: y-100]
 !!VRy1:Sx1; [Copy x1 to y1]
 !!VRy1:&y-100; [See if this checkbox was selected: y1>0 if selected: y1]
 !!FU&y1<1:E; [Exit if checkbox wasn't selected]
@@ -174,7 +175,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Build text strings for dialogue box: z1..z7]
-!?FU-1;
+!?FU1011;
 !!HE-1:C0/x16/?y1/?y2/?y3/2; [y1=type, y2=number, y3=experience]
 !!VRy4:Sx16 +1; [Index for z variable to store text strings (z1..z7)]
 !!VRzy4:S^^; [Initialize z variables to empty strings]
@@ -184,18 +185,18 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 !!FU&y10<>1:E; [Skip if no trainable monster in this slot]
 
 !!VRy-21:S1; [Set y-21 to 1 if any trainable monsters found]
-!!FU-7:Py1/y2/y3/y4/x16; [Determine monster's rank and cost and create text string]
+!!FU1017:Py1/y2/y3/y4/x16; [Determine monster's rank and cost and create text string]
 
 --------------------------------------------------------------------------------
 
  [Determine monster's rank and cost and create text string]
  [x1=type, x2=number, x3=experience, x4=index for z variable, x5=stack number]
-!?FU-7;
+!?FU1017;
 !!UN&x2=1:N3/8/x1/0; [Monster name (singular): z8]
 !!UN&x2>1:N3/8/x1/1; [Monster name (plural): z8]
 !!MA:Lx1/?y6; [Monster level (0..6): y6]
 !!VRy6:+1; [Add 1 to monster level: y6]
-!!FU-2:Py6/x3/x1; [Get rank: y-20]
+!!FU1012:Py6/x3/x1; [Get rank: y-20]
 !!VRy5:Sy-20 +1; [Next rank to train creatures to: y5]
 !!FU&y5>y-25:E; [Skip if stack is higher than maximum training rank]
 
@@ -212,7 +213,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 !!VRy9:S-31 -x5; [Index for y- variable for storing gold cost: y9]
 !!VRyy9:Sy8; [Store gold cost for each stack in y-31..y-37]
 !!VRy10:Sx5 +1; [Change stack number from 0..6 to 1..7: y10]
-!!FU$bit$:Py10; [Convert stack number to a bit value: y-100]
+!!FU3333:Py10; [Convert stack number to a bit value: y-100]
 !!VRy-19:+y-100; [Add total bit values for each "checkbox" (trainable) stack: y-19]
 !!VRy-24:+y8; [Add total gold cost for training all trainable stacks: y-24]
 !!VRzx4:S^Train  %X2  %Z8  to  Rank  %Y5  for  %Y8  gold.^;
@@ -221,7 +222,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 
  [Get rank of stack: y-20]
  [x1=monster level (1..7), x2=current experience, x3=monster number]
-!?FU-2;
+!?FU1012;
 !!VRe1:S2 :5 +8; [e1=8.4]
 !!VRy1:Sx2 :x1; [Base experience for level 1..7 creatures: y1]
 !!VRy1&x3>=150/x3<=158:Sx2 :e1; [Base exp. for level 8 creatures: y1]
@@ -243,7 +244,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Hero Training for human player]
-!?FU-5;
+!?FU1015;
 !!HE-1:O?y1; [Visiting hero's owner: y1]
 !!OB998:Dy1 C?y2; [Disable object for this player, School of War's number: y2]
 !!HE-1:V9/y2/?y3; [Check if hero has gained a bonus at this school yet: y3]
@@ -293,11 +294,11 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 !!OBy-1/y-2/y-3:T?y-4; [Object type at click location: y-4]
 !!FU&y-4<>107:E; [Exit if not School of War]
 !!UN:V?y-9/?y-10/?y-11/?y-12/?y-13; [Check type of game: y-9]
-!!DO-3/0/7/1&y-13>0/y-13<>3:P; [For non-Hotseat MP game, determine which player is clicking: y-5]
+!!DO1013/0/7/1&y-13>0/y-13<>3:P; [For non-Hotseat MP game, determine which player is clicking: y-5]
 !!OW|y-13=0/y-13=3:C?y-5; [For Single player or Hotseat game, player clicking is current player: y-5]
 !!OW:Ay-5/?y-6; [Active hero: y-6]
 !!OBy-1/y-2/y-3:C?y-7; [Control word for School of War (School number): y-7]
-!!FU-4&y-7<0:P; [If School of War number is less than 0, locate the yellow trigger square]
+!!FU1014&y-7<0:P; [If School of War number is less than 0, locate the yellow trigger square]
 !!OBy-1/y-2/y-3&y-7<0:C?y-7; [Control word for School of War (School number): y-7]
 !!FU&y-7<0:E; [Exit if Control word is still <0 (may happen if a Hero is currently visiting)]
 !!VRy-8:S-1; [Initialize y-8 to -1]
@@ -326,7 +327,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Determine which player is clicking: y-5]
-!?FU-3;
+!?FU1013;
 !!OW:Gx16/?y1; [Check if player x16 is the one clicking: y1=1 if yes]
 !!VRy-5&y1=1:Sx16; [Set y-5 to x16 if that player is the one clicking: y-5]
 !!VRx16&y1=1:S999; [Exit loop if player x16 is the one clicking]
@@ -334,7 +335,7 @@ Before you know it, your army returns, a bit tired but excited to begin using th
 --------------------------------------------------------------------------------
 
  [Find the yellow trigger square for School of War]
-!?FU-4;
+!?FU1014;
 !!VRy1:Sy-1 +1; [Set x one square to the right: y1]
 !!TRy1/y-2/y-3:E?y4; [Check for yellow square: y4=0 if yellow]
 !!VRy-1&y4=0:Sy1; [Set y-1 to yellow square location if found]

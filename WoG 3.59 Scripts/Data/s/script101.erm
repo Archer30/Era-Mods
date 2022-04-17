@@ -1,7 +1,7 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.6(June).2006
+ERMS_ScriptDate=22.11(November).2011
 
 ** Frozen Food version 0.5
 ** script101.erm by Timothy Pulver
@@ -37,7 +37,7 @@ ERMS_ScriptDate=21.6(June).2006
 
 ** Variables Used:
 **   v37-v38, w109
-**   FU-1..FU-3
+**   FU-1..FU-3 --> FU1021-FU1022
 **   Dialog Box 12
 
  [Initialize variables to 0]
@@ -48,36 +48,36 @@ ERMS_ScriptDate=21.6(June).2006
  [Clear w109 variable for all heroes at start of game]
 !?PI;
 !!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
-!!DO-2/0/155/1:P; [Loop through all heroes]
+!!DO1022/0/155/1:P; [Loop through all heroes]
 
  [Loop through all heroes and clear w109 variable]
-!?FU-2;
+!?FU1022;
 !!IF:Wx16;   [Set w variables for each hero]
 !!VRw109:S0; [Set w109 variable to 0]
 
  [Timer is every Day 1 starting at 2nd week]
-!?TM2&$day$>7/$weekday$=1/$once$=1;
+!?TM2&v2392>7/v2393=1/v2391=1;
 !!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
 !!UN:U39/-1/?y-1; [Number of Lean To's on map: y-1]
 !!VRv1:S-1; [Initialize v1 to -1 for fast UN:U loop: v1]
-!!DO-1/1/y-1/1&y-1>0:P; [Loop through all Lean To's]
+!!DO1021/1/y-1/1&y-1>0:P; [Loop through all Lean To's]
 !!VRv38:Sv37 *100; [Bonus movement for AI this week: v38]
 !!VRv37:S0; [Reset weekly total Frozen Food rations counter to 0: v37]
 
  [Loop through all Lean To's and restock *visited* ones with Frozen Food (set PO number)]
-!?FU-1;
+!?FU1021;
 !!UN:U39/-1/-1/1; [Get coordinates of Lean To into v1/v2/v3]
 !!LNv1/v2/v3:B?y-1/?y-2; [Check value of Lean To..y-2 is 0 if already visited]
 !!POv1/v2/v3&y-2=0:S1; [If Lean To has been visited already, set PO:S to 1 to indicate Lean To has food]
 
  [Daily Timer for AI players if they get bonus movement]
-!?TM2&$day$>7/$AI$=1/v38>0;
+!?TM2&v2392>7/v2394=1/v38>0;
 !!UN:P301/=1; !!FU&-1:E; [Exit if script is disabled]
 !!OW:H-1/1/0; [Number of heroes owned by this AI player: v1]
-!!DO-3/1/v1/1&v1>0:P; [Loop through all heroes and give them bonus movement]
+!!DO1023/1/v1/1&v1>0:P; [Loop through all heroes and give them bonus movement]
 
  [Loop through all heroes and give them bonus movement]
-!?FU-3;
+!?FU1023;
 !!OW:H-1/1/x16; [Store each AI hero number in v1]
 !!HEv1:Wdv38 Gdv38; [Give bonus movement to AI hero]
 !!HEv1:B0/?z1;

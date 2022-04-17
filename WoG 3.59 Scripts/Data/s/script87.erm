@@ -1,7 +1,7 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=20.10(October).2006
+ERMS_ScriptDate=21.11(November).2011
 
 ** More Map Options Version .94
 ** By Timothy Pulver
@@ -1107,7 +1107,7 @@ Do you wish to upgrade %Z-1 to %Z-2%Z-3?^;
 !!OBy-4/y-5/y-6:T?y-7 U?y-8; [Type of object clicked: y-7, Subtype: y-8]
 !!FU&y-7<>9/y-7<>10/y-7<>212:E; [Exit if not a Border Guard, Keymaster Tent or Border Gate]
 
-!!FU$LocalPlayer$:P; [Get current/local player: y-100]
+!!FU2405:P; [Get current/local player: y-100]
 
 !!OW:Ky-100/0/?y-10 Ky-100/1/?y-11 Ky-100/2/?y-12 Ky-100/3/?y-13; [Get state of Keymaster Tents 0-3: y-10..y-13]
 !!OW:Ky-100/4/?y-14 Ky-100/5/?y-15 Ky-100/6/?y-16 Ky-100/7/?y-17; [Get state of Keymaster Tents 4-7: y-14..y-17]
@@ -1141,7 +1141,7 @@ White: %Z-7    Black: %Z-8^; [Display dialog showing which keymaster tents playe
 !!OBy-3/y-4/y-5:T?y-6 U?y-7; [Type of object clicked: y-6, Subtype: y-7]
 !!FU&y-6<>9/y-6<>212:E; [Exit if not a Border Guard or Border Gate]
 
-!!FU$LocalPlayer$:P; [Get current/local player: y-100]
+!!FU2405:P; [Get current/local player: y-100]
 !!OW:Ky-100/y-7/?y-8; [Get state of corresponding Keymaster Tent: y-8 (0=not visited, 1=visited]
 
 !!VRz-1&y-7=0:S^Light Blue^; [Light Blue: z-1]

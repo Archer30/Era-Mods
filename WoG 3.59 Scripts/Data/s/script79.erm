@@ -1,7 +1,7 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=20.9(September).2006
+ERMS_ScriptDate=21.11(November).2011
 
 ** Reminders, Town and Hero Notes version 0.2
 ** Script131.erm  by Timothy Pulver
@@ -30,7 +30,7 @@ ERMS_ScriptDate=20.9(September).2006
 !!FU|y-1<>2001/y-2<>4/y-3<>12:E; [Exit if not a ctrl-click on Hero/Town info. square hero portrait or town picture]
 
 !!CM:R0; [Cancel standard click action]
-!!FU$LocalPlayer$:P; [Current/Local player in y-100]
+!!FU2405:P; [Current/Local player in y-100]
 !!VRz-5&y-100=0:S^Red^; [Local player's colour (Red): z-5]
 !!VRz-5&y-100=1:S^Blue^; [Local player's colour (Blue): z-5]
 !!VRz-5&y-100=2:S^Tan^; [Local player's colour (Tan): z-5]
@@ -84,7 +84,7 @@ Your note has been truncated to 510 characters.^; [Warning if player enters more
 !!IF:Q2^Set up a Reminder Message?^; [Ask if player wishes to set up a Timed Reminder Message: Flag 2]
 !!FU&-2:E; [Exit if no]
 
-!!FU$LocalPlayer$:P; [Current/Local player in y-100]
+!!FU2405:P; [Current/Local player in y-100]
 !!VRz7&y-100=0:S^Red^; [Local player's colour (Red): z7]
 !!VRz7&y-100=1:S^Blue^; [Local player's colour (Blue): z7]
 !!VRz7&y-100=2:S^Tan^; [Local player's colour (Tan): z7]
@@ -268,7 +268,7 @@ Your note has been truncated to 510 characters.^; [Warning if player enters more
  [Daily Universal Timer for Reminder Message Display]
 !?TM2&1000;
 !!UN:P331/=1; !!FU&-1:E; [Exit if script disabled]
-!!FU$LocalPlayer$:P; [Current/Local player in y-100]
+!!FU2405:P; [Current/Local player in y-100]
 !!VRz-5&y-100=0:S^Red^; [Local player's colour (Red): z-5]
 !!VRz-5&y-100=1:S^Blue^; [Local player's colour (Blue): z-5]
 !!VRz-5&y-100=2:S^Tan^; [Local player's colour (Tan): z-5]

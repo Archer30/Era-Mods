@@ -1,13 +1,13 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=19.8(August).2006
+ERMS_ScriptDate=21.11(November).2011
 
-** Human Truce version 0.9
+** Human Truce version 1.0
 ** By Timothy Pulver
 ** script120.erm
-** Last Updated: August 18, 2006
-** Previously Updated: August 10, 2006
+** Last Updated: August 20, 2006
+** Previously Updated: August 18, 2006
 
 ** This script disables combat between Human Players so that their heroes cannot
 ** attack other human heroes and cannot attack or capture human-controlled towns
@@ -210,7 +210,7 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
  [Adjust passability of heroes and towns]
 !?TM1&v82>=0; [Daily Timer]
 !!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
-!!DO154/0/155/1&$day$>1:P10; [Loop through all heroes and restore them to normal (i.e., impassable)]
+!!DO154/0/155/1&v2392>1:P10; [Loop through all heroes and restore them to normal (i.e., impassable)]
 !!VRv1:S-1; [Initialize v1 to -1 for fast UN:U searching]
 !!UN:U98/-1/?y-1; [Number of towns on map: y-1]
 !!OW:C?y-2; [Current player: y-2]
@@ -232,7 +232,7 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 !!UN&x1=10/y8=1:P904/0; [Re-enable ERM error codes]
 !!VRy8&x1=10/y8=1/y3=y19/y4=y20/y5=y21:S0; [Don't try to reset yellow trigger square if there's a town there]
 !!TRy3/y4/y5&x1=10/y8=1:E0; [Reset Hero's trigger square to yellow (on)]
-!!OW&x1=10:Ay1/x16; [Make this hero the active hero]
+!!OW&x1=10/y8=1:Ay1/x16; [Make this hero the active hero]
 !!FU&y1=x1:E; [Exit if hero is owned by current player]
 !!FU|y3<>y-3/y4<>y-4/y5<>y-5/x1=10:E; [Exit if hero isn't at location clicked or for daily restoration loop (x1=10)]
 !!CM:R0; [Cancel normal click-action]
@@ -293,7 +293,7 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 !!VRy-1&v82=1:S1; [Initialize y-1 to 1 if AI elimination option in effect: y-1]
 !!DO97/0/7/1&v82=1:P; [Human Truce ends when all AIs eliminated: y-1=0 if any AIs still alive]
 !!VRy-1&v82=2/v77=2:S1; [Human Truce ends when end-game reached: y-1 set to 1]
-!!VRy-1&v82>=3/v82<$day$:S1; [Human Truce ends when specific day reached: y-1 set to 1]
+!!VRy-1&v82>=3/v82<v2392:S1; [Human Truce ends when specific day reached: y-1 set to 1]
 !!FU&y-1=0:E; [Exit if Human Truce continues]
 !!VRv82:S-1; [Set v82 to -1 to end Human Truce]
 !!UN:U98/-1/?y-2; [Number of towns on map: y-2]
@@ -315,12 +315,12 @@ Human players cannot attack (or capture) human-owned towns, garrisons, or heroes
 --------------------------------------------------------------------------------
 
  [Display Human Truce Ends Warning to All Players]
-!?TM2&v82<0/$AI$=0; [Daily Timer for Human Players]
+!?TM2&v82<0/v2394=0; [Daily Timer for Human Players]
 !!UN:P320/=1; !!FU&-1:E; [Exit if script isn't enabled]
 !!VRy-1:Sv83; [Copy v83 to y-1]
 !!OW:C?y-2; [Current player: y-2]
 !!VRy-3:Sy-2 +1; [Add 1 to current player number: y-3]
-!!FU$bit$:Py-3; [Convert y-3 to a bit value: y-100]
+!!FU3333:Py-3; [Convert y-3 to a bit value: y-100]
 !!VRy-1:&y-100; [See if current player number bit is in y-1 (v83): y-1=0 if no]
 !!VRv83&y-1=0:|y-100; [Add current player number bit to v83]
 !!IF&y-1=0:M^{WARNING: Human Truce has Ended!}

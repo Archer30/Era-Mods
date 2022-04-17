@@ -1,7 +1,7 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=21.8(August).2006
+ERMS_ScriptDate=21.11(November).2011
 
 ** Victory Points version 0.7
 ** By Timothy Pulver
@@ -173,7 +173,7 @@ Once the end-game period begins, human players cannot recapture mines or dwellin
 
 !!VRy-24&v77=2:Sv79; [Copy v79 to y-24]
 !!VRy-25:Sy-3 +1; [Add 1 to current player number: y-25]
-!!FU$bit$:Py-25; [Convert y-25 to a bit value: y-100]
+!!FU3333:Py-25; [Convert y-25 to a bit value: y-100]
 !!VRy-24&v77=2:&y-100; [See if current player number bit is in y-24 (v79): y-24=0 if no]
 !!VRv79&v77=2/y-24=0:|y-100; [Add current player number bit to v79]
 !!IF&1000/y-22<>999/v77=2/y-24=0:M^{WARNING: End-Game Period in Effect!}
@@ -319,7 +319,7 @@ AI and unowned mines and dwellings may continue to be captured and AI players ma
 !!CM:I?y-1; [Location clicked: y-1]
 !!FU&y-1<>9:E; [Exit if not Adventure Options button]
 !!FU302:P; [Calculate each player's points and store in y-10..y-17]
-!!FU$LocalPlayer$:P; [Get local/current player: y-100]
+!!FU2405:P; [Get local/current player: y-100]
 !!VRz2&v62=1:S^{Get %V63 points to Win!}^;
 !!VRz2&v62=2:S^{Get %V63 points MORE than other players to Win!}^;
 !!VRy-20&v62=3:Sv63 :28 +1; [Month to win: y-20]

@@ -1,7 +1,7 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=29.10(October).2006
+ERMS_ScriptDate=21.11(November).2011
 
 ** Script097.erm
 ** Random Events version 0.98 by Timothy Pulver
@@ -67,7 +67,7 @@ Functions: FU20233-FU20247
 --------------------------------------------------------------------------------
 
  [Determine which day they'll be a Random Good Event: v7300=day]
-!?TM2&$weekday$=$monday$/$once$=1;
+!?TM2&v2393=v2371/v2391=1;
 !!UN:P97/?y-1; [Check if Random Good Events script is enabled: y-1=1 if enabled]
 !!FU&y-1<>1:E; [Exit if not enabled]
 
@@ -76,7 +76,7 @@ Functions: FU20233-FU20247
 !!VRv7300&v7300=v7309:S1 R6; [Reroll random day from 1..7]
 !!VRv7300&v7300=v7309:S1 R6; [Reroll random day from 1..7]
 !!VRv7300&v7300=v7309:S1 T6; [Reroll random day from 1..7]
-!!VRv7300&$day$=1:S2 R5; [Random day from 2..7 first week]
+!!VRv7300&v2392=1:S2 R5; [Random day from 2..7 first week]
 !!VRv7309:Sv7300; [Store last random day for next week: v7309]
 !!VRv7301:S0; [Initialize random event type to 0: v7301]
 !!VRv7302:S0; [Initialize random event text to 0: v7302]
@@ -86,7 +86,7 @@ Functions: FU20233-FU20247
 --------------------------------------------------------------------------------
 
  [Choose a Random Good Event but never Month 1, Week 1, Day 1]
-!?TM2&$day$>1/$weekday$=v7300;
+!?TM2&v2392>1/v2393=v7300;
 !!UN:P97/?y-1; [Check if Good Random Events script is enabled: y-1=1 if enabled]
 !!FU&y-1<>1:E; [Exit if not enabled]
 
@@ -205,7 +205,7 @@ Functions: FU20233-FU20247
 
 !!VRv7303&v7303<0:S0 T6; [Resource type (0..6): v7303]
 !!VRv7303|v7302=12/v7302=14/v7302=17/v7302=18:S6; [Always gold for events 12, 14, 17 and 18]
-!!VRy1:S$weeks$; [Number of weeks: y1]
+!!VRy1:Sv2389; [Number of weeks: y1]
 !!VRy2:Sy1 :2; [Half weeks: y2]
 !!VRy1:+y2; [Add half weeks: y1]
 !!VRy1:R3; [Add 0..3: y1]
@@ -310,10 +310,10 @@ Following an old treasure map you found in the attic, you discover a chest conta
 
 !!VRv7303&v7303<0:S0 T6; [Dwelling level (0..6): v7303]
 
-!!VRy10:S$weeks$;
+!!VRy10:Sv2389;
 !!VRy10:-1;
 !!VRv7303&v7303>y10:Sy10; [Maximum is weeks -1: v7303]
-!!VRv7304&v7304=0:S1000 *$weeks$; [Gold cost of troops: 1000*number of weeks: v7304]
+!!VRv7304&v7304=0:S1000 *v2389; [Gold cost of troops: 1000*number of weeks: v7304]
 
 !!OW:W-1/?y1; [Number of towns owned by current player: y1]
 !!FU&y1<1:E; [Exit if player doesn't own any towns]
@@ -465,8 +465,8 @@ A number of recent disappearances at %Z-2 have been linked to some rather hungry
 !!VRv7303&x1=3/y2=1/v7303<0:S1; [If enabled, give stack experience bonus: v7303]
 !!VRx1&x1=3/y2=0:S1 R1; [If disabled, give either hero exp. or secondary skill instead]
 
-!!VRy1&x1=1:S200 *$weeks$; [Base hero experience: 200 per week: y1]
-!!VRy1&x1=3:S400 *$weeks$; [Base stack experience: 400 per week: y1]
+!!VRy1&x1=1:S200 *v2389; [Base hero experience: 200 per week: y1]
+!!VRy1&x1=3:S400 *v2389; [Base stack experience: 400 per week: y1]
 !!VRv7304&x1<>2/v7304=0:Sy1 +200 R499; [Final experience bonus: v7304]
 
 !!OW:H-1/1/0; [Number of heroes player has: v1]
@@ -707,10 +707,10 @@ Despite all the grumbling, it appears to have helped with %Z-7 training.^;
 
 !!VRv7310&y-8=1:Sv7302; [Store last Artifact Event: v7310]
 
-!!VRy1&$weeks$<4:S2;             [Treasure: y1]
-!!VRy1&$weeks$>=4/$weeks$<8:S4;  [Minor: y1]
-!!VRy1&$weeks$>=8/$weeks$<16:S8; [Major: y1]
-!!VRy1&$weeks$>=16:S16;          [Relic: y1]
+!!VRy1&v2389<4:S2;             [Treasure: y1]
+!!VRy1&v2389>=4/v2389<8:S4;  [Minor: y1]
+!!VRy1&v2389>=8/v2389<16:S8; [Major: y1]
+!!VRy1&v2389>=16:S16;          [Relic: y1]
 !!UN&v7303<0:J6/y1/?v7303; [Random Artifact bonus: v7303]
 
 !!OW:H-1/1/0; [Number of heroes player has: v1]
@@ -816,7 +816,7 @@ Naturally, %Z-2'll put it to good use.^;
 !!DO20232/1/1000/1&v7303<0:P; [Loop: Find a Neutral Creature of appropriate level: v7303]
 !!FU&v7303<0:E; [Exit if no valid creature]
 
-!!VRy1:S1000 *$weeks$; [Gold cost of free mercenaries: 1000 per week: y1]
+!!VRy1:S1000 *v2389; [Gold cost of free mercenaries: 1000 per week: y1]
 !!MA:Cv7303/6/?y2; [Cost of 1 Neutral Creature: y2]
 !!VRy3:Sy1 :y2; [Basic number of Neutral Mercenaries: y3]
 !!VRy3&y3<1:S1; [Minimum 1 creature: y3]
@@ -900,7 +900,7 @@ Will you allow the %Z-6 to join?^;
 !!FU&y2>=0:E;      [Skip if not a neutral creature]
 !!MA:Ly1/?y3;      [Creature level (0..6): y3]
 !!VRy4:Sy3 *2;     [Creature Level * 2 = 0..12: y4]
-!!FU&y4>$weeks$:E; [Skip if y4 is greater than current number of game weeks]
+!!FU&y4>v2389:E; [Skip if y4 is greater than current number of game weeks]
 !!VRv7303:Sy1;     [Set v7303 equal to random valid creature type]
 !!VRx16:S9999;     [Set x16 to 9999 to exit loop]
 
@@ -920,7 +920,7 @@ Functions: FU20233-FU20247
 --------------------------------------------------------------------------------
 
  [Determine which day they'll be a Random Bad Event: v7312=day]
-!?TM2&$weekday$=$monday$/$once$=1;
+!?TM2&v2393=v2371/v2391=1;
 !!UN:P277/?y-1; [Check if Random Bad Events script is enabled: y-1=1 if enabled]
 !!FU&y-1<>1:E; [Exit if not enabled]
 
@@ -929,8 +929,8 @@ Functions: FU20233-FU20247
 !!VRv7312|v7312=v7321/v7312=v7300:S1 R6; [Reroll random day from 1..7]
 !!VRv7312|v7312=v7321/v7312=v7300:S1 R6; [Reroll random day from 1..7]
 !!VRv7312|v7312=v7321/v7312=v7300:S1 T6; [Reroll random day from 1..7]
-!!VRv7312&$day$=1:S2 R5; [Random day from 2..7 first week]
-!!VRv7312&$day$=1/v7312=v7300:S2 R5; [Reroll random day from 2..7 first week]
+!!VRv7312&v2392=1:S2 R5; [Random day from 2..7 first week]
+!!VRv7312&v2392=1/v7312=v7300:S2 R5; [Reroll random day from 2..7 first week]
 
 !!VRv7321:Sv7312; [Store last random day for next week: v7321]
 !!VRv7313:S0; [Initialize random event type to 0: v7313]
@@ -942,7 +942,7 @@ Functions: FU20233-FU20247
 
  [Choose a Bad Random Event but never Month 1, Week 1, Day 1]
  [y- variables used: y-1..y-6]
-!?TM2&$day$>1/$weekday$=v7312;
+!?TM2&v2392>1/v2393=v7312;
 !!UN:P277/?y-1; [Check if Random Bad Events script is enabled: y-1=1 if enabled]
 !!FU&y-1<>1:E; [Exit if not enabled]
 
@@ -988,7 +988,7 @@ Functions: FU20233-FU20247
 !!VRv7315|v7314=6/v7314=7/v7314=8/v7314=9/v7314=12/v7314=14:S6; [Always gold for events 6, 7, 8, 9, 12, 14]
 !!VRv7315|v7314=16:S0; [Always wood for event 16]
 !!VRv7315|v7314=17:S4; [Always crystal for event 17]
-!!VRy1:S$weeks$; [Number of weeks: y1]
+!!VRy1:Sv2389; [Number of weeks: y1]
 !!VRy2:Sy1 :2; [Half weeks: y2]
 !!VRy1:+y2; [Add half weeks: y1]
 !!VRy1:R3; [Add 0..3: y1]
@@ -1106,10 +1106,10 @@ As you march along, you think about how to spend your hard earned resources. The
 
 !!VRv7315&v7315<0:S0 R6; [Dwelling level (0..6): v7315]
 
-!!VRy10:S$weeks$;
+!!VRy10:Sv2389;
 !!VRy10:-1;
 !!VRv7315&v7315>y10:Sy10; [Maximum dwelling level is weeks -1: v7315]
-!!VRv7316&v7316=0:S1000 *$weeks$; [Gold cost of troops: 1000*number of weeks: v7316]
+!!VRv7316&v7316=0:S1000 *v2389; [Gold cost of troops: 1000*number of weeks: v7316]
 
 !!OW:W-1/?y1; [Number of towns owned by current player: y1]
 !!FU&y1<1:E; [Exit if player doesn't own any towns]
@@ -1275,7 +1275,7 @@ Lady %Z4's guards have dragged in the infamous one-eyed Horse Thief named %Z3, w
 !!VRy5&v1>0:S1 Ty4; [Choose a random hero index: y5]
 !!OW:H-1/2/y5; [Random hero's number: v2]
 
-!!VRy1&x1=3:S400 *$weeks$; [Base stack experience to lose: 400 per week: y1]
+!!VRy1&x1=3:S400 *v2389; [Base stack experience to lose: 400 per week: y1]
 !!VRv7316&x1=3/v7316=0:Sy1 +200 R499; [Final stack experience to lose: v7316]
 
 !!VRy-2&x1=3/v7315=1:S0; [Initialize stack experience bonus check to 0: y-2]
@@ -1550,10 +1550,10 @@ The Ancient Power of %Z4 curses %Y2 %Z-6 in %Z-1's army with a loss of experienc
  [y-4 set to 1 if a valid primary skill is found]
 !?FU20239;
 !!VRv7315:S-1; [Initialize v7315 to -1]
-!!FU$GetBasicPrim$&x16=0:Px1/?y1/d/d/d; [Check base level of hero's Attack skill x16: y1]
-!!FU$GetBasicPrim$&x16=1:Px1/d/?y1/d/d; [Check base level of hero's Defense skill x16: y1]
-!!FU$GetBasicPrim$&x16=2:Px1/d/d/?y1/d; [Check base level of hero's Power skill x16: y1]
-!!FU$GetBasicPrim$&x16=3:Px1/d/d/d/?y1; [Check base level of hero's Knowledge skill x16: y1]
+!!FU454&x16=0:Px1/?y1/d/d/d; [Check base level of hero's Attack skill x16: y1]
+!!FU454&x16=1:Px1/d/?y1/d/d; [Check base level of hero's Defense skill x16: y1]
+!!FU454&x16=2:Px1/d/d/?y1/d; [Check base level of hero's Power skill x16: y1]
+!!FU454&x16=3:Px1/d/d/d/?y1; [Check base level of hero's Knowledge skill x16: y1]
 !!VRv7315&x16<=1/y1>0:Sx16; [If Attack or Defense skill is above 0, set v7315 to Primary skill number]
 !!VRv7315&x16>=2/y1>1:Sx16; [If Knowledge or Power skill is above 1, set v7315 to Primary skill number]
 !!FU&v7315<0:E; [Exit if hero's primary skill can't go any lower]
@@ -1733,7 +1733,7 @@ An odd little gnome challenges %Z-1 to a game of chance. The gnome manages to tr
 !!OW:H-1/1/0; [Number of heroes player has: v1]
 !!FU&v1<1:E; [Exit if player has no heroes]
 
-!!VRv7316:S1200 *$weeks$; [Gold value of Troops to lose: 1200 per week: v7316]
+!!VRv7316:S1200 *v2389; [Gold value of Troops to lose: 1200 per week: v7316]
 !!VRy-1:Sv7316; [Copy v7316 to y-1]
 !!VRy1:Sv1 -1; [Number of heroes -1: y1]
 !!VRy2:S1 Ty1; [Choose a random starting hero index: y2]

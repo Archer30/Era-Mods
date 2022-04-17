@@ -1,0 +1,186 @@
+ZVSE
+_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
+ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
+ERMS_ScriptDate=21.11(November).2011
+
+** Upgraded Troops
+** By Timothy Pulver
+** Version 0.1
+
+** Last Updated: July 17, 2005
+** Previously Updated:
+
+** Only upgraded creatures will be available for Heroes to recruit at town
+** and external dwellings, and all heroes will start with upgraded troops.
+** Furthermore, Creature Banks, Pandora's Boxes and local events that give
+** free troops when captured will always give upgraded troops.
+
+** And finally, creature bank and dwelling guards will also be upgraded.
+
+** Upgraded troops will be available from basic town dwellings and the
+** upgraded dwellings will be disabled so as to prevent players (human or AI)
+** from accidentally wasting resources on them.
+
+** Functions used: FU11000-F11014, FU11500
+** Temporary v variables: v1-v3
+** Timers: TM2 (Universal Timer)
+
+ [Upgraded Creature Function]
+ [Creature number: x1, Returns Upgraded Creature number in x2]
+ [x variables used: x1-x2, y variables used: y1]
+!?FU11500;
+!!VRx2:S-1; [Initialize x2 to -1]
+!!VRy1&x1<=110:Sx1 :2 *2; [Check for non-upgraded creature: y1=x1 if NOT upgraded]
+!!VRx2&x1<=110/x1=y1:Sx1 +1; [If non-upgraded, set upgraded creature number: x2]
+
+ [For Conflux, set non-upgraded creature numbers: x2]
+!!VRx2&x1=118:S119; [Pixie-->Sprite: x2]
+!!VRx2&x1=112:S127; [Air-->Storm: x2]
+!!VRx2&x1=115:S123; [Water-->Ice: x2]
+!!VRx2&x1=114:S129; [Fire-->Energy: x2]
+!!VRx2&x1=113:S125; [Earth-->Magma: x2]
+!!VRx2&x1=120:S121; [Psychic-->Magic: x2]
+!!VRx2&x1=130:S131; [Firebird-->Phoenix: x2]
+
+ [Loop through heroes, external dwellings, creature banks, pandora's boxes]
+ [local events, creature stacks, and town types to upgrade creatures, and ]
+ [disable all upgraded dwellings in towns (upgraded creature can be bought]
+ [from non-upgraded dwellings]
+ [y- variables used: y-1..y-7]
+!?TM2&v2392=1/v2391=1; [Day 1 Timer]
+!!DO11000/0/155/1:P; [Upgrade hero creatures]
+!!UN:U17/-1/?y-1; [Number of external dwellings on map (type 17): y-1]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11003/1/y-1/1&y-1>0:P17; [Upgrade creatures in external dwellings]
+!!UN:U20/-1/?y-2; [Number of external dwellings on map (type 20): y-2]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11003/1/y-2/1&y-2>0:P20; [Upgrade creatures in external dwellings]
+!!UN:U16/-1/?y-3; [Number of creature banks on map: y-3]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11009/1/y-3/1&y-3>0:P; [Upgrade bonus creatures in creature banks]
+!!UN:U6/-1/?y-4; [Number of pandora's boxes on map: y-4]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11010/1/y-4/1&y-4>0:P6; [Upgrade bonus creatures in pandora's boxes]
+!!UN:U26/-1/?y-5; [Number of local events on map: y-5]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11010/1/y-5/1&y-5>0:P26; [Upgrade bonus creatures in local events]
+~~UN:U54/-1/?y-6; [Number of creature stacks on map: y-6]
+~~VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+~~DO11011/1/y-6/1&y-6>0:P; [Upgrade all creature stacks]
+!!DO11007/0/8/1:P; [Loop through all town types to upgrade town dwelling creatures]
+!!UN:U98/-1/?y-7; [Number of towns on map: y-7]
+!!VRv1:S-1; [Initialize v1 to -1 for faster UN:U syntax: v1]
+!!DO11005/1/y-7/1&y-7>0:P; [Loop through all towns, disabled upgraded dwellings]
+
+
+ [Loop through all heroes to upgrade creatures]
+ [x variables used: x16, y variables used: y1-y2]
+!?FU11000;
+!!HEx16:R3/?y1 O?y2; [Check hero's hero-pool status (y1) and owner (y2)]
+!!DO11001/0/6/1|y1=0/y2>=0:Px16; [Loop through all troops slots of owned and in tavern heroes]
+!!DO11002/0/2/1:Px16; [Loop through troop slots 0..2 for all heroes - upgrade starting armies]
+
+ [Loop through troop slots to upgrade heroes' current troops]
+ [x variables used: x1, x16, y variables used: y1-y2]
+!?FU11001;
+!!HEx1:C0/x16/?y1/d; [Type of creature: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!HEx1&y2>=0:C0/x16/y2/d; [Upgrade creature: y2]
+
+ [Set all heroes' starting armies to upgraded]
+ [x variables used: x1, x16, y variables used: y1-y2]
+!?FU11002;
+!!HEx1:Hx16/?y1/d/d; [Type of creature: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!HEx1&y2>=0:Hx16/y2/d/d; [Upgrade creature: y2]
+
+ [Upgrade creatures in external dwellings]
+ [x variables used: x1]
+!?FU11003;
+!!UN:Ux1/-1/-1/1; [Dwelling coordinates in v1/v2/v3]
+!!DO11004/0/3/1:P; [Loop through all dwelling slots (0..3)]
+!!DO11014/0/6/1:P; [Loop through all guard slots (0..6)]
+
+ [Loop through all dwelling slots (0..3)]
+ [x variables used: x16, y variables used: y1-y2]
+!?FU11004;
+!!DWv1/v2/v3:Mx16/?y1/d; [Creature type to hire: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!DWv1/v2/v3&y2>=0:Mx16/y2/d; [Set upgraded creature type to hire: y2]
+
+ [Loop through all external dwelling guard slots (0..6)]
+ [x variables used: x16, y variables used: y1-y2]
+!?FU11014;
+!!DWv1/v2/v3:Gx16/?y1/d; [Type of guard creature: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!DWv1/v2/v3&y2>=0:Gx16/y2/d; [Set upgraded creature type as guard: y2]
+
+ [Loop through all creature banks to upgrade guards and bonus creatures]
+ [y variables used: y1-y2]
+!?FU11009;
+!!UN:U16/-1/-1/1; [Creature bank coordinates in v1/v2/v3]
+!!DO11013/0/6/1:P; [Loop through all guard slots (0..6)]
+!!CBv1/v2/v3:M?y1/d; [Type of bonus creature: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500&y1>=0:Py1/?y2; [Upgraded creature in y2]
+!!CBv1/v2/v3&y1>=0/y2>=0:My2/d; [Set upgraded bonus creature type: y2]
+
+ [Loop through all creature bank guard slots (0..6)]
+ [x variables used: x16, y variables used: y1-y2]
+!?FU11013;
+!!CBv1/v2/v3:Gx16/?y1/d; [Type of guard creature: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!CBv1/v2/v3&y2>=0:Gx16/y2/d; [Set upgraded creature type as guard: y2]
+
+ [Loop through all pandora's boxes and local events to upgrade bonus creatures]
+ [x1=type: 6 for pandora's box, 26 for local event]
+ [x variables used: x1]
+!?FU11010;
+!!UN:Ux1/-1/-1/1; [Pandora's box or local event coordinates in v1/v2/v3]
+!!DO11011/0/6/1:P; [Loop through all gift monster slots (0..6)]
+
+ [Loop through all pandora's box and local event gift slots (0..6)]
+ [x variables used: x16, y variables used: y1-y2]
+!?FU11011;
+!!LEv1/v2/v3:Cx16/?y1/d; [Gift creature type in slot x16: y1]
+!!FU&y1<0:E; [Exit if no creature there]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!LEv1/v2/v3&y2>=0:Cx16/y2/d; [Set upgraded gift creature type: y2]
+
+ [Loop through all creature stacks and upgrade them]
+ [y variables used: y1-y2]
+!?FU11012;
+!!UN:U54/-1/-1/1; [Creature stack coordinates in v1/v2/v3]
+!!OBv1/v2/v3:U?y1; [Monster type: y1]
+!!MOv1/v2/v3:G?y3; [Number in stack: y3]
+!!FU11500:Py1/?y2; [Upgraded creature in y2]
+!!UN:Ov1/v2/v3; [Delete monster stack]
+!!UN:Iv1/v2/v3/y2/y3; [Set new monster stack with upgraded type: y2]
+
+ [Loop through all town types]
+ [x variables used: x16]
+!?FU11007;
+!!DO11008/0/6/1:Px16; [Loop through all dwellings in town]
+
+ [Loop through all dwellings in town]
+ [x1=Town type]
+ [x variables used: x1, x16, y variables used: y1]
+!?FU11008;
+!!UN:Tx1/x16/1/?y1; [Type of upgraded monster: y1]
+!!UN:Tx1/x16/0/y1; [Set non-upgraded type to upgraded monster: y1]
+
+  [Loop through all towns, disable upgraded dwellings]
+!?FU11005;
+!!UN:U98/-1/-1/1; [Town coordinates in v1/v2/v3]
+!!DO11006/37/43/1:Pv1/v2/v3; [Loop through all upgraded dwellings]
+
+ [Loop through all upgraded dwellings of each town and disable them]
+ [x variables used: x1-x3, x16]
+!?FU11006;
+!!CAx1/x2/x3:B5/x16; [Disabled upgraded dwellings]
+

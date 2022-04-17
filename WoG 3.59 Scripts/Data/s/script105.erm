@@ -1,32 +1,39 @@
 ZVSE
 _WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
 ERMS_PoweredBy=ERM Scripter v. 2004.10.5.945
-ERMS_ScriptDate=24.12(December).2005
+ERMS_ScriptDate=22.11(November).2011
 
-** Random Battle Positions version 0.1
-** Last Updated: December 24, 2005
-** Script92.erm (TEMPORARY NUMBER ONLY)
+** Random Battle Positions version 0.3
+** Last Updated: June 22, 2006
+** Previously Updated: January 2, 2006
+** Script105.erm - WoG Option #305
 ** Idea by Treupp, Script by Timothy Pulver
 
-** Functions: FU7048-FU7049
-** Variables: v7115
+** All starting positions of creatures on the battlefield (but not war machines)
+** are set randomly for all battles except siege battles.
+
+** Variables: v112; FU-n --> FU103n: FU1031-DU1032
 
 !?BA0; [Start of Battle Trigger]
-!!VRv7115:S0; [Initialize v7115 to 0 at start of every battle]
+!!UN:P305/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!VRv112:S0; [Initialize v112 to 0 at start of every battle]
 
-!?BR&v997=0/v7115<1; [Start of Battleround Trigger]
-!!DO7048/0/41/1:P; [Loop through all stacks and find new random positions for them]
-!!VRv7115:S1; [Set v7115 to 1 so repositioning occurs only once]
+!?BR&v997=0/v112<1; [Start of Battleround Trigger]
+!!UN:P305/=1; !!FU&-1:E; [Exit if script isn't enabled]
+!!BA:S?y-1; [Check for a siege battle: y-1>0 for a siege battle]
+!!DO1031/0/41/1&y-1<1:P; [Loop through all stacks and find new random positions for them, but not in a siege battle]
+!!VRv112:S1; [Set v112 to 1 so repositioning occurs only once]
 
-!?FU7048; [Loop through all stacks and find new random positions for them]
+!?FU1031; [Loop through all stacks and find new random positions for them]
 !!BMx16:T?y1 N?y2; [Type of stack: y1, Number: y2]
 !!FU|y1<0/y2<1:E; [Skip if there's no creatures in the stack]
 !!FU&y1>=145/y1<=149:E; [Skip if it's a war machine or arrow tower]
+!!FU|y1=122/y1=124/y1=126/y1=128:E; [Skip if it's a "Not Used" creature number]
 !!BMx16:F?y3; [Stack's Flags: y3]
 !!VRy3:&1; [Check if Stack is 2-hex]
-!!DO7049/0/1/0:Px16/y3; [Find new position for stack]
+!!DO1032/0/1/0:Px16/y3; [Find new position for stack]
 
-!?FU7049; [Find new position for stack]
+!?FU1032; [Find new position for stack]
  [x1=stack #, x2=0 for 1-hex x2=1 for 2-hex]
 
 !!VRy1:S1 R164; [Random number 1-165: y1]
