@@ -1,0 +1,29 @@
+ZVSE
+_WARNING_#1=IMPORTANT! This file is not in a plain text format. NEVER use any editor except ERM_S for making any kind of changes!
+ERMS_PoweredBy=ERM Scripter v. 2004.8.11.911
+ERMS_ScriptDate=23.4(April).2009
+
+** Enable some of my new scripts
+
+!#UN:P97/1;  [Good Random Events]
+!#UN:P277/0; [Bad Random Events]
+!#UN:P98/1;  [Sphinx Monster Riddle]
+!#UN:P301/0; [Frozen Food - 3.59 only]
+!#UN:P305/0; [Random Battle Positions]
+!#UN:P316/0; [Dwarven Treasury Bank - 3.59 only]
+!#UN:P317/0; [Ginko's Training Facility - 3.59 only]
+!#UN:P319/0; [Victory Points]
+!#UN:P320/0; [Human Truce]
+!#UN:P321/1; [Upgrade All Troops]
+!#UN:P322/0; [Command Points]
+!#UN:P331/1; [Reminders, Town and Hero Notes]
+!#UN:P278/0; [Remove All Monoliths]
+!#UN:P279/1; [Upgrade at External Dwellings]
+!#UN:P280/0; [AI Berserk Spell Casting]
+!#UN:P281/1; [50% Experience from Fleeing Monsters]
+!#UN:P282/1; [Monster Stacks have Resources]
+!#UN:P283/1; [Limited Dwelling Accumulations]
+!#UN:P284/1; [Monster Stack Artifacts]
+!#UN:P285/0; [Guarded Artifacts]
+!#UN:P289/1; [Display Keymaster Keys]
+
