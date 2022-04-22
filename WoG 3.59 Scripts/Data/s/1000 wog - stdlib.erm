@@ -1,0 +1,19 @@
+ZVSE2
+; Author:   V.A.
+; Engine:   ERM 2.0+
+; Requires: ERA 3.3+, Era Erm Framework
+
+; Standard library for WoG 3.59 Scripts
+
+
+!?FU(OnStartOrLoad);
+!!SN:L^erm_hooker.era^/?(ermHooker:y);
+!!FU&(ermHooker)=0:E;
+
+!!SN:A(ermHooker)/^SetHook^/?(address:y);
+!!FU(ES_CreateERMHook):P(address:y);
+
+!?FU(ES_CreateERMHook);
+!#VA(address:x);
+
+!!SN:E(address)/1/4597707/(WOG_OnAfterPlacingObstacles);

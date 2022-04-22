@@ -6,24 +6,25 @@ ZVSE2
 !#UN:P98/1;  [Bad Random Events]
 !#UN:P277/1; [Sphinx Monster Riddle]
 !#UN:P278/1; [Remove All Monoliths]
-!#UN:P279/1; [Upgrade at External Dwellings]
 !#UN:P280/1; [AI Berserk Spell Casting]
-!#UN:P283/1; [Limited Dwelling Accumulations]
-!#UN:P285/0; [Guarded Artifacts] - current buggy, stuck on map start
 !#UN:P289/1; [Display Keymaster Keys]
 !#UN:P291/1; [Frozen Food]
-!#UN:P305/1; [Random Battle Positions]
+!#UN:P305/1; [Random Battle Positions] - Issue: delay after setting new stack position after BF
 !#UN:P316/1; [Dwarven Treasury Bank]
 !#UN:P317/1; [Ginko's Training Facility]
-!#UN:P319/1; [Victory Points]
-!#UN:P320/1; [Human Truce]
-!#UN:P321/1; [Upgrade All Troops]
-!#UN:P322/1; [Command Points]
+!#UN:P319/0; [Victory Points]
+!#UN:P320/0; [Human Truce]
+!#UN:P322/0; [Command Points]
 !#UN:P331/1; [Reminders, Town and Hero Notes]
-!#UN:P332/1; [Upgraded Troops]
+
+!#UN:P285/0; [Guarded Artifacts] - current buggy, stuck on map start, must be rewritten or leave it (as the artGuard plugin is pretty much doing the same with this scirpt)
+!#UN:P332/0; [Upgraded Troops] - simply a cheating script
 
 
 ; These options are removed as they have been included in Era Scripts
-*#UN:P281/1; [50% Experience from Fleeing Monsters] - commented
-*#UN:P282/1; [Monster Stacks have Resources] - removed
-*#UN:P284/1; [Monster Stack Artifacts] - removed
+*#UN:P279/1; [Upgrade at External Dwellings] - commented, replaced by another script with the same feature written by Algor
+*#UN:P281/1; [50% Experience from Fleeing Monsters] - commented, replaced by another script with the same feature written by Dracolich
+*#UN:P282/1; [Monster Stacks have Resources] - removed, replaced by the same by improved script in Era Scripts
+*#UN:P283/1; [Limited Dwelling Accumulations] - removed, replaced by Game Bug Fixes plugin by igrik
+*#UN:P284/1; [Monster Stack Artifacts] - removed, replaced by another script with the same feature written by Archer30
+*#UN:P321/0; [Upgrade All Troops] - commented, repalced by Fast Upgrade Troops in Towns plugin by igrik

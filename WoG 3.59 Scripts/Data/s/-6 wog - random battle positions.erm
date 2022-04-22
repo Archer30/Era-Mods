@@ -7,7 +7,7 @@ ZVSE2
 ** are set randomly for all battles except siege battles.
 
 
-!?FU(OnSetupBattlefield);
+!?FU(WOG_OnAfterPlacingObstacles);
 !!UN:P305/?(wogOption:y);
 !!FU&(wogOption)<>(TRUE):E;             [Exit if script isn't enabled]
 
@@ -19,8 +19,11 @@ ZVSE2
 !!VR(firstStack:y):S(BATTLE_STACK_FIRST);
 !!VR(lastStack:y):S(BATTLE_STACK_LAST);
 
-!!HEi^battle_hero_0^:S(SKILL_TACTICS)/?(atkTactics:y);
-!!HEi^battle_hero_1^:S(SKILL_TACTICS)/?(defTactics:y);
+!!VR(atkTactics:y):S(SKILL_NOT_LEARNED);
+!!VR(defTactics:y):S(SKILL_NOT_LEARNED);
+
+!!HEi^battle_hero_0^&i^battle_hero_0^>(NO_HERO):S(SKILL_TACTICS)/?(atkTactics);
+!!HEi^battle_hero_1^&i^battle_hero_1^>(NO_HERO):S(SKILL_TACTICS)/?(defTactics);
 
 !!if&(atkTactics)>(defTactics);
   !!VR(firstStack):S(BATTLE_DEFENDER_STACK_FIRST);

@@ -8,7 +8,7 @@ ZVSE2
 ** Scriptlets: ERM Option Numbers follow in parenthesis:
 ** 1) Upgrade All Troops (321)
 ** 2) Remove All Monoliths (278)
-** 3) Upgrade at External Dwellings (279)
+** 3) Upgrade at External Dwellings (279) - commented
 ** 4) AI Berserk Spell Casting (280)
 ** 5) 50% Experience from Fleeing Monsters (281) - commented
 ** 6) Monster Stack Resources (282) - removed
@@ -32,206 +32,6 @@ ZVSE2
 **           FU452-FU453, FU456 (Guarded Artifacts)
 **           FU457 (not used yet but reserved for this script)
 ** PO numbers: PO:T for dwellings (type 17 and type 20)
-
-================================================================================
-  UPGRADE ALL TROOPS (ERM Option: 321)
-================================================================================
-
-** Lets you upgrade, with a click or two, all visiting hero and garrison troops
-** that could normally be upgraded (if you can afford them all). Shift-click on
-** castle icon (same as "Buy All Creatures" button) to upgrade.
-
-** FU195-FU198
-
- [Shift-click on castle icon beneath town name (CM:I#159)]
-
- [Mouse click in Town Screen is Trigger]
-!?CM1&999;
-!!UN:P321/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
-
-!!CM:A?y-1/?y-2 F?y-3 S?y-4; [Get x/y coordinates of screen clicked: y-1/y-2, y-3 = flags, y-4 = type of click]
-!!FU|y-1<122/y-1>159/y-2<413/y-2>450/y-3<>1/y-4<>12:E; [Exit if castle icon isn't shift-clicked]
-
-!!CA-1:T?y-2 H0/?y-3 H1/?y-4; [Town type: y-2, Garrison Hero: y-3, Visiting Hero: y-4]
-
-!!UN:P96/?y-1; // check if script Diplomancy boost (script96) enabled
-!!FU6136&y-1=1:P; // call FU6136 from script96 to reduce the costs of all monsters if there is a diplo-hero in the town
-
-!!FU195&y-4>=0:P0; [Call main Upgrade Troops function for Visiting Hero]
-!!FU195:P1; [Call main Upgrade Troops function for Garrison/Garrison Hero]
-!!CM:R0; [Disable standard mouse click function]
-!!UN:R4; [Redraw town screen]
-
---------------------------------------------------------------------------------
-
- [Main Upgrade Troops function]
-!?FU195;
-
- [Initialize variables]
-!!VRz1:S^^; [Initialize z1 to null]
-!!VRy-5:S0; [Reset y-5 to 0]
-!!VRy-10:S0;
-!!VRy-11:S0;
-!!VRy-12:S0;
-!!VRy-13:S0;
-!!VRy-14:S0; [Reset y-10..y-14 to 0]
-!!VRy-15:S0;
-!!VRy-16:S0;
-!!VRy-17:S0;
-!!VRy-18:S0;
-!!VRy-19:S-1; [Reset y-15..y-18 and y-19 to -1]
-!!VRy-20:S0;
-!!VRy-21:S0;
-!!VRy-22:S-1;
-!!VRy-23:S0; [Initialize y-20, y-21, y-23 to 0 and y-22 to -1]
-
- [Get Hero/Town names and owners]
-!!HEy-4&x1=0:B0/?z-1 O?y1; [Visiting Hero name: z-1, Hero's owner: y1]
-!!HEy-3&x1=1/y-3>=0:B0/?z-1; [Garrison Hero name: z-1]
-!!CA-1:N?z-5; [Town name: z-5]
-!!CA-1&x1=1:O?y1; [Town owner: y1]
-
- [Determine cost of upgrading hero/garrison troops]
-!!DO196/0/6/1&x1=0:Py-4/0; [Visiting Hero: y-5=# of upgrades, y-10..y-17=resource cost]
-!!DO196/0/6/1&x1=1:Py-3/0; [Garrison/Garrison Hero: y-5=# of upgrades, y-10..y-17=resource cost]
-!!DO198/0/6/1&y-5>0:Py1/0; [Check if player has enough resources: y-18=1 if no, y-19=1st resource, y-20=amount of resources, y-21=number of resources]
-!!VRy-19&y-21>3:S-1;
-!!VRy-22&y-21>3:S-1; [If there's more than gold plus two other resource, just show gold picture: y-19, y-22]
-!!VRy-20&y-19<0:S-1;
-!!VRy-23&y-22<0:S-1; [If there's no additional resource picture, change picture amount to -1: y-20, y-23]
-
- [Display troop upgrade message]
-!!VRz-6:S^{Upgrade Troops at %Z-5}
-
-^; [Upgrade Troops at town x]
-!!IF&x1=0/y-5=0:M^%Z-6%Z-1 has no troops that can be upgraded here.^; [None of hero's troops to upgrade]
-!!IF&x1=0/y-5>0/y-18=1:M^%Z-6You can't afford to upgrade all of %Z-1 troops.^; [Can't afford to upgrade hero's troops]
-!!IF&x1=1/y-4<0/y-3>=0/y-5=0:M^%Z-6%Z-1 has no troops that can be upgraded here.^; [None of hero's troops to upgrade]
-!!IF&x1=1/y-4<0/y-3<0/y-5=0:M^%Z-6There are no garrison troops that can be upgraded here.^; [No garrison troops can be upgraded here]
-!!IF&x1=1/y-3>=0/y-5>0/y-18=1:M^%Z-6You can't afford to upgrade all of %Z-1 troops.^; [You can't afford to upgrade all hero's troops]
-!!IF&x1=1/y-3<0/y-5>0/y-18=1:M^%Z-6You can't afford to upgrade all garrison troops.^; [You can't afford to upgrade all garrison troops]
-
-!!FU|y-5<1/y-18=1:E; [Exit if no troops to upgrade or can't afford cost]
-
- [Set up z-2 string with resource cost message]
-!!VRz-2|x1=0/y-3>=0:S^%Z-6Upgrade %Z-1's troops for %Y-16 gold^; [Upgrade hero's troops for x gold]
-!!VRz-2&x1=1/y-3=-1:S^%Z-6Upgrade the garrison troops for %Y-16 gold^; [Upgrade garrison troops for x gold]
-!!VRz-2&y-10>0:+^, %Y-10 wood^; [Wood cost]
-!!VRz-2&y-11>0:+^, %Y-11 mercury^; [Mercury cost]
-!!VRz-2&y-12>0:+^, %Y-12 ore^; [Ore cost]
-!!VRz-2&y-13>0:+^, %Y-13 sulfur^; [Sulfur cost]
-!!VRz-2&y-14>0:+^, %Y-14 crystal^; [Crystal cost]
-!!VRz-2&y-15>0:+^, %Y-15 gems^; [Gems cost]
-!!VRz-2:+^?
-%Z1^; [List of troops to upgrade]
-!!IF:Q2/36/y-16/y-19/y-20/y-22/y-23/2^%Z-2^; [Ask if player wishes to upgrade hero/garrison troops]
-!!DO196/0/6/1&x1=0/2:Py-4/1; [Upgrade visiting hero's troops]
-!!DO196/0/6/1&x1=1/2:Py-3/1; [Upgrade garrison/garrison hero's troops]
-!!DO198/0/6/1&2:Py1/1; [Take resources from player]
-
---------------------------------------------------------------------------------
-
- [Determine resources and upgrade troops]
-!?FU196;
-!!HEx1&x1>=0:C0/x16/?y1/?y10; [Troop type in slot x16: y1]
-!!CA-1&x1=-1:M2/x16/?y1/?y10; [Troop type in slot x16: y1]
-!!MA&y1>=0/y10>0:Uy1/?y2 Oy1/?y3 Ly1/?y4; [Slot x16 troop: Upgrade: y2=-2 if none (custom), y2=-1 if default, Town type: y3, Level: y4]
-
-!!FU|y2=-2/y1=y2/y1<0/y10<1:E; [Exit if this creature is set to custom upgrade of none or if no creatures are in this slot]
-!!FU&y3<0/y2=-1:E; [Exit if it's a neutral creature with default upgrade (i.e., none)]
-
-!!VRy5:S37 +y4; [Upgraded dwelling of creature's level: y5]
-!!CA-1:T?y11; [Town type: y11]
-!!CA-1:B3/y5; [Check if town has this upgraded dwelling built: Flag 1 True if yes]
-!!CA-1&-1/y4=0/y11>=3:B3/19; [Check if horde building 1 is built (all *except* Castle, Rampart, Tower): Flag 1 is true if yes]
-!!CA-1&-1/y4=1/y11>=1/y11<=2:B3/19; [Check if horde building 1 is built (Rampart, Tower): Flag 1 is true if yes]
-!!CA-1&-1/y4=2/y11=0:B3/19; [Check if horde building 1 is built (Castle): Flag 1 is true if yes]
-!!CA-1&-1/y4=4/y11=1:B3/25; [Check if horde building 2 is built (Rampart): Flag 1 is true if yes]
-!!CA-1&-1/y4=2/y11=3:B3/25; [Check if horde building 2 is built (Inferno): Flag 1 is true if yes]
-!!FU&-1:E; [Exit if upgraded dwelling/horde building isn't built for this level]
-
-!!UN&y3>=0:Ty3/y4/1/?y6; [Type of creature in creature's native town's upgraded town dwelling: y6]
-!!UN&y3>=0:Ty3/y4/0/?y9; [Type of creature in creature's native town's non-upgraded town dwelling: y9]
-!!FU&y3>=0/y1=y6/y2=-1:E; [Exit if this creature is the same as the town upgrade (i.e., already upgraded) unless custom upgrade set]
-!!FU&y3>=0/y1<>y9/y2=-1:E; [Exit if this non-neutral creature isn't the same as the town non-upgrade unless custom upgrade set]
-
-!!UN:P174/?y7; [Check if Universal Upgrading is enabled: y7=1 if Yes]
-!!FU&y7=0/y-2<>y3:E; [Exit if Universal Upgrading isn't enabled and this creature is from a different town]
-!!FU&y7=0/y2>=0/y2<>y6:E; [Exit if Universal Upgrading isn't enabled and custom upgrade doesn't match upgraded dwelling creature]
-
-!!VRy8&y2>=0:Sy2; [Upgraded creature if custom upgrade is set: y8]
-!!VRy8&y2=-1:Sy6; [Upgraded creature if default upgrade is set: y8]
-
-!!FU197&x2=0:Py1/y8/y10; [Determine Resource costs for upgrading: store in y-10 to y-17]
-!!UN&y10>1/x2=0:N3/-3/y1/1; [Name of current troop type (plural): z-3]
-!!UN&y10=1/x2=0:N3/-3/y1/0; [Name of current troop type (singular): z-3]
-!!UN&y10>1/x2=0:N3/-4/y8/1; [Name of upgraded troop type (plural): z-4]
-!!UN&y10=1/x2=0:N3/-4/y8/0; [Name of upgraded troop type (singular): z-4]
-!!VRz1&x2=0:+^
-%Y10 %Z-3 {»»»} %Y10 %Z-4^; [String for troop type and upgrade: z-5]
-!!VRy-5&x2=0:+1; [Increment number of upgrades: y-5]
-
-!!HEx1&x1>=0/x2=1:C0/x16/y8/d; [Upgrade creature (Hero)]
-!!CA-1&x1=-1/x2=1:M2/x16/y8/d; [Upgrade creature (Garrison)]
-
---------------------------------------------------------------------------------
-
- [Determine resource cost for troop upgrades and store in y-10 to y-17]
- [x1=current troop type, x2=upgraded troop type, x3=number of troops]
-!?FU197;
- [Determine resource cost of current troop type and store in y10 to y17]
-!!MA:Cx1/0/?y10 Cx1/1/?y11 Cx1/2/?y12 Cx1/3/?y13 Cx1/4/?y14 Cx1/5/?y15 Cx1/6/?y16 Cx1/7/?y17;
-
- [Determine resource cost of upgraded troop type and store in y20 to y27]
-!!MA:Cx2/0/?y20 Cx2/1/?y21 Cx2/2/?y22 Cx2/3/?y23 Cx2/4/?y24 Cx2/5/?y25 Cx2/6/?y26 Cx2/7/?y27;
-
- [Determine resource cost difference (actual cost of upgrade) and store in y30 to y37]
-!!VRy30:Sy20 -y10 *x3;
-!!VRy30&y30<0:S0; [Wood: y30]
-!!VRy31:Sy21 -y11 *x3;
-!!VRy31&y31<0:S0; [Mercury: y31]
-!!VRy32:Sy22 -y12 *x3;
-!!VRy32&y32<0:S0; [Ore: y32]
-!!VRy33:Sy23 -y13 *x3;
-!!VRy33&y33<0:S0; [Sulfur: y33]
-!!VRy34:Sy24 -y14 *x3;
-!!VRy34&y34<0:S0; [Crystal: y34]
-!!VRy35:Sy25 -y15 *x3;
-!!VRy35&y35<0:S0; [Gems: y35]
-!!VRy36:Sy26 -y16 *x3;
-!!VRy36&y36<0:S0; [Gold: y36]
-
- [Add to total resource cost and store in y-10 to y-17]
-!!VRy-10:+y30; [Total Wood: y-10]
-!!VRy-11:+y31; [Total Mercury: y-11]
-!!VRy-12:+y32; [Total Ore: y-12]
-!!VRy-13:+y33; [Total Sulfur: y-13]
-!!VRy-14:+y34; [Total Crystal: y-14]
-!!VRy-15:+y35; [Total Gems: y-15]
-!!VRy-16:+y36; [Total Gold: y-16]
-
---------------------------------------------------------------------------------
-
- [Check if player has enough resources]
- [Take resources from player for troop upgrades]
- [x1=hero/town owner, x2=0 for check, x2=1 for take]
-!?FU198;
-!!VRy1:S-10 -x16;
-!!VRy2:Syy1; [Resource cost for upgrade: y2]
-
-!!OW&x2=0:Rx1/x16/?y4; [Player's amount of this resource: y4]
-!!VRy-18&x2=0/y4<y2:S1; [Set y-18 to 1 if player doesn't have enough of any resource]
-!!VRy-19&x2=0/y-19<0/x16<>6/y2>0:Sx16; [Set y-19 to 1 resource other than gold for IF picture]
-!!VRy-20&x2=0/y-19>=0/y-20=0/x16<>6/y2>0:Sy2; [Set y-20 to resource amount other than gold for IF picture]
-!!VRy-22&x2=0/y-22<0/y-19>=0/x16<>6/x16<>y-19/y2>0:Sx16; [Set y-19 to 1 resource other than gold for IF picture]
-!!VRy-23&x2=0/y-22>=0/y-19>=0/y-23=0/x16<>6/x16<>y-19/y2>0:Sy2; [Set y-23 to 2nd resource amount other than gold for IF picture]
-!!VRy-21&x2=0/y2>0:+1; [Count number of different resources: y-21]
-
-!!VRy3&x2=1:Sy2 *-1; [Resource to remove (as negative number): y3]
-!!OW&x2=1:Rx1/x16/dy3; [Remove resource]
-
---------------------------------------------------------------------------------
 
 ================================================================================
   REMOVE ALL MONOLITHS (ERM Option: 278)
@@ -275,123 +75,123 @@ ZVSE2
 --------------------------------------------------------------------------------
 
  [Creature Generator Type 1 is trigger]
-!$OB17;
-!!UN:P279/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
+*$OB17;
+*!UN:P279/?y-1; [Check if script is enabled: y-1]
+*!FU&y-1<>1:E; [Exit if script isn't enabled]
 
-!!DW998:O?y-1; [Owner of dwelling: y-1]
-!!HE-1:O?y-2; [Owner of hero: y-2]
-!!FU&y-1<>y-2:E; [Exit if player doesn't own dwelling]
+*!DW998:O?y-1; [Owner of dwelling: y-1]
+*!HE-1:O?y-2; [Owner of hero: y-2]
+*!FU&y-1<>y-2:E; [Exit if player doesn't own dwelling]
 
-!!DO158/0/6/1:P; [Loop through hero's stacks and offer to upgrade (for standard cost) if applicable]
+*!DO158/0/6/1:P; [Loop through hero's stacks and offer to upgrade (for standard cost) if applicable]
 
 --------------------------------------------------------------------------------
 
  [Creature Generator Type 4 is trigger]
-!$OB20;
-!!UN:P279/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
+*$OB20;
+*!UN:P279/?y-1; [Check if script is enabled: y-1]
+*!FU&y-1<>1:E; [Exit if script isn't enabled]
 
-!!DW998:O?y-1; [Owner of dwelling: y-1]
-!!HE-1:O?y-2; [Owner of hero: y-2]
-!!FU&y-1<>y-2:E; [Exit if player doesn't own dwelling]
+*!DW998:O?y-1; [Owner of dwelling: y-1]
+*!HE-1:O?y-2; [Owner of hero: y-2]
+*!FU&y-1<>y-2:E; [Exit if player doesn't own dwelling]
 
-!!DO158/0/6/1:P; [Loop through hero's stacks and offer to upgrade (for standard cost) if applicable]
+*!DO158/0/6/1:P; [Loop through hero's stacks and offer to upgrade (for standard cost) if applicable]
 
 --------------------------------------------------------------------------------
 
  [Loop through hero's stacks and check for available upgrade]
-!?FU158;
-!!HE-1:C0/x16/?y1/?y10; [Troop type in slot x16: y1, Number: y10]
-!!MA&y1>=0/y10>0:Uy1/?y2 Oy1/?y3 Ly1/?y4; [Slot x16 troop: Upgrade: y2=-2 if none (custom), y2=-1 if default, Town type: y3, Level: y4]
-!!FU|y2=-2/y1=y2/y1<0/y10<1:E; [Exit if this creature is set to custom upgrade of none or if no creatures are in this slot]
-!!FU&y3<0/y2=-1:E; [Exit if it's a neutral creature with default upgrade (i.e., none)]
+*?FU158;
+*!HE-1:C0/x16/?y1/?y10; [Troop type in slot x16: y1, Number: y10]
+*!MA&y1>=0/y10>0:Uy1/?y2 Oy1/?y3 Ly1/?y4; [Slot x16 troop: Upgrade: y2=-2 if none (custom), y2=-1 if default, Town type: y3, Level: y4]
+*!FU|y2=-2/y1=y2/y1<0/y10<1:E; [Exit if this creature is set to custom upgrade of none or if no creatures are in this slot]
+*!FU&y3<0/y2=-1:E; [Exit if it's a neutral creature with default upgrade (i.e., none)]
 
-!!UN&y3>=0:Ty3/y4/1/?y6; [Type of creature in creature's native town's upgraded town dwelling: y6]
-!!UN&y3>=0:Ty3/y4/0/?y9; [Type of creature in creature's native town's non-upgraded town dwelling: y9]
-!!FU&y3>=0/y1=y6/y2=-1:E; [Exit if this creature is the same as the town upgrade (i.e., already upgraded) unless custom upgrade set]
-!!FU&y3>=0/y1<>y9/y2=-1:E; [Exit if this non-neutral creature isn't the same as the town non-upgrade unless custom upgrade set]
+*!UN&y3>=0:Ty3/y4/1/?y6; [Type of creature in creature's native town's upgraded town dwelling: y6]
+*!UN&y3>=0:Ty3/y4/0/?y9; [Type of creature in creature's native town's non-upgraded town dwelling: y9]
+*!FU&y3>=0/y1=y6/y2=-1:E; [Exit if this creature is the same as the town upgrade (i.e., already upgraded) unless custom upgrade set]
+*!FU&y3>=0/y1<>y9/y2=-1:E; [Exit if this non-neutral creature isn't the same as the town non-upgrade unless custom upgrade set]
 
-!!VRy8&y2>=0:Sy2; [Upgraded creature if custom upgrade is set: y8]
-!!VRy8&y2=-1:Sy6; [Upgraded creature if default upgrade is set: y8]
+*!VRy8&y2>=0:Sy2; [Upgraded creature if custom upgrade is set: y8]
+*!VRy8&y2=-1:Sy6; [Upgraded creature if default upgrade is set: y8]
 
-!!DO159/0/3/1:Py1/y8/y10/x16; [Determine resource cost and offer to upgrade stack]
+*!DO159/0/3/1:Py1/y8/y10/x16; [Determine resource cost and offer to upgrade stack]
 
 --------------------------------------------------------------------------------
 
  [Determine resource cost and offer to upgrade stack]
-!?FU159;
+*?FU159;
  [x1=current troop type, x2=upgraded troop type, x3=number of troops, x4=troop slot]
-!!DW998:Mx16/?y1/d; [Type of creature in dwelling slot x16: y1]
-!!FU&x2<>y1:E; [Skip if not an upgrade match]
+*!DW998:Mx16/?y1/d; [Type of creature in dwelling slot x16: y1]
+*!FU&x2<>y1:E; [Skip if not an upgrade match]
 
  [Determine resource cost of current troop type and store in y10 to y17]
-!!MA:Cx1/0/?y10 Cx1/1/?y11 Cx1/2/?y12 Cx1/3/?y13 Cx1/4/?y14 Cx1/5/?y15 Cx1/6/?y16 Cx1/7/?y17;
+*!MA:Cx1/0/?y10 Cx1/1/?y11 Cx1/2/?y12 Cx1/3/?y13 Cx1/4/?y14 Cx1/5/?y15 Cx1/6/?y16 Cx1/7/?y17;
 
  [Determine resource cost of upgraded troop type and store in y20 to y27]
-!!MA:Cx2/0/?y20 Cx2/1/?y21 Cx2/2/?y22 Cx2/3/?y23 Cx2/4/?y24 Cx2/5/?y25 Cx2/6/?y26 Cx2/7/?y27;
+*!MA:Cx2/0/?y20 Cx2/1/?y21 Cx2/2/?y22 Cx2/3/?y23 Cx2/4/?y24 Cx2/5/?y25 Cx2/6/?y26 Cx2/7/?y27;
 
  [Determine resource cost difference (actual cost of upgrade) and store in y30 to y36]
-!!VRy30:Sy20 -y10 *x3;
-!!VRy30&y30<0:S0; [Wood: y30]
-!!VRy31:Sy21 -y11 *x3;
-!!VRy31&y31<0:S0; [Mercury: y31]
-!!VRy32:Sy22 -y12 *x3;
-!!VRy32&y32<0:S0; [Ore: y32]
-!!VRy33:Sy23 -y13 *x3;
-!!VRy33&y33<0:S0; [Sulfur: y33]
-!!VRy34:Sy24 -y14 *x3;
-!!VRy34&y34<0:S0; [Crystal: y34]
-!!VRy35:Sy25 -y15 *x3;
-!!VRy35&y35<0:S0; [Gems: y35]
-!!VRy36:Sy26 -y16 *x3;
-!!VRy36&y36<0:S0; [Gold: y36]
+*!VRy30:Sy20 -y10 *x3;
+*!VRy30&y30<0:S0; [Wood: y30]
+*!VRy31:Sy21 -y11 *x3;
+*!VRy31&y31<0:S0; [Mercury: y31]
+*!VRy32:Sy22 -y12 *x3;
+*!VRy32&y32<0:S0; [Ore: y32]
+*!VRy33:Sy23 -y13 *x3;
+*!VRy33&y33<0:S0; [Sulfur: y33]
+*!VRy34:Sy24 -y14 *x3;
+*!VRy34&y34<0:S0; [Crystal: y34]
+*!VRy35:Sy25 -y15 *x3;
+*!VRy35&y35<0:S0; [Gems: y35]
+*!VRy36:Sy26 -y16 *x3;
+*!VRy36&y36<0:S0; [Gold: y36]
 
  [Give gold discount for upgrading L1-L4 creatures]
-!!MA:Lx1/?y37; [Creature's level (0-6): y37]
-!!VRe1:Sy36 :4; [1/4 of upgrade cost: e1]
-!!VRy36&y37=0:S0; [L1 are free: y36]
-!!VRy36&y37=1:Se1; [L2 cost 25%: y36]
-!!VRy36&y37=2::2; [L3 cost 50%: y36]
-!!VRy36&y37=3:Se1 *3; [L4 cost 75%: y36]
+*!MA:Lx1/?y37; [Creature's level (0-6): y37]
+*!VRe1:Sy36 :4; [1/4 of upgrade cost: e1]
+*!VRy36&y37=0:S0; [L1 are free: y36]
+*!VRy36&y37=1:Se1; [L2 cost 25%: y36]
+*!VRy36&y37=2::2; [L3 cost 50%: y36]
+*!VRy36&y37=3:Se1 *3; [L4 cost 75%: y36]
 
  [Determine which resource other than gold (if any) is needed for upgrade: y2]
-!!VRy2:S-1; [Initialize y2 to -1]
-!!VRy2&y30>0:S0; [Wood: y2]
-!!VRy2&y31>0:S1; [Mercury: y2]
-!!VRy2&y32>0:S2; [Ore: y2]
-!!VRy2&y33>0:S3; [Sulfur: y2]
-!!VRy2&y34>0:S4; [Crystal: y2]
-!!VRy2&y35>0:S5; [Gems: y2]
-!!VRy3&y2>=0:S30 +y2; [Index for resource amount: y3]
-!!VRy4&y2>=0:Syy3; [Additional resource amount: y4]
+*!VRy2:S-1; [Initialize y2 to -1]
+*!VRy2&y30>0:S0; [Wood: y2]
+*!VRy2&y31>0:S1; [Mercury: y2]
+*!VRy2&y32>0:S2; [Ore: y2]
+*!VRy2&y33>0:S3; [Sulfur: y2]
+*!VRy2&y34>0:S4; [Crystal: y2]
+*!VRy2&y35>0:S5; [Gems: y2]
+*!VRy3&y2>=0:S30 +y2; [Index for resource amount: y3]
+*!VRy4&y2>=0:Syy3; [Additional resource amount: y4]
 
-!!VRy5:Sx3*65536+x1; [Subtype for IF display of current troops: y5]
-!!VRy8&y36>0:S6; [Type for IF display of gold cost (if any): y8]
-!!VRy8&y36<1:S-1; [Type for IF display if no gold cost: y8]
+*!VRy5:Sx3*65536+x1; [Subtype for IF display of current troops: y5]
+*!VRy8&y36>0:S6; [Type for IF display of gold cost (if any): y8]
+*!VRy8&y36<1:S-1; [Type for IF display if no gold cost: y8]
 
-!!UN:N3/-1/x1/1 N3/-2/x2/1; [Name of current troop type: z-1, Upgraded: z-2]
-!!VRz-3:S^^; [Initialize z-3 to null string]
-!!VRz-3&y36<1/y2<0:S^ (at no cost)^; [Set z-3 to "(at no cost)" if there's no cost]
+*!UN:N3/-1/x1/1 N3/-2/x2/1; [Name of current troop type: z-1, Upgraded: z-2]
+*!VRz-3:S^^; [Initialize z-3 to null string]
+*!VRz-3&y36<1/y2<0:S^ (at no cost)^; [Set z-3 to "(at no cost)" if there's no cost]
 
-!!IF:V2/0; [Initialize Flag 2 to False]
-!!IF&-1000:V2/1; [AI always upgrades]
-!!IF&1000:Q2/21/y5/y8/y36/y2/y4/2^{Upgrade Troops}
+*!IF:V2/0; [Initialize Flag 2 to False]
+*!IF&-1000:V2/1; [AI always upgrades]
+*!IF&1000:Q2/21/y5/y8/y36/y2/y4/2^{Upgrade Troops}
 
 Do you wish to upgrade %Z-1 to %Z-2%Z-3?^;
-!!OW:R-1/6/?y6; [Player's gold: y6]
-!!OW&y2>=0:R-1/y2/?y7; [Player's other resource: y7]
-!!FU&-2:E; [Exit if player doesn't wish to upgrade]
+*!OW:R-1/6/?y6; [Player's gold: y6]
+*!OW&y2>=0:R-1/y2/?y7; [Player's other resource: y7]
+*!FU&-2:E; [Exit if player doesn't wish to upgrade]
 
-!!IF&y6<y36/1000:Q1/6/y36/y2/y4/1^You don't have enough resources to upgrade these troops.^;
-!!IF&y6>=y36/y7<y4/1000:Q1/6/y36/y2/y4/1^You don't have enough resources to upgrade these troops.^;
-!!FU|y6<y36/y7<y4:E; [Exit if player doesn't have enough resources]
+*!IF&y6<y36/1000:Q1/6/y36/y2/y4/1^You don't have enough resources to upgrade these troops.^;
+*!IF&y6>=y36/y7<y4/1000:Q1/6/y36/y2/y4/1^You don't have enough resources to upgrade these troops.^;
+*!FU|y6<y36/y7<y4:E; [Exit if player doesn't have enough resources]
 
-!!HE-1:C0/x4/x2/d/0/5; [Upgrade stack, adjusting stack XP as per a normal upgrade]
-!!VRy36:*-1; [Negative of gold cost: y36]
-!!VRy4&y2>=0:*-1; [Negative of other resource: y4]
-!!OW:R-1/6/dy36; [Reduce player's gold by y36]
-!!OW&y2>=0:R-1/y2/dy4; [Reduce player's other resource by y4]
+*!HE-1:C0/x4/x2/d/0/5; [Upgrade stack, adjusting stack XP as per a normal upgrade]
+*!VRy36:*-1; [Negative of gold cost: y36]
+*!VRy4&y2>=0:*-1; [Negative of other resource: y4]
+*!OW:R-1/6/dy36; [Reduce player's gold by y36]
+*!OW&y2>=0:R-1/y2/dy4; [Reduce player's other resource by y4]
 
 --------------------------------------------------------------------------------
 
@@ -407,53 +207,53 @@ Do you wish to upgrade %Z-1 to %Z-2%Z-3?^;
 ** Local/Temporary variables only.
 
  [Battle Action Trigger]
-!?FU(OnBeforeBattleAction)&i^battle_ai_%i(battle_acting_side)^;
-!!UN:P280/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
+*?FU(OnBeforeBattleAction)&i^battle_ai_%i(battle_acting_side)^;
+*!UN:P280/?y-1; [Check if script is enabled: y-1]
+*!FU&y-1<>1:E; [Exit if script isn't enabled]
 
-!!BG:A?y-1 H?y-2; [Action type: y-1, Hero number: y-2]
-!!FU|y-1<>(BATTLE_ACTION_HERO_CAST)/y-2<0:E; [Exit if not a hero spell, or no hero]
+*!BG:A?y-1 H?y-2; [Action type: y-1, Hero number: y-2]
+*!FU|y-1<>(BATTLE_ACTION_HERO_CAST)/y-2<0:E; [Exit if not a hero spell, or no hero]
 
-!!HEy-2:O?y-3 M(SPELL_BERSERK)/?y-4; [Hero owner: y-3, Berserk Spell Level: y-4]
-!!FU|y-4<1:E; [Exit if hero doesn't know Berserk or not an AI]
+*!HEy-2:O?y-3 M(SPELL_BERSERK)/?y-4; [Hero owner: y-3, Berserk Spell Level: y-4]
+*!FU|y-4<1:E; [Exit if hero doesn't know Berserk or not an AI]
 
-!!BG:S?y-6; [Spell hero is trying to cast: y-6]
-!!VRy-7|y-6=15/y-6=16/y-6=17/y-6=21/y-6=22/y-6=23/y-6=42/y-6=45/y-6=47/y-6=50/y-6=52/y-6=54/y-6=61/y-6=62:S1;
-!!FU&y-7<>1:E; [Exit if spell isn't Magic Arrow, Ice Bolt, Lightning Bolt, Fireball, Inferno, Meteor Shower,]
+*!BG:S?y-6; [Spell hero is trying to cast: y-6]
+*!VRy-7|y-6=15/y-6=16/y-6=17/y-6=21/y-6=22/y-6=23/y-6=42/y-6=45/y-6=47/y-6=50/y-6=52/y-6=54/y-6=61/y-6=62:S1;
+*!FU&y-7<>1:E; [Exit if spell isn't Magic Arrow, Ice Bolt, Lightning Bolt, Fireball, Inferno, Meteor Shower,]
 
 *              [Curse, Weakness, Sorrow, Misfortune, Slow, Forgetfulness, or Blind]
-!!VRy-16:R0/1/100; [Random number 1-100: y-16]
-!!FU&y-16<=50:E; [Exit if y-16 is less than 51 -- 50% chance of AI casting Berserk]
+*!VRy-16:R0/1/100; [Random number 1-100: y-16]
+*!FU&y-16<=50:E; [Exit if y-16 is less than 51 -- 50% chance of AI casting Berserk]
 
-!!BG:E?y-8; [Destination monster stack: y-8]
-!!FU&y-8<=(NO_STACK):E; [Exit if no monster there for some reason]
+*!BG:E?y-8; [Destination monster stack: y-8]
+*!FU&y-8<=(NO_STACK):E; [Exit if no monster there for some reason]
 
-!!FU(WS_280_CheckStackImmunity):Py-8/(SPELL_BERSERK)/i^battke_acting_side^/?y30;
-!!FU&y30=(FALSE):E;
+*!FU(WS_280_CheckStackImmunity):Py-8/(SPELL_BERSERK)/i^battke_acting_side^/?y30;
+*!FU&y30=(FALSE):E;
 
-!!BMy-8:G(SPELL_BERSERK)/?y-12/d; [Check if stack already has Berserk on it: y-12=0 if no]
-!!FU&y-12>0:E; [Exit if stack already has the Berserk spell on it]
+*!BMy-8:G(SPELL_BERSERK)/?y-12/d; [Check if stack already has Berserk on it: y-12=0 if no]
+*!FU&y-12>0:E; [Exit if stack already has the Berserk spell on it]
 
-!!HEy-2:I?y-13/1 S14/?y-14; [Hero's spell points: y-13, Level of Fire Magic skill: y-14]
-!!VRy-15:S20; [Base spell point cost of Berserk: y-15]
-!!VRy-15&y-14>0:-4; [Subtract 4 from spell cost if hero knows Fire Magic: y-15]
-!!HEy-2:C1/34/d/>0; [Check if hero has Magi in army - flag 1 set to True if yes]
-!!HEy-2&-1:C1/35/d/>0; [Check if hero has Archmagi in army - flag 1 set to True if yes]
-!!VRy-15&1:-2; [Subtract 2 from spell cost if hero has Magi or Archmagi in army: y-15]
-!!FU&y-13<y-15:E; [Exit if hero doesn't have enough spell points to cast Berserk]
+*!HEy-2:I?y-13/1 S14/?y-14; [Hero's spell points: y-13, Level of Fire Magic skill: y-14]
+*!VRy-15:S20; [Base spell point cost of Berserk: y-15]
+*!VRy-15&y-14>0:-4; [Subtract 4 from spell cost if hero knows Fire Magic: y-15]
+*!HEy-2:C1/34/d/>0; [Check if hero has Magi in army - flag 1 set to True if yes]
+*!HEy-2&-1:C1/35/d/>0; [Check if hero has Archmagi in army - flag 1 set to True if yes]
+*!VRy-15&1:-2; [Subtract 2 from spell cost if hero has Magi or Archmagi in army: y-15]
+*!FU&y-13<y-15:E; [Exit if hero doesn't have enough spell points to cast Berserk]
 
-!!BG:S(SPELL_BERSERK); [Change AI hero's spell casting to Berserk spell]
+*!BG:S(SPELL_BERSERK); [Change AI hero's spell casting to Berserk spell]
 
-!?FU(WS_280_CheckStackImmunity);
+*?FU(WS_280_CheckStackImmunity);
 ; Author: by Sakuya452
-!#VA(stack:x) (spell:x) (casterSide:x) (result:x); [0 for immunity, 1 for acceptance]
+*#VA(stack:x) (spell:x) (casterSide:x) (result:x); [0 for immunity, 1 for acceptance]
 
-!!FU|(stack)<(BATTLE_STACK_FIRST)/(stack)>(BATTLE_STACK_LAST):E;
+*!FU|(stack)<(BATTLE_STACK_FIRST)/(stack)>(BATTLE_STACK_LAST):E;
 
-!!UN:C(COMBAT_MANAGER)/(UNC_INT)/?(combatMan:y);
-!!BM(stack):Z?(stackStruct:y);
-!!SN:E5933392/(CALLCONV_THISCALL)/(combatMan)/(spell)/(casterSide)/(stackStruct)/1/1;
-!!VR(result):Sv1;
+*!UN:C(COMBAT_MANAGER)/(UNC_INT)/?(combatMan:y);
+*!BM(stack):Z?(stackStruct:y);
+*!SN:E5933392/(CALLCONV_THISCALL)/(combatMan)/(spell)/(casterSide)/(stackStruct)/1/1;
+*!VR(result):Sv1;
 
 --------------------------------------------------------------------------------
 
@@ -518,82 +318,6 @@ Do you wish to upgrade %Z-1 to %Z-2%Z-3?^;
  [Note: this function is also used by Monster Stack Resources]
 *!HEx1:C0/x16/?y1/?y2; [Type: y1, Number: y2]
 *!VRy-6&y1=x2/y2>0:+y2; [Add total creatures of type x2: y-6]
-
---------------------------------------------------------------------------------
-
-================================================================================
-  LIMITED DWELLING ACCUMULATIONS (ERM Option: 283)
-================================================================================
-
-** If the Dwellings Accumulate Creatures option is enabled, this script prevents
-** external dwellings from accumulating creatures until the dwelling is owned.
-** Unowned dwellings will never have more than one week's worth of creatures in
-** them when initially captured.
-
-** Dwelling guards will also be limited so that they don't accumulate until the
-** dwelling has captured.
-
-** FU178-FU179
-
---------------------------------------------------------------------------------
-
- [Dwelling type 17 is trigger]
-!?OB17;
-!!UN:P283/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
-
-!!FU178:P; [Reset creatures and guards if dwelling not yet claimed]
-
---------------------------------------------------------------------------------
-
- [Dwelling type 20 is trigger]
-!?OB20;
-!!UN:P283/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
-
-!!FU178:P; [Reset creatures and guards if dwelling not yet claimed]
-
---------------------------------------------------------------------------------
-
- [Dwelling type 17 is post-visit trigger]
-!$OB17;
-!!UN:P283/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
-
-!!DW998:O?y-1; [Check owner: y-1]
-!!PO998&y-1>=0:T1; [Set PO:T to 1 if dwelling is captured]
-
---------------------------------------------------------------------------------
-
- [Dwelling type 20 is post-visit trigger]
-!$OB20;
-!!UN:P283/?y-1; [Check if script is enabled: y-1]
-!!FU&y-1<>1:E; [Exit if script isn't enabled]
-
-!!DW998:O?y-1; [Check owner: y-1]
-!!PO998&y-1>=0:T1; [Set PO:T to 1 if dwelling is captured]
-
---------------------------------------------------------------------------------
-
- [Reset creatures and guards if dwelling not yet claimed]
-!?FU178;
-!!PO998:T?y1; [Read PO:T value into y1]
-!!FU&y1<>0:E; [Exit if PO:T value isn't 0]
-
-!!DO179/0/3/1:P; [Loop through all possible slots]
-
---------------------------------------------------------------------------------
-
- [Loop through all possible dwelling creature slots]
-!?FU179;
-!!DW998:Mx16/?y1/d; [Get creature type in slot x16: y1]
-!!MA&y1>=0:Gy1/?y2; [Get weekly growth of creature: y2]
-!!DW998:Mx16/y1/y2; [Set one week's worth of creatures only]
-!!DW998:Gx16/?y3/?y4; [Get guard type (y3) and number (y4) in slot x16]
-!!MA&y3>=0:Gy3/?y5; [Get weekly growth of guard creature: y5]
-!!VRy6:Sy5 *3; [Default guards = 3 x weekly growth of guard type: y6]
-!!DW998&y3>=0/y4>0:Gx16/y3/y6; [Set default number of guard creatures if any in slot]
-
 
 --------------------------------------------------------------------------------
 
