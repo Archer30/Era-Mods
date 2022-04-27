@@ -19,14 +19,14 @@ ZVSE2
 
 !#FU(prodtwr_LoadGlobalConfig):P;
 
-!?FU(WOG34_ResetObjectStatus);          [disable oringinal reset fucntion]
-!!UN:P44/?(emerTwrOn:y);
-!!FU&(emerTwrOn)<>(TRUE):E;
+!?FU(WOG_44_ResetObjectStatus);         [disable oringinal reset fucntion]
+!!UN:P44/?(wogOption:y);
+!!FU&(wogOption)<>(TRUE):E;
 !!SN:Q;
 
 !?FU(OnEveryDay)&i^timerOnce^/i^timerDay^>1;
-!!UN:P44/?(emerTwrOn:y);
-!!FU&(emerTwrOn)<>(TRUE):E;
+!!UN:P44/?(wogOption:y);
+!!FU&(wogOption)<>(TRUE):E;
 !!VRi^prodtwr_timer^:+1;
 
 !!if&i^prodtwr_timer^=i^prodtwr_resetDay^/i^prodtwr_resetDay^>0;
@@ -47,11 +47,11 @@ ZVSE2
 !!en;
 
 !?OB(OBJ_NEW_WOG_OBJECTS)/65&i^prodtwr_resetDay^=0;
-!!UN:P44/?(emerTwrOn:y);
-!!FU&(emerTwrOn)<>(TRUE):E;
+!!UN:P44/?(wogOption:y);
+!!FU&(wogOption)<>(TRUE):E;
 !!PO998:N0;
 
 !$OB(OBJ_NEW_WOG_OBJECTS)/65&i^prodtwr_resetDay^=0;
-!!UN:P44/?(emerTwrOn:y);
-!!FU&(emerTwrOn)<>(TRUE):E;
+!!UN:P44/?(wogOption:y);
+!!FU&(wogOption)<>(TRUE):E;
 !!PO998:N0;

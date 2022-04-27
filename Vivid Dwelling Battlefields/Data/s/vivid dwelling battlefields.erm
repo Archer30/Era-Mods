@@ -36,6 +36,9 @@ ZVSE2
 !$OB(OBJ_CREATURE_GENERATOR_4)&1000;
 !!VRi^dwell_isBeingVisited^:S(FALSE);
 
+!?FU(OnAfterLoadGame);
+!!VRi^dwell_isBeingVisited^:S(FALSE);
+
 !?FU(dwell_SetNewBattlefields)&i^battle_hasHuman^/i^dwell_isBeingVisited^;
 !!VR(type:y):Si^dwell_type^;
 !!VR(subtype:y):Si^dwell_subtype^;

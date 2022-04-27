@@ -3,5 +3,5 @@
 作者：Archer30
 
 翡翠塔现在改为每周刷新一次。
-每多少天刷新一次可在 游戏根目录\Productive Emerald Tower\Lang\productive emerald tower.json 中更改（json文件用ERM编辑器或者记事本打开）。
+每多少天刷新一次可在 游戏根目录\Mods\Productive Emerald Tower\Lang\productive emerald tower.json 中更改（json文件用ERM编辑器或者记事本打开）。
 设置为0则没有冷却时间。
