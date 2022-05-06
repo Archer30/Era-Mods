@@ -1,0 +1,114 @@
+
+
+
+	#	71	-1	-1	185	485	107	-1	hstat.pcx	-1
+	Text	30	47	3	145	20	<Имя героя>	bigfont.fnt	7	0	1	8	 
+	Text	36	47	24	139	20	<Мана/Макс.мана (+Реген)>	bigfont.fnt	26	0	1	8	 
+	Pcx	40	4	4	42	42	crd_gold.pcx	2048	
+	Def	80	5	5	40	40	crd_hrs.def	0	16	
+	Text	41	27	45	20	20	<Атк.>	smalfont.fnt	7	0	0	8	 
+	Text	42	72	45	20	20	<Защ.>	smalfont.fnt	7	0	0	8	 
+	Text	43	117	45	20	20	<Сила>	smalfont.fnt	7	0	0	8	 
+	Text	44	162	45	20	20	<Знан>	smalfont.fnt	7	0	0	8	 
+	Pcx	122	4	74	42	42	crd_gold.pcx	2048	 
+	Pcx	101	49	74	42	42	crd_gold.pcx	2048	 
+	Pcx	123	94	74	42	42	crd_gold.pcx	2048	 
+	Pcx	126	139	74	42	42	crd_gold.pcx	2048	 
+	Pcx	110	4	119	42	42	crd_gold.pcx	2048	 
+	Pcx	102	49	119	42	42	crd_gold.pcx	2048	 
+	Pcx	106	94	119	42	42	crd_gold.pcx	2048	 
+	Pcx	109	139	119	42	42	crd_gold.pcx	2048	 
+	Pcx	113	4	164	42	42	crd_gold.pcx	2048	 
+	Pcx	119	49	164	42	42	crd_gold.pcx	2048	 
+	Pcx	104	94	164	42	42	crd_gold.pcx	2048	 
+	Pcx	121	139	164	42	42	crd_gold.pcx	2048	 
+	Pcx	118	4	209	42	42	crd_gold.pcx	2048	 
+	Pcx	112	49	209	42	42	crd_gold.pcx	2048	 
+	Pcx	124	94	209	42	42	crd_gold.pcx	2048	 
+	Pcx	105	139	209	42	42	crd_gold.pcx	2048	 
+	Pcx	107	4	254	42	42	crd_gold.pcx	2048	 
+	Pcx	108	49	254	42	42	crd_gold.pcx	2048	 
+	Pcx	125	94	254	42	42	crd_gold.pcx	2048	 
+	Pcx	111	139	254	42	42	crd_gold.pcx	2048	 
+	Pcx	115	4	299	42	42	crd_gold.pcx	2048	 
+	Pcx	116	49	299	42	42	crd_gold.pcx	2048	 
+	Pcx	114	94	299	42	42	crd_gold.pcx	2048	 
+	Pcx	117	139	299	42	42	crd_gold.pcx	2048	 
+	Def	22	5	75	40	40	crd_ss.def	0	16	
+	Def	1	50	75	40	40	crd_ss.def	0	16	
+	Def	23	95	75	40	40	crd_ss.def	0	16	
+	Def	26	140	75	40	40	crd_ss.def	0	16	
+	Def	10	5	120	40	40	crd_ss.def	0	16	
+	Def	2	50	120	40	40	crd_ss.def	0	16	
+	Def	6	95	120	40	40	crd_ss.def	0	16	
+	Def	9	140	120	40	40	crd_ss.def	0	16	
+	Def	13	5	165	40	40	crd_ss.def	0	16	
+	Def	19	50	165	40	40	crd_ss.def	0	16	
+	Def	4	95	165	40	40	crd_ss.def	0	16	
+	Def	21	140	165	40	40	crd_ss.def	0	16	
+	Def	18	5	210	40	40	crd_ss.def	0	16	
+	Def	12	50	210	40	40	crd_ss.def	0	16	
+	Def	24	95	210	40	40	crd_ss.def	0	16	
+	Def	5	140	210	40	40	crd_ss.def	0	16	
+	Def	7	5	255	40	40	crd_ss.def	0	16	
+	Def	8	50	255	40	40	crd_ss.def	0	16	
+	Def	25	95	255	40	40	crd_ss.def	0	16	
+	Def	11	140	255	40	40	crd_ss.def	0	16	
+	Def	15	5	300	40	40	crd_ss.def	0	16	
+	Def	16	50	300	40	40	crd_ss.def	0	16	
+	Def	14	95	300	40	40	crd_ss.def	0	16	
+	Def	17	140	300	40	40	crd_ss.def	0	16	
+	Text	72	25	102	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	51	70	102	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	73	115	102	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	76	160	102	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	60	25	147	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	52	70	147	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	56	115	147	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	59	160	147	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	63	25	192	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	69	70	192	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	54	115	192	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	71	160	192	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	68	25	237	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	62	70	237	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	74	115	237	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	55	160	237	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	57	25	282	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	58	70	282	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	75	115	282	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	61	160	282	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	65	25	327	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	66	70	327	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	64	115	327	20	20	?	smalfont.fnt	26	0	2	8	 
+	Text	67	160	327	20	20	?	smalfont.fnt	26	0	2	8	 
+	Pcx	81	4	349	42	42	crd_gold.pcx	2048	
+	Pcx	83	4	394	42	42	crd_gold.pcx	2048	
+	Pcx	85	4	439	42	42	crd_gold.pcx	2048	
+	Def	82	5	350	40	40	crd_crt.def	0	16
+	Def	84	5	395	40	40	crd_crt.def	14	16
+	Def	86	5	440	40	40	crd_crt.def	28	16
+	Pcx	141	49	349	42	42	crd_gold.pcx	2048	
+	Pcx	143	49	394	42	42	crd_gold.pcx	2048	
+	Pcx	145	49	439	42	42	crd_gold.pcx	2048	
+	Def	142	50	350	40	40	crd_bldn.def	27	16
+	Def	144	50	395	40	40	crd_bldn.def	30	16
+	Def	146	50	440	40	40	crd_bldn.def	33	16
+	Pcx	151	94	349	42	42	crd_gold.pcx	2048	
+	Pcx	153	94	394	42	42	crd_gold.pcx	2048	
+	Pcx	155	94	439	42	42	crd_gold.pcx	2048	
+	Def	152	95	350	40	40	crd_bldn.def	28	16
+	Def	154	95	395	40	40	crd_bldn.def	31	16
+	Def	156	95	440	40	40	crd_bldn.def	34	16
+	Pcx	161	139	349	42	42	crd_gold.pcx	2048	
+	Pcx	163	139	394	42	42	crd_gold.pcx	2048	
+	Pcx	165	139	439	42	42	crd_gold.pcx	2048	
+	Def	162	140	350	40	40	crd_bldn.def	29	16
+	Def	164	140	395	40	40	crd_bldn.def	32	16
+	Def	166	140	440	40	40	crd_bldn.def	35	16
+	Text	167	140	374	40	20	?	bigfont.fnt	27	0	2	8	 
+	Text	168	140	419	40	20	?	bigfont.fnt	27	0	2	8	 
+	Text	169	140	464	40	20	?	bigfont.fnt	27	0	2	8	 
+	#
+	
+

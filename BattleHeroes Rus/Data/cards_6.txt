@@ -1,0 +1,72 @@
+
+
+
+	#	72	-1	-1	800	600	65	-1	cards_6.pcx	-1
+	Pcx	73	224	4	42	42	crd_gold.pcx	2048	
+	Pcx	74	269	4	42	42	crd_gold.pcx	2048	
+	Pcx	75	379	4	42	42	crd_gold.pcx	2048	
+	Text	85	299	15	78	20	{¬€¡Œ–}	bigfont.fnt	1	0	2	8	 
+	Text	100	354	46	92	20	<–‡ÛÌ‰>	smalfont.fnt	1	0	1	8	 
+	Text	86	425	15	78	20	{ ¿–“€}	bigfont.fnt	1	0	0	8	 
+	Pcx	84	489	4	42	42	crd_gold.pcx	2048	
+	Pcx	83	534	4	42	42	crd_gold.pcx	2048	
+	Text	87	225	46	40	16	<Ã¿>	smalfont.fnt	7	0	1	8	 
+	Text	88	270	46	40	16	<∆¿>	smalfont.fnt	7	0	1	8	 
+	Text	89	490	46	40	16	<∆«>	smalfont.fnt	7	0	1	8	 
+	Text	90	535	46	40	16	<Ã«>	smalfont.fnt	7	0	1	8	 
+	Def	91	5	445	130	150	crd_brd.def	0	16	
+	Def	92	137	445	130	150	crd_brd.def	0	16	
+	Def	93	269	445	130	150	crd_brd.def	0	16	
+	Def	94	401	445	130	150	crd_brd.def	0	16	
+	Def	95	533	445	130	150	crd_brd.def	0	16	
+	Def	96	665	445	130	150	crd_brd.def	0	16	
+	Pcx	17	10	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	27	142	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	37	274	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	47	406	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	57	538	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	67	670	450	120	140	crd_bg_0.pcx	2048	 
+	Def	11	26	490	40	40	crd_crt.def	0	16	
+	Def	12	74	490	40	40	crd_crt.def	0	16	
+	Def	21	158	490	40	40	crd_hrs.def	0	16	
+	Def	22	206	490	40	40	crd_crt.def	0	16	
+	Def	31	290	490	40	40	crd_crt.def	0	16	
+	Def	32	338	490	40	40	crd_crt.def	0	16	
+	Def	41	422	490	40	40	crd_crt.def	0	16	
+	Def	42	470	490	40	40	crd_crt.def	0	16	
+	Def	51	554	490	40	40	crd_crt.def	0	16	
+	Def	52	602	490	40	40	crd_crt.def	0	16	
+	Def	61	686	490	40	40	crd_crt.def	0	16	
+	Def	62	734	490	40	40	crd_crt.def	0	16	
+	Text	13	13	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	23	145	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	33	277	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	43	409	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	53	541	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	63	673	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	14	10	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	24	142	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	34	274	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	44	406	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	54	538	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	64	670	535	120	16		smalfont.fnt	7	0	1	8	 
+	Text	15	10	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	25	142	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	35	274	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	45	406	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	55	538	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	65	670	550	120	16		smalfont.fnt	7	0	1	8	 
+	Text	16	10	565	120	16		smalfont.fnt	7	0	1	8	 
+	Text	26	142	565	120	16		smalfont.fnt	7	0	1	8	 
+	Text	36	274	565	120	16		smalfont.fnt	7	0	1	8	 
+	Text	46	406	565	120	16		smalfont.fnt	7	0	1	8	 
+	Text	56	538	565	120	16		smalfont.fnt	7	0	1	8	 
+	Text	66	670	565	120	16		smalfont.fnt	7	0	1	8	 
+	Def	72	270	5	40	40	crd_crt.def	0	16	
+	Def	82	490	5	40	40	crd_crt.def	0	16	
+	Def	70	225	5	40	40	crd_hrs.def	0	16	
+	Def	80	535	5	40	40	crd_hrs.def	0	16	
+	Def	71	380	5	40	40	bh_flags.def	0	16	
+	#
+	
+

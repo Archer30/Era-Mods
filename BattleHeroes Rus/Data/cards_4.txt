@@ -1,0 +1,63 @@
+
+
+
+	#	72	-1	-1	800	600	110	-1	cards_4.pcx	-1
+Иконки Героев, Флага и Командиров и раунд
+	Pcx	73	224	4	42	42	crd_gold.pcx	2048	
+	Pcx	70	225	5	40	40	card_h9.pcx	2048		
+	Pcx	74	269	4	42	42	crd_gold.pcx	2048
+	Pcx	72	270	5	40	40	card_c174.pcx	2048
+	Pcx	75	379	4	42	42	crd_gold.pcx	2048
+	Pcx	71	380	5	40	40	flag_2.pcx	2048		
+	Text	85	315	15	60	20	{ВЫБОР}	bigfont.fnt	1	0	2	8	 
+	Text	100	370	46	60	20	<Раунд>	smalfont.fnt	1	0	1	8	 
+	Text	86	425	15	60	20	{КАРТЫ}	bigfont.fnt	1	0	0	8	 
+	Pcx	84	489	4	42	42	crd_gold.pcx	2048
+	Pcx	82	490	5	40	40	card_c174.pcx	2048
+	Pcx	83	534	4	42	42	crd_gold.pcx	2048	
+	Pcx	80	535	5	40	40	card_h9.pcx	2048		
+	Text	87	225	46	40	15	<МА>	smalfont.fnt	7	0	1	8	 
+	Text	88	270	46	40	15	<ЖА>	smalfont.fnt	7	0	1	8	 
+	Text	89	490	46	40	15	<ЖЗ>	smalfont.fnt	7	0	1	8	 
+	Text	90	535	46	40	15	<МЗ>	smalfont.fnt	7	0	1	8	 
+Бордюры карт (по умолчанию невыбранный бордюр)
+	Pcx	91	137	445	130	150	crd_brd_0.pcx	2048	 
+	Pcx	92	269	445	130	150	crd_brd_0.pcx	2048	 
+	Pcx	93	401	445	130	150	crd_brd_0.pcx	2048	 
+	Pcx	94	533	445	130	150	crd_brd_0.pcx	2048	 
+Рубашки карт
+	Pcx	3	142	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	4	274	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	5	406	450	120	140	crd_bg_0.pcx	2048	 
+	Pcx	6	538	450	120	140	crd_bg_0.pcx	2048	 
+Иконки карт (по умолчанию - прозрачные иконки)
+	Pcx	11	158	490	40	40	crd_noicon.pcx	2048
+	Pcx	21	290	490	40	40	crd_noicon.pcx	2048
+	Pcx	31	422	490	40	40	crd_noicon.pcx	2048
+	Pcx	41	554	490	40	40	crd_noicon.pcx	2048
+	Pcx	12	206	490	40	40	crd_noicon.pcx	2048
+	Pcx	22	338	490	40	40	crd_noicon.pcx	2048
+	Pcx	32	470	490	40	40	crd_noicon.pcx	2048
+	Pcx	42	602	490	40	40	crd_noicon.pcx	2048
+Название карты
+	Text	13	145	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	23	277	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	33	409	455	114	40		smalfont.fnt	7	0	1	8	 
+	Text	43	541	455	114	40		smalfont.fnt	7	0	1	8	 
+1-я строка
+	Text	14	142	535	120	15		smalfont.fnt	7	0	1	8	 
+	Text	24	274	535	120	15		smalfont.fnt	7	0	1	8	 
+	Text	34	406	535	120	15		smalfont.fnt	7	0	1	8	 
+	Text	44	538	535	120	15		smalfont.fnt	7	0	1	8	 
+2-я строка
+	Text	15	142	550	120	15		smalfont.fnt	7	0	1	8	 
+	Text	25	274	550	120	15		smalfont.fnt	7	0	1	8	 
+	Text	35	406	550	120	15		smalfont.fnt	7	0	1	8	 
+	Text	45	538	550	120	15		smalfont.fnt	7	0	1	8	 
+3-я строка
+	Text	16	142	565	120	15		smalfont.fnt	7	0	1	8	 
+	Text	26	274	565	120	15		smalfont.fnt	7	0	1	8	 
+	Text	36	406	565	120	15		smalfont.fnt	7	0	1	8	 
+	Text	46	538	565	120	15		smalfont.fnt	7	0	1	8	 
+	#
+	

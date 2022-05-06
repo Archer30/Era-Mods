@@ -1,0 +1,39 @@
+
+
+
+	#	72	-1	-1	800	600	110	-1	cards_1.pcx	-1
+Иконки Героев, Флага и Командиров и раунд
+#Pcx	73	224	4	42	42	crd_gold.pcx	2048	
+#Pcx	70	225	5	40	40	card_h9.pcx	2048		
+#Pcx	74	269	4	42	42	crd_gold.pcx	2048
+#Pcx	72	270	5	40	40	card_c174.pcx	2048
+#Pcx	75	379	4	42	42	crd_gold.pcx	2048
+#Pcx	71	380	5	40	40	flag_2.pcx	2048		
+#Text	85	315	15	60	20	{ВЫБОР}	bigfont.fnt	1	0	2	8	 
+#Text	100	370	46	60	20	<Раунд>	smalfont.fnt	1	0	1	8	 
+#Text	86	425	15	60	20	{КАРТЫ}	bigfont.fnt	1	0	0	8	 
+#Pcx	84	489	4	42	42	crd_gold.pcx	2048
+#Pcx	82	490	5	40	40	card_c174.pcx	2048
+#Pcx	83	534	4	42	42	crd_gold.pcx	2048	
+#Pcx	80	535	5	40	40	card_h9.pcx	2048		
+#Text	87	225	46	40	15	<МА>	smalfont.fnt	7	0	1	8	 
+#Text	88	270	46	40	15	<ЖА>	smalfont.fnt	7	0	1	8	 
+#Text	89	490	46	40	15	<ЖЗ>	smalfont.fnt	7	0	1	8	 
+#Text	90	535	46	40	15	<МЗ>	smalfont.fnt	7	0	1	8	 
+Бордюры карт (по умолчанию невыбранный бордюр)
+	Pcx	91	335	445	130	150	crd_brd_0.pcx	2048	 
+Рубашки карт
+	Pcx	3	340	450	120	140	crd_bg_0.pcx	2048	 
+Иконки карт (по умолчанию - прозрачные иконки)
+	Pcx	11	356	490	40	40	crd_noicon.pcx	2048
+	Pcx	12	404	490	40	40	crd_noicon.pcx	2048
+Название карты
+	Text	13	343	455	114	40		smalfont.fnt	7	0	1	8	 
+1-я строка
+	Text	14	340	535	120	15		smalfont.fnt	7	0	1	8	 
+2-я строка
+	Text	15	340	550	120	15		smalfont.fnt	7	0	1	8	 
+3-я строка
+	Text	16	340	565	120	15		smalfont.fnt	7	0	1	8	 
+	#
+	

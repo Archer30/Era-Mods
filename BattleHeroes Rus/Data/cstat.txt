@@ -1,0 +1,58 @@
+
+
+
+	#	70	-1	-1	180	335	52	-1	cstat.pcx	-1
+	Text	1	55	3	90	20	<Имя командира>	bigfont.fnt	7	0	0	8	 
+	Text	2	55	27	90	20	<Здоровье (+Реген)>	bigfont.fnt	27	0	0	8	 
+	Pcx	8	4	4	42	42	crd_gold.pcx	2048	
+	Pcx	9	5	5	40	40	card_c174.pcx	2048	
+	Text	20	5	55	60	16	Атака	smalfont.fnt	7	0	0	8	 
+	Text	21	5	70	60	16	Защита	smalfont.fnt	7	0	0	8	 
+	Text	24	5	85	60	16	Живучесть	smalfont.fnt	7	0	0	8	 
+	Text	23	5	100	60	16	Урон	smalfont.fnt	7	0	0	8	 
+	Text	22	5	115	60	16	Боезапас	smalfont.fnt	7	0	0	8	 
+	Text	28	5	130	60	16	Сила магии	smalfont.fnt	7	0	0	8	 
+	Text	25	5	145	60	16	Скорость	smalfont.fnt	7	0	0	8	 
+	Text	26	5	160	60	16	Сопротивл.	smalfont.fnt	7	0	0	8	 
+	Text	29	5	175	60	16	Удача	smalfont.fnt	7	0	0	8	 
+	Text	30	65	55	35	16	<Атака>	smalfont.fnt	1	0	2	8	 
+	Text	31	65	70	35	16	<Защита>	smalfont.fnt	1	0	2	8	 
+	Text	34	65	85	35	16	<Живучесть>	smalfont.fnt	1	0	2	8	 
+	Text	33	65	100	35	16	<Урон>	smalfont.fnt	1	0	2	8	 
+	Text	32	65	115	35	16	<Боезапас>	smalfont.fnt	1	0	2	8	 
+	Text	38	65	130	35	16	<Сила магии>	smalfont.fnt	1	0	2	8	 
+	Text	35	65	145	35	16	<Скорость>	smalfont.fnt	1	0	2	8	 
+	Text	36	65	160	35	16	<Сопротивл.>	smalfont.fnt	1	0	2	8	 
+	Text	39	65	175	35	16	<Удача>	smalfont.fnt	1	0	2	8	 
+	Pcx	40	110	57	30	23	csp00.pcx	2048	 
+	Pcx	41	110	84	30	23	csp00.pcx	2048	 
+	Pcx	42	110	111	30	23	csp00.pcx	2048	 
+	Pcx	43	110	138	30	23	csp00.pcx	2048	 
+	Pcx	44	110	165	30	23	csp00.pcx	2048	 
+	Text	50	145	59	20	23		smalfont.fnt	1	0	0	8	 
+	Text	51	145	86	20	23		smalfont.fnt	1	0	0	8	 
+	Text	52	145	113	20	23		smalfont.fnt	1	0	0	8	 
+	Text	53	145	140	20	23		smalfont.fnt	1	0	0	8	 
+	Text	54	145	167	20	23		smalfont.fnt	1	0	0	8	 
+	Pcx	10	5	195	30	30	css000.pcx	2048	 
+	Pcx	11	40	195	30	30	css010.pcx	2048	 
+	Pcx	12	75	195	30	30	css020.pcx	2048	 
+	Pcx	13	110	195	30	30	css030.pcx	2048	 
+	Pcx	14	145	195	30	30	css040.pcx	2048	 
+	Pcx	15	5	230	30	30	css050.pcx	2048	 
+	Pcx	16	40	230	30	30	css060.pcx	2048	 
+	Pcx	17	75	230	30	30	css070.pcx	2048	 
+	Pcx	18	110	230	30	30	css080.pcx	2048	 
+	Pcx	19	145	230	30	30	css090.pcx	2048	 
+	Pcx	60	5	265	30	30	css000.pcx	2048	 
+	Pcx	61	40	265	30	30	css000.pcx	2048	 
+	Pcx	62	75	265	30	30	css000.pcx	2048	 
+	Pcx	63	110	265	30	30	css000.pcx	2048	 
+	Pcx	64	145	265	30	30	css000.pcx	2048	 
+	Pcx	65	5	300	30	30	css000.pcx	2048	 
+	Pcx	66	40	300	30	30	css000.pcx	2048	 
+	Pcx	67	75	300	30	30	css000.pcx	2048	 
+	Pcx	68	110	300	30	30	css000.pcx	2048	 
+	Pcx	69	145	300	30	30	css000.pcx	2048	 
+	#
+	
